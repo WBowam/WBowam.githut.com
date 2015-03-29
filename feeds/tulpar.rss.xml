@@ -104,4 +104,98 @@
 撤回到之前的commit
 &lt;code&gt;git reset 4ba467213eb73480431b95c7dba03aac1c7a2c26&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Sun, 29 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-29:git-fu-xi-gong-gu-4.html</guid><category>git</category></item><item><title>git 复习巩固(５)</title><link>/git-fu-xi-gong-gu-5.html</link><description>&lt;h4&gt;fetch all git branches&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;git fetch --all&lt;/code&gt;&lt;/p&gt;
-&lt;h6&gt;但是&lt;code&gt;git branch&lt;/code&gt;不会显示信拉下来的分支列表，直接checkout就行&lt;/h6&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Sun, 29 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-29:git-fu-xi-gong-gu-5.html</guid><category>git</category></item></channel></rss>
+&lt;h6&gt;但是&lt;code&gt;git branch&lt;/code&gt;不会显示信拉下来的分支列表，直接checkout就行&lt;/h6&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Sun, 29 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-29:git-fu-xi-gong-gu-5.html</guid><category>git</category></item><item><title>TLCL 看书笔记(1)</title><link>/tlcl-kan-shu-bi-ji-1.html</link><description>&lt;h6&gt;声明：&lt;/h6&gt;
+&lt;p&gt;这不是shell入门文章，&lt;br /&gt;
+这不是TLCL(The Linux Command Line)评语，&lt;br /&gt;
+这甚至不是逻辑清晰的文章，&lt;br /&gt;
+是的，本文逻辑会很混乱，&lt;br /&gt;
+因为这是我的看书笔记． &lt;br /&gt;
+仅供本人日后翻阅，因此本文会有很多胡言乱语，只有本人能看懂．&lt;br /&gt;
+欢迎吐槽，请先绕过！   &lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;1. TLCL&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://book.douban.com/subject/6806862/"&gt;The Linux Command Line&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;作者: William E. Shotts, Jr. &lt;/li&gt;
+&lt;li&gt;&lt;img alt="TLCL" src="http://tulparblog.qiniudn.com/blogtlcl1.jpg" /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;笔记开始&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;cd ~{username}&lt;/code&gt;更改工作目录到用户主目录．&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;（一直用~，但不知道这个的全称）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Linux 没有“文件扩展名”的概念，不像其它一些系统。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个以前没有想到过&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ls ~ /usr&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;可以传两个以上的目录，，好神奇&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有充分的理由证明，ls 可能是用户最常使用的命令。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;之前注意到，自己有一些习惯，如在命令行下无意识中打ls，在vi中保存生疏命令&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ls 命令的“-l”选项，则结果以长模式输出。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;“l” 选项产生长格式输出，“t”选项按文件修改时间的先后来排序。&lt;/p&gt;
+&lt;h5&gt;ls 命令常用的参数&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="err"&gt;选项产生长格式输出&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="err"&gt;选项按文件修改时间的先后来排序。&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="err"&gt;列出目录下的所有文件，包括以&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="err"&gt;开头的隐含文件。&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="err"&gt;在每个文件名后输出该文件的大小。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ls命令比较复杂的用法，可参看&lt;a href="http://www.cnblogs.com/peida/archive/2012/10/23/2734829.html"&gt;每天一个linux命令(1)：ls命令&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Linux，有个普遍的观念就是“任何东西都是一个文件”。 随着课程的进行，我们将会明白这句话的真谛。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其他系统不是这样的吗，怎么个不这样法&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;file 命令会打印出文件内容的简单描述&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;picture&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;
+&lt;span class="n"&gt;picture&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;JPEG&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;JFIF&lt;/span&gt; &lt;span class="n"&gt;standard&lt;/span&gt; &lt;span class="mf"&gt;1.01&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;less 程序是早期 Unix 程序 more 的改进版。“less” 这个名字，对习语 “less is more” 开了个玩笑， 这个习语是现代主义建筑师和设计者的座右铭。  &lt;/p&gt;
+&lt;p&gt;记得复制和粘贴技巧！如果你正在使用鼠标，双击文件名，来复制它，然后按下鼠标中键，粘贴文件名到命令行中。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;平时用Crl+Shift+C,好渣啊&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在系统中游玩时，不要害怕粘花惹草。普通用户是很难把东西弄乱的。那是系统管理员的工作！ 如果一个命令抱怨一些事情，不要管它，尽管去玩别的东西。花一些时间四处走走。 系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;MFJ很喜欢翻来翻去（我说的不是在床上哈~~）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大多数安装在系统中的软件包会包含一些文档。在/usr/share/doc 目录下， 我们可以找到按照软件包分类的文档。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;平时可以翻翻&lt;br /&gt;
+如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;crontab&lt;/span&gt;&lt;span class="err"&gt;，&lt;/span&gt; &lt;span class="err"&gt;定义自动运行的任务。&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fstab&lt;/span&gt;&lt;span class="err"&gt;，包含存储设备的列表，以及与他们相关的挂载点。&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;passwd&lt;/span&gt;&lt;span class="err"&gt;，包含用户帐号列表。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;在现在的 Linux 系统中，/media 目录会包含可移除媒体设备的挂载点， 例如 USB 驱动器，CD-ROMs 等等。这些设备连接到计算机之后，会自动地挂载到这个目录结点下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以前，三年前吧,,,大一下学期的样子，入门过linux文件系统,挂载等知识点，现在想想忘完了&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有趣的文件：  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;boot&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;grub&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;grub&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;menu&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lst&lt;/span&gt;&lt;span class="err"&gt;，&lt;/span&gt; &lt;span class="err"&gt;被用来配置启动加载程序。&lt;/span&gt;  
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;boot&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vmlinuz&lt;/span&gt;&lt;span class="err"&gt;，&lt;/span&gt;&lt;span class="n"&gt;Linux&lt;/span&gt; &lt;span class="err"&gt;内核。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;系统内核哈，看到眼前一亮，可以折腾折腾&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个程序要求使用某个包含在名为“foo”文件中的共享资源，但是“foo”经常改变版本号。 这样，在文件名中包含版本号，会是一个好主意，因此管理员或者其它相关方，会知道安装了哪个“foo”版本。 这又会导致一个问题。如果我们更改了共享资源的名字，那么我们必须跟踪每个可能使用了 这个共享资源的程序，当每次这个资源的新版本被安装后，都要让使用了它的程序去寻找新的资源名。 这听起来很没趣。
+这就是符号链接存在至今的原因。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这是一个关于软链接的故事。讲述了软链接活着的意义~~&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Sun, 29 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-29:tlcl-kan-shu-bi-ji-1.html</guid><category>TLCL</category></item></channel></rss>
