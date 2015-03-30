@@ -6,8 +6,8 @@
         <meta name="author" content="tulpar" />
         <meta name="copyright" content="tulpar" />
 
-<meta name="keywords" content="git, It, " />
-        <title>git 复习巩固(1)  · Dreaming
+<meta name="keywords" content="TLCL, IT, " />
+        <title>TLCL 看书笔记(3)  · Dreaming
 </title>
         <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -51,37 +51,40 @@
 <article>
 <div class="row-fluid">
     <header class="page_header span10 offset2">
-    <h1><a href="/git-fu-xi-gong-gu-1.html"> git 复习巩固(1)  </a></h1>
+    <h1><a href="/tlcl-kan-shu-bi-ji-3.html"> TLCL 看书笔记(3)  </a></h1>
     </header>
 </div>
 
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
 
-            <h4>1. git工作流</h4>
+            <h3>笔记开始</h3>
 <blockquote>
-<p>你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；最后是 HEAD，它指向你最后一次提交的结果。<img alt="git_tree" src="http://tulparblog.qiniudn.com/trees.png" /></p>
+<p>命令行最酷的特性。它叫做 I/O 重定向</p>
 </blockquote>
-<h4>2. 本地仓库连接到远程仓库</h4>
-<p><code>git remote add origin &lt;server&gt;</code> <br />
-如:</p>
-<div class="highlight"><pre><span class="cp">## 我的本地文件加到我的博客</span>
-<span class="n">cd</span> <span class="n">output</span><span class="o">/</span>
-<span class="n">git</span> <span class="n">init</span> 
-<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/tulpar008/blog.git</span>
-<span class="n">git</span> <span class="n">pull</span> 
-<span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
-<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;for test&quot;</span>
-<span class="n">git</span> <span class="n">push</span>
-</pre></div>
+<p>标准输入，标准输出，标准错误</p>
+<blockquote>
+<p>ls -l /bin/usr &gt; ls-error.txt</p>
+</blockquote>
+<p>把标准输出写入（重定向）到文件</p>
+<blockquote>
+<p>ls -l /bin/usr &gt;&gt; ls-error.txt</p>
+</blockquote>
+<p>把标准输出追加到（重定向）到文件（在文件末尾继续添加）</p>
+<blockquote>
+<p>cat 命令读取一个或多个文件，然后复制它们到标准输出，就像这样</p>
+</blockquote>
+<p>原来如此
+往标准输出写入东西，可以达到往别人屏幕输出东西的目的吗？</p>
+<h6>博主写到这里发现，重定向的确非常重要，需要好好整理整理</h6>
             <aside>
             <hr/>
             <nav>
             <ul class="articles_timeline">
  
-                <li class="previous_article">« <a href="/git-fu-xi-gong-gu-2.html" title="Previous: git 复习巩固(2)">git 复习巩固(2)</a></li>
+                <li class="previous_article">« <a href="/git-fu-xi-gong-gu-1.html" title="Previous: git 复习巩固(1)">git 复习巩固(1)</a></li>
  
-                <li class="next_article"><a href="/tlcl-kan-shu-bi-ji-3.html" title="Next: TLCL 看书笔记(3)">TLCL 看书笔记(3)</a> »</li>
+                <li class="next_article"><a href="/dai-ma-pian-duan.html" title="Next: 代码片段">代码片段</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -90,13 +93,13 @@
         <div class="span2" style="float:right;font-size:0.9em;">
  
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2015-03-29T00:00:00+08:00">Mar 29, 2015</time>
+            <time pubdate="pubdate" datetime="2015-03-30T00:00:00+08:00">Mar 30, 2015</time>
             <h4>Category</h4>
-            <a class="category-link" href="/categories.html#It-ref">It</a> 
+            <a class="category-link" href="/categories.html#IT-ref">IT</a> 
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article"> 
-                <li><a href="/tags.html#git-ref">git
-                    <span>5</span>
+                <li><a href="/tags.html#TLCL-ref">TLCL
+                    <span>3</span>
 </a></li>
             </ul>
 

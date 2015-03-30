@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dreaming</title><link href="/" rel="alternate"></link><link href="/feeds/tulpar.atom.xml" rel="self"></link><id>/</id><updated>2015-03-29T00:00:00+08:00</updated><entry><title>git 复习巩固(1)</title><link href="/git-fu-xi-gong-gu-1.html" rel="alternate"></link><updated>2015-03-29T00:00:00+08:00</updated><author><name>tulpar</name></author><id>tag:,2015-03-29:git-fu-xi-gong-gu-1.html</id><summary type="html">&lt;h4&gt;1. git工作流&lt;/h4&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dreaming</title><link href="/" rel="alternate"></link><link href="/feeds/tulpar.atom.xml" rel="self"></link><id>/</id><updated>2015-03-30T00:00:00+08:00</updated><entry><title>代码片段</title><link href="/dai-ma-pian-duan.html" rel="alternate"></link><updated>2015-03-30T00:00:00+08:00</updated><author><name>tulpar</name></author><id>tag:,2015-03-30:dai-ma-pian-duan.html</id><summary type="html">&lt;h4&gt;&lt;code&gt;-hl&lt;/code&gt; 参数&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;hl&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;human&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;readable&lt;/span&gt;
+    &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;sizes&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;human&lt;/span&gt; &lt;span class="n"&gt;readable&lt;/span&gt; &lt;span class="n"&gt;format&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt; &lt;span class="mi"&gt;234&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;hl&lt;/span&gt;
+&lt;span class="n"&gt;Filesystem&lt;/span&gt;      &lt;span class="n"&gt;Size&lt;/span&gt;  &lt;span class="n"&gt;Used&lt;/span&gt; &lt;span class="n"&gt;Avail&lt;/span&gt; &lt;span class="n"&gt;Use&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;Mounted&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sda5&lt;/span&gt;        &lt;span class="mi"&gt;92&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;   &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;   &lt;span class="mi"&gt;68&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;  &lt;span class="mi"&gt;23&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="n"&gt;none&lt;/span&gt;            &lt;span class="mf"&gt;4.0&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt;     &lt;span class="mi"&gt;0&lt;/span&gt;  &lt;span class="mf"&gt;4.0&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt;   &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cgroup&lt;/span&gt;
+&lt;span class="n"&gt;udev&lt;/span&gt;            &lt;span class="mf"&gt;2.9&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;  &lt;span class="mf"&gt;4.0&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt;  &lt;span class="mf"&gt;2.9&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;   &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;span class="n"&gt;tmpfs&lt;/span&gt;           &lt;span class="mi"&gt;584&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;  &lt;span class="mf"&gt;1.3&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;  &lt;span class="mi"&gt;582&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;   &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;
+&lt;span class="n"&gt;none&lt;/span&gt;            &lt;span class="mf"&gt;5.0&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;     &lt;span class="mi"&gt;0&lt;/span&gt;  &lt;span class="mf"&gt;5.0&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;   &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lock&lt;/span&gt;
+&lt;span class="n"&gt;none&lt;/span&gt;            &lt;span class="mf"&gt;2.9&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;   &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;  &lt;span class="mf"&gt;2.9&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;   &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;shm&lt;/span&gt;
+&lt;span class="n"&gt;none&lt;/span&gt;            &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;   &lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt;  &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;   &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;&lt;code&gt;man&lt;/code&gt;命令比&lt;code&gt;help&lt;/code&gt;更可阅读&lt;/h4&gt;</summary><category term="Linux"></category><category term="Shell"></category></entry><entry><title>TLCL 看书笔记(3)</title><link href="/tlcl-kan-shu-bi-ji-3.html" rel="alternate"></link><updated>2015-03-30T00:00:00+08:00</updated><author><name>tulpar</name></author><id>tag:,2015-03-30:tlcl-kan-shu-bi-ji-3.html</id><summary type="html">&lt;h3&gt;笔记开始&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;命令行最酷的特性。它叫做 I/O 重定向&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;标准输入，标准输出，标准错误&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ls -l /bin/usr &amp;gt; ls-error.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;把标准输出写入（重定向）到文件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ls -l /bin/usr &amp;gt;&amp;gt; ls-error.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;把标准输出追加到（重定向）到文件（在文件末尾继续添加）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cat 命令读取一个或多个文件，然后复制它们到标准输出，就像这样&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;原来如此
+往标准输出写入东西，可以达到往别人屏幕输出东西的目的吗？&lt;/p&gt;
+&lt;h6&gt;博主写到这里发现，重定向的确非常重要，需要好好整理整理&lt;/h6&gt;</summary><category term="TLCL"></category></entry><entry><title>git 复习巩固(1)</title><link href="/git-fu-xi-gong-gu-1.html" rel="alternate"></link><updated>2015-03-29T00:00:00+08:00</updated><author><name>tulpar</name></author><id>tag:,2015-03-29:git-fu-xi-gong-gu-1.html</id><summary type="html">&lt;h4&gt;1. git工作流&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p&gt;你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；最后是 HEAD，它指向你最后一次提交的结果。&lt;img alt="git_tree" src="http://tulparblog.qiniudn.com/trees.png" /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -198,4 +235,162 @@
 &lt;p&gt;一个程序要求使用某个包含在名为“foo”文件中的共享资源，但是“foo”经常改变版本号。 这样，在文件名中包含版本号，会是一个好主意，因此管理员或者其它相关方，会知道安装了哪个“foo”版本。 这又会导致一个问题。如果我们更改了共享资源的名字，那么我们必须跟踪每个可能使用了 这个共享资源的程序，当每次这个资源的新版本被安装后，都要让使用了它的程序去寻找新的资源名。 这听起来很没趣。
 这就是符号链接存在至今的原因。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;这是一个关于软链接的故事。讲述了软链接活着的意义~~&lt;/p&gt;</summary><category term="TLCL"></category></entry></feed>
+&lt;p&gt;这是一个关于软链接的故事。讲述了软链接活着的意义~~&lt;/p&gt;</summary><category term="TLCL"></category></entry><entry><title>TLCL 看书笔记(2)</title><link href="/tlcl-kan-shu-bi-ji-2.html" rel="alternate"></link><updated>2015-03-29T00:00:00+08:00</updated><author><name>tulpar</name></author><id>tag:,2015-03-29:tlcl-kan-shu-bi-ji-2.html</id><summary type="html">&lt;h3&gt;笔记开始&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;坦诚地说，用图形文件管理器来完成一些由这些命令执行的任务会更容易些。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;cp -u *.html destination&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;那么， 为什么还使用早期的命令行程序呢？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;会有很多小白问这个问题，，，，，，，我总是说不清楚自己为什么喜欢命令行&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;命令行程序，功能强大灵活。虽然图形文件管理器能轻松地实现简单的文件操作，但是对于 复杂的文件操作任务，则使用命令行程序比较容易完成。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;答案来了～这是为什么极客们喜欢用Linux&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ln — 创建硬链接和符号链接&lt;/p&gt;
+&lt;p&gt;mkdir dir1 dir2 dir3&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;原来也可以传多个参数啊，&lt;code&gt;mk blog blog/content&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;接受文件名作为参数的任何命令，都可以使用通配符&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;到目前为止，我以为通配符就是正则，，难道我有错吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cp item... directory&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;原来能一次性复制好多文件，　三个点表示能接受多个参数&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;cp file1 file2&lt;/code&gt; 复制文件 file1 内容到文件 file2。
+如果 file2 已经存在，file2 的内容会被 file1 的 内容重写。
+如果 file2 不存在，则会创建 file2。
+&lt;code&gt;cp -i file1 file2&lt;/code&gt; 这条命令和上面的命令一样，除了如果文件 file2 存在的话，在文件 file2 被重写之前，会提示用户确认信息。
+&lt;code&gt;cp file1 file2 dir1&lt;/code&gt; 复制文件 file1 和文件 file2 到目录 dir1。目录 dir1 必须存在。
+&lt;code&gt;cp dir1/* dir2&lt;/code&gt; 使用一个通配符，在目录 dir1 中的所有文件都被复制到目录 dir2 中。 dir2 必须已经存在。
+&lt;code&gt;cp -r dir1 dir2&lt;/code&gt; 这里的&lt;code&gt;r&lt;/code&gt;参数是递归的意思，如下&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cp&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;R&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;recursive&lt;/span&gt;
+      &lt;span class="n"&gt;copy&lt;/span&gt; &lt;span class="n"&gt;directories&lt;/span&gt; &lt;span class="n"&gt;recursively&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;递归地复制目录及目录中的内容。当复制目录时， 需要这个选项（或者-a 选项）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;当把文件从一个目录复制到另一个目录时，仅复制 目标目录中不存在的文件，或者是文件内容新于目标目录中已经存在的文件。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;force&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;Linux，没有复原命令。一旦你用 rm 删除了一些东西， 它就消失了。Linux 假定你很聪明，你知道你在做什么。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;曾经亲身经历过这么悲催的事情，，，那是一个蛋疼的上午和中午，我写了一个上午的代码啊～～本来我想删swp文件的，一不小心．．．当时我是正准备commit 的&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;小贴士。 无论什么时候，rm 命令用到通配符（除了仔细检查输入的内容外！）， 用 ls 命令来测试通配符。这会让你看到要删除的文件列表。然后按下上箭头按键，重新调用 刚刚执行的命令，用 rm 替换 ls。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;嗯嗯，当构造复杂的通配符时，可以先用这个技巧验证一下&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;符号链接是文件的特殊类型，它包含一个指向 目标文件或目录的文本指针。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;普通文件是由文件名和指针组成
+符号链接是由文件名和指向目标文件的指针
+我的理解对吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;符号链接类似Windows的快捷方式
+当然，符号链接早于 Windows 的快捷方式 很多年;-)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作者很逗，总是在讽刺widows的抄袭(这是软链接的笔记，不知怎么的跑到这里了)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个程序要求使用某个包含在名为“foo”文件中的共享资源，但是“foo”经常改变版本号。 这样，在文件名中包含版本号，会是一个好主意，因此管理员或者其它相关方，会知道安装了哪个“foo”版本。 这又会导致一个问题。如果我们更改了共享资源的名字，那么我们必须跟踪每个可能使用了 这个共享资源的程序，当每次这个资源的新版本被安装后，都要让使用了它的程序去寻找新的资源名。 这听起来很没趣。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这就是符号链接存在至今的原因。
+这是一个关于软链接的故事。讲述了软链接活着的意义&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="n"&gt;dir1&lt;/span&gt;
+&lt;span class="n"&gt;total&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;me&lt;/span&gt; &lt;span class="n"&gt;me&lt;/span&gt; &lt;span class="mi"&gt;1650&lt;/span&gt; &lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt; &lt;span class="n"&gt;fun&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;hard&lt;/span&gt;
+&lt;span class="n"&gt;lrwxrwxrwx&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;me&lt;/span&gt; &lt;span class="n"&gt;me&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt; &lt;span class="n"&gt;fun&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sym&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;..&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fun&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;dir1 中，fun-sym 的列表说明了它是一个符号链接，通过在第一字段中的首字符"l" 可知，并且它还指向"../fun"，也是正确的。相对于 fun-sym 的存储位置，fun 在它的 上一个目录。同时注意，符号链接文件的长度是6，这是字符串"../fun"所包含的字符数， 而不是符号链接所指向的文件长度&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;不太理解，软链接文件的大小是目标文件名(包括路径名哈，但为什么不是绝对路径啊？)的长度,这是因为&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Linux，有个普遍的观念就是“任何东西都是一个文件”。 随着课程的进行，我们将会明白这句话的真谛。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;明白字面上的意思了，但还没震撼过&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;file 命令会打印出文件内容的简单描述&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;感觉不是很常用啊&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;less 程序是早期 Unix 程序 more 的改进版。“less” 这个名字，对习语 “less is more” 开了个玩笑， 这个习语是现代主义建筑师和设计者的座右铭。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;喜欢Unix这种风格&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;记得复制和粘贴技巧！如果你正在使用鼠标，双击文件名，来复制它，然后按下鼠标中键，粘贴文件名到命令行中&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;见过几次赵宇这样复制粘贴，很实用的样子&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在系统中游玩时，不要害怕粘花惹草。普通用户是很难把东西弄乱的。那是系统管理员的工作！ 如果一个命令抱怨一些事情，不要管它，尽管去玩别的东西。花一些时间四处走走。 系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这话足够风趣，够吸引人&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大多数安装在系统中的软件包会包含一些文档。在/usr/share/doc 目录下， 我们可以找到按照软件包分类的文档。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;平时可以翻翻&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/crontab， 定义自动运行的任务。
+/etc/fstab，包含存储设备的列表，以及与他们相关的挂载点。
+/etc/passwd，包含用户帐号列表。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;自动运行的任务哈，，可以写到一些配置文件里哈&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在现在的 Linux 系统中，/media 目录会包含可移除媒体设备的挂载点， 例如 USB 驱动器，CD-ROMs 等等。这些设备连接到计算机之后，会自动地挂载到这个目录结点下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;曾经学过怎么挂载硬盘或U盘，现在忘记了，因为Ubuntu的自动挂载&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;type－显示命令的类型&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="n"&gt;ls&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;alias&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;tty&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="n"&gt;cp&lt;/span&gt;    
+&lt;span class="n"&gt;cp&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cp&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;alias – 创建命令别名&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;alias&lt;/span&gt; &lt;span class="n"&gt;fj&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;tulpar&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;由于阅读难度而能拿到特等奖的手册页应该是 bash 手册页。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;哈哈哈，所以我刚刚才跨国&lt;code&gt;man&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;zless 可以显示由gzip 压缩的文本文件的内容。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;直接解压看不行吗，非要个这样的命令吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;可以把多个命令放在同一行上，命令之间 用";"分开。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个知识点实用，必须掌握&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;alias foo='cd /usr; ls; cd -'&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;想知道重新登录这个配置还在吗?
+肯定不在了哈...所以写到&lt;code&gt;.bashrc&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;grep － 打印匹配行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;神一样的命令终于出现了，看到这里我再次确定这是一本好书了
+话说XX推荐用&lt;a href="http://beyondgrep.com/"&gt;ACK&lt;/a&gt;替代grep&lt;/p&gt;</summary><category term="TLCL"></category></entry></feed>
