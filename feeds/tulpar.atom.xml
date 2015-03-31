@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dreaming</title><link href="/" rel="alternate"></link><link href="/feeds/tulpar.atom.xml" rel="self"></link><id>/</id><updated>2015-03-30T00:00:00+08:00</updated><entry><title>代码片段</title><link href="/dai-ma-pian-duan.html" rel="alternate"></link><updated>2015-03-30T00:00:00+08:00</updated><author><name>tulpar</name></author><id>tag:,2015-03-30:dai-ma-pian-duan.html</id><summary type="html">&lt;h4&gt;&lt;code&gt;-hl&lt;/code&gt; 参数&lt;/h4&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dreaming</title><link href="/" rel="alternate"></link><link href="/feeds/tulpar.atom.xml" rel="self"></link><id>/</id><updated>2015-03-31T00:00:00+08:00</updated><entry><title>Linux分割文件</title><link href="/linuxfen-ge-wen-jian.html" rel="alternate"></link><updated>2015-03-31T00:00:00+08:00</updated><author><name>tulpar</name></author><id>tag:,2015-03-31:linuxfen-ge-wen-jian.html</id><summary type="html">&lt;h4&gt;闲聊&lt;/h4&gt;
+&lt;p&gt;抓取回来的英文资料需要翻译，当然用google翻译API　　　
+一行行的翻译，一行大概687ms，两万多行，　　
+汗！！需要几个小时啊！！不能接受！我要并发！！！！
+要分割文件了，要知道我刚刚才合并过的&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4&gt;这次不饶弯路了,用shell命令&lt;code&gt;split&lt;/code&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;＃分割成&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="err"&gt;个文件&lt;/span&gt;
+&lt;span class="n"&gt;split&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="n"&gt;seg&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;
+&lt;span class="cp"&gt;# 或　按行分割，每500行&lt;/span&gt;
+&lt;span class="n"&gt;split&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt; &lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="n"&gt;seg&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="Linux"></category><category term="Python"></category></entry><entry><title>Linux合并文件</title><link href="/linuxhe-bing-wen-jian.html" rel="alternate"></link><updated>2015-03-31T00:00:00+08:00</updated><author><name>tulpar</name></author><id>tag:,2015-03-31:linuxhe-bing-wen-jian.html</id><summary type="html">&lt;h4&gt;闲聊&lt;/h4&gt;
+&lt;p&gt;我爬一个网站数据时发现，需要４个小时．   &lt;br /&gt;
+汗！不能接受！我要并发！！！   &lt;br /&gt;
+于是我需要把抓回来的文件合并在一起     &lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4&gt;作为pythoner,第一个想到的是这种方案&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;glob&lt;/span&gt;
+
+&lt;span class="n"&gt;source_files&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;*.txt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;#这里可以是任何正则&lt;/span&gt;
+
+&lt;span class="n"&gt;result_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;result.txt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;source_file&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;source_files&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;source_file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;r&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;result_file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+    &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;result_file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;在看TLCL时发现可以这样&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;哈哈哈，就这么决定了&lt;/p&gt;</summary><category term="Linux"></category><category term="Python"></category></entry><entry><title>代码片段</title><link href="/dai-ma-pian-duan.html" rel="alternate"></link><updated>2015-03-30T00:00:00+08:00</updated><author><name>tulpar</name></author><id>tag:,2015-03-30:dai-ma-pian-duan.html</id><summary type="html">&lt;h4&gt;&lt;code&gt;-hl&lt;/code&gt; 参数&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;hl&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;human&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;readable&lt;/span&gt;
     &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;sizes&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;human&lt;/span&gt; &lt;span class="n"&gt;readable&lt;/span&gt; &lt;span class="n"&gt;format&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt; &lt;span class="mi"&gt;234&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -18,7 +53,35 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;&lt;code&gt;man&lt;/code&gt;命令比&lt;code&gt;help&lt;/code&gt;更可阅读&lt;/h4&gt;</summary><category term="Linux"></category><category term="Shell"></category></entry><entry><title>TLCL 看书笔记(3)</title><link href="/tlcl-kan-shu-bi-ji-3.html" rel="alternate"></link><updated>2015-03-30T00:00:00+08:00</updated><author><name>tulpar</name></author><id>tag:,2015-03-30:tlcl-kan-shu-bi-ji-3.html</id><summary type="html">&lt;h3&gt;笔记开始&lt;/h3&gt;
+&lt;h4&gt;&lt;code&gt;man&lt;/code&gt;命令比&lt;code&gt;help&lt;/code&gt;更可阅读&lt;/h4&gt;
+&lt;h4&gt;python logging&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;  
+&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;basicConfig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getcwd&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;level&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
+&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;debug&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;python get line num&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;test.txt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;python 脚本基本结构&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;
+
+&lt;span class="n"&gt;source_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+     &lt;span class="n"&gt;my_func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;source_file&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;python file&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;##&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;meaning&lt;/span&gt; &lt;span class="n"&gt;append&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;##&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;meaning&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="Linux"></category><category term="Shell"></category></entry><entry><title>TLCL 看书笔记(3)</title><link href="/tlcl-kan-shu-bi-ji-3.html" rel="alternate"></link><updated>2015-03-30T00:00:00+08:00</updated><author><name>tulpar</name></author><id>tag:,2015-03-30:tlcl-kan-shu-bi-ji-3.html</id><summary type="html">&lt;h3&gt;笔记开始&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;命令行最酷的特性。它叫做 I/O 重定向&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -36,7 +99,143 @@
 &lt;/blockquote&gt;
 &lt;p&gt;原来如此
 往标准输出写入东西，可以达到往别人屏幕输出东西的目的吗？&lt;/p&gt;
-&lt;h6&gt;博主写到这里发现，重定向的确非常重要，需要好好整理整理&lt;/h6&gt;</summary><category term="TLCL"></category></entry><entry><title>git 复习巩固(1)</title><link href="/git-fu-xi-gong-gu-1.html" rel="alternate"></link><updated>2015-03-29T00:00:00+08:00</updated><author><name>tulpar</name></author><id>tag:,2015-03-29:git-fu-xi-gong-gu-1.html</id><summary type="html">&lt;h4&gt;1. git工作流&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;命令的输入来自文件，输出也存至文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;哈哈，在Unix一切都是文件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我们用到的许多程序都会产生某种输出.这种输出，经常由两种类型组成．
+第一，程序的运行结果（程序要完成的功能所在）
+第二，状态或错误信息（程序的进展）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;输出结果都会写入到某种文件吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;观察一下会发现，很多程序的这两种结果都会输出在屏幕上&lt;/p&gt;
+&lt;p&gt;其实与Unix主题"任何东西都是文件"保持一致，程序会把上述两种结果输送到两个叫做标准输出(stdout)和标准错误(stderr)的文件．&lt;/p&gt;
+&lt;p&gt;默认情况下，标准输出和标准输入都会连接到屏幕上&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;那可不可以这样子：往别人电脑的标准输出写入message，达到聊天的目的？？？？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;类似，程序会从标准输入读取输入．标准输出默认连接到键盘．&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里好抽象了一个层面啊．屏幕怎么连接到标准输出；键盘怎么连接到标准输入？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I/O重定向其实就是允许我们更改输出走向和输入来向．
+默认的输入来自键盘，输出去向屏幕．&lt;/p&gt;
+&lt;p&gt;重定向标准输出到另一个文件(除了屏幕)，我们使用"&amp;gt;"重定向符号．&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这种做法应该很有用吧．．．．．&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有时候吧结果输出到另外一个文件很有用处．&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;实例（干货来也）&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#看看标准输入，标准输出和标准错误&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;   
+&lt;span class="nl"&gt;ls:&lt;/span&gt; &lt;span class="n"&gt;cannot&lt;/span&gt; &lt;span class="n"&gt;access&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;No&lt;/span&gt; &lt;span class="n"&gt;such&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;directory&lt;/span&gt;
+&lt;span class="nl"&gt;test:&lt;/span&gt;
+&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;  &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;  &lt;span class="n"&gt;styles&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#输出标准输出到文件&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;span class="nl"&gt;ls:&lt;/span&gt; &lt;span class="n"&gt;cannot&lt;/span&gt; &lt;span class="n"&gt;access&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;No&lt;/span&gt; &lt;span class="n"&gt;such&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;directory&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="n"&gt;test2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;   
+&lt;span class="nl"&gt;test:&lt;/span&gt;
+&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;
+&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+&lt;span class="n"&gt;styles&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;默认情况下可以缩写"1&amp;gt;"(上述命令相当于
+&lt;code&gt;ls test test1.txt 1&amp;gt;result.txt&lt;/code&gt;);
+标准错误照样输出到屏幕&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#标准错误也输出到文件&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;err&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#有时候我们想把结果追加写入文件而不是覆盖写入&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;err&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#有时候我们需要丢掉错误信息&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt;
+&lt;span class="cp"&gt;#可以缩写为&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;amp;-&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;/dev/null&lt;/code&gt;是linux黑洞，当垃圾箱用&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#于是有人关掉所有的输出&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;amp;-&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;amp;-&lt;/span&gt;
+&lt;span class="cp"&gt;#可以缩写为&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;amp;-&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;amp;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="cp"&gt;#或&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;一直在说标准输出和标准错误&lt;/p&gt;
+&lt;h4&gt;重定向标准输入&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cat 命令读取一个或多个文件，然后重定向它们到标准输出&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;-- 原来如此啊
+-- 是的&lt;/p&gt;
+&lt;p&gt;于是cat有了个&lt;strong&gt;强大的功能&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;combine file segments&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;说道这个，可以看看我是怎么做分割与合并文件了&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="n"&gt;seg&lt;/span&gt;&lt;span class="o"&gt;-*&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;不给cat任何参数，它会读取标准输入，输出到标准输出&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#输入cat，输入一些文本，按Ctrl+D结束&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt; 
+&lt;span class="n"&gt;sdfdsgdsg&lt;/span&gt;
+&lt;span class="n"&gt;sgdfgdf&lt;/span&gt;
+&lt;span class="n"&gt;sdfdsgdsg&lt;/span&gt;
+&lt;span class="n"&gt;sgdfgdf&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;通过这个可爱的命令，我们可以实现世界上最小巧的文件创建器
+&lt;code&gt;cat &amp;gt; new_file.txt&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;怎么还没提过标准输入啊&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;想想下面的命令是如何重定向标准输入的
+&lt;code&gt;cat &amp;lt; from.txt&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;cat&lt;/code&gt;默认会读取标准输入，转输出到标准输出．这里把&lt;code&gt;from.txt&lt;/code&gt;s输出到标准输入了&lt;/p&gt;
+&lt;p&gt;再看看下面的几个例子&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;catfile&lt;/span&gt; 
+&lt;span class="n"&gt;testing&lt;/span&gt; 
+&lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;
+&lt;span class="cp"&gt;#这里按下 [ctrl]+d 离开 &lt;/span&gt;
+&lt;span class="cp"&gt;#从标准输入【键盘】获得数据，然后输出给catfile文件&lt;/span&gt;
+
+&lt;span class="n"&gt;cat&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;catfile&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+&lt;span class="cp"&gt;#cat 从test.sh 获得输入数据，然后输出给文件catfile &lt;/span&gt;
+
+&lt;span class="n"&gt;cat&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;catfile&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;eo&lt;/span&gt;
+&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
+&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;
+&lt;span class="n"&gt;eof&lt;/span&gt;
+
+&lt;span class="cp"&gt;#&amp;lt;&amp;lt; 这个连续两个小符号， 他代表的是『结束的输入字符』的意思。这样当空行输入eof字符，输入自动结束，不用ctrl+D&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;第二个和第三个例子里，为什么先执行后面呢？&lt;/p&gt;</summary><category term="TLCL"></category></entry><entry><title>git 复习巩固(1)</title><link href="/git-fu-xi-gong-gu-1.html" rel="alternate"></link><updated>2015-03-29T00:00:00+08:00</updated><author><name>tulpar</name></author><id>tag:,2015-03-29:git-fu-xi-gong-gu-1.html</id><summary type="html">&lt;h4&gt;1. git工作流&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p&gt;你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；最后是 HEAD，它指向你最后一次提交的结果。&lt;img alt="git_tree" src="http://tulparblog.qiniudn.com/trees.png" /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;

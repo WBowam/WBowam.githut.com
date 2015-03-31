@@ -78,12 +78,42 @@
 
 
 <h4><code>man</code>命令比<code>help</code>更可阅读</h4>
+<h4>python logging</h4>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">logging</span>  
+<span class="n">logging</span><span class="p">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="err">&#39;</span><span class="n">log</span><span class="p">.</span><span class="n">txt</span><span class="err">&#39;</span><span class="p">),</span> <span class="n">level</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">)</span>  
+<span class="n">logging</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span><span class="err">&#39;</span><span class="n">this</span> <span class="n">is</span> <span class="n">a</span> <span class="n">message</span><span class="err">&#39;</span><span class="p">)</span>  
+</pre></div>
+
+
+<h4>python get line num</h4>
+<div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span> <span class="n">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">print</span> <span class="n">i</span>
+</pre></div>
+
+
+<h4>python 脚本基本结构</h4>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">sys</span>
+
+<span class="n">source_file</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="o">:</span>
+     <span class="n">my_func</span><span class="p">(</span><span class="n">source_file</span><span class="p">)</span>
+</pre></div>
+
+
+<h4>python file</h4>
+<div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">)</span> <span class="err">##</span> <span class="n">a</span> <span class="n">meaning</span> <span class="n">append</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span> <span class="err">##</span> <span class="n">w</span> <span class="n">meaning</span> <span class="n">write</span>
+</pre></div>
             <aside>
             <hr/>
             <nav>
             <ul class="articles_timeline">
  
                 <li class="previous_article">« <a href="/tlcl-kan-shu-bi-ji-3.html" title="Previous: TLCL 看书笔记(3)">TLCL 看书笔记(3)</a></li>
+ 
+                <li class="next_article"><a href="/linuxhe-bing-wen-jian.html" title="Next: Linux合并文件">Linux合并文件</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -98,7 +128,7 @@
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article"> 
                 <li><a href="/tags.html#Linux-ref">Linux
-                    <span>1</span>
+                    <span>3</span>
 </a></li>
                 <li><a href="/tags.html#Shell-ref">Shell
                     <span>1</span>
