@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dreaming</title><link>/</link><description></description><atom:link href="/feeds/tulpar.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 31 Mar 2015 00:00:00 +0800</lastBuildDate><item><title>Linux分割文件</title><link>/linuxfen-ge-wen-jian.html</link><description>&lt;h4&gt;闲聊&lt;/h4&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dreaming</title><link>/</link><description></description><atom:link href="/feeds/tulpar.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 01 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>为什么喜欢Linux</title><link>/wei-shi-yao-xi-huan-linux.html</link><description>&lt;p&gt;曾经有很多人问我，Windows界面那么好看，Windows用起来那么方便，为什么还说喜欢用Linux？　　　　　&lt;/p&gt;
+&lt;p&gt;我从未回答，因为我很难说清楚，我喜欢Linux不是因为装B~~&lt;/p&gt;
+&lt;p&gt;今天有了答案，感谢&lt;code&gt;William E. Shotts, Jr.&lt;/code&gt;    &lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Linux 可以激发我们的想象    &lt;/p&gt;
+&lt;p&gt;当我被要求解释 Windows 与 Linux 之间的差异时,我经常拿玩具来作比喻。     &lt;/p&gt;
+&lt;p&gt;Windows 就像一个游戏机。你去商店,买了一个包装在盒子里面的全新的游戏机。    &lt;/p&gt;
+&lt;p&gt;你把它带回家,打开盒子,开始玩游戏。 &lt;br /&gt;
+精美的画面,动人的声音。玩了一段时间之后, 你厌倦了它自带的游戏,所以你返回商店,又买了另一个游戏机。这个过程反复重复。 最后,你玩腻了游戏机自带的游戏,你回到商店,告诉售货员,“我想要一个这样的游戏!”  &lt;br /&gt;
+但售货员告诉你没有这样的游戏存在,因为它没有“市场需求”。然后你说,“但是我只 需要修改一下这个游戏!“,售货
+员又告诉你不能修改它。所有游戏都被封装在它们的 存储器中。到头来,你发现你的玩具只局限于别人为你规定好的
+游戏。     &lt;/p&gt;
+&lt;p&gt;另一方面,Linux 就像一个全世界上最大的建造模型。  &lt;br /&gt;
+你打开它,发现它只是一个巨大的 部件集合。有许多钢支柱,螺钉,螺母,齿轮,滑轮,发动机,和一些怎样来建造它的说明书。 &lt;br /&gt;
+然后你开始摆弄它。你建造了一个又一个样板模型。  &lt;br /&gt;
+过了一会儿,你发现你要建造自己的模型。 你不必返回商店,因为你已经拥有了你需要的一切。 &lt;br /&gt;
+建造模型以你构想的形状为模板,搭建 你想要的模型。&lt;/p&gt;
+&lt;p&gt;当然,选择哪一个玩具,是你的事情,那么你觉得哪个玩具更令人满意呢?&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Wed, 01 Apr 2015 00:00:00 +0800</pubDate><guid>tag:,2015-04-01:wei-shi-yao-xi-huan-linux.html</guid><category>Linux</category><category>TLCL</category></item><item><title>Linux分割文件</title><link>/linuxfen-ge-wen-jian.html</link><description>&lt;h4&gt;闲聊&lt;/h4&gt;
 &lt;p&gt;抓取回来的英文资料需要翻译，当然用google翻译API　　　
 一行行的翻译，一行大概687ms，两万多行，　　
 汗！！需要几个小时啊！！不能接受！我要并发！！！！
@@ -255,7 +272,63 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;第二个和第三个例子里，为什么先执行后面呢？&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Mon, 30 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-30:tlcl-kan-shu-bi-ji-3.html</guid><category>TLCL</category></item><item><title>git 复习巩固(1)</title><link>/git-fu-xi-gong-gu-1.html</link><description>&lt;h4&gt;1. git工作流&lt;/h4&gt;
+&lt;p&gt;第二个和第三个例子里，为什么先执行后面呢？&lt;/p&gt;
+&lt;h4&gt;管道&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用管道操作符"|"(竖杠),一个命令的 标准输出可以管道到另一个命令的标准输入&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;command1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;command2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;命令一的标准输出重定向到命令二的标准输入．如在统计目录内的文件总数&lt;code&gt;ls | wc -l&lt;/code&gt;&lt;/p&gt;
+&lt;h5&gt;过滤器&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;管道线经常用来对数据完成复杂的操作。有可能会把几个命令放在一起组成一个管道线。 通常,以这种方式使用的命令被称
+为过滤器。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其实是这样的&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;command1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="err"&gt;过滤&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;command2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;过滤一下命令一的结果，重定向到命令二的标准输入&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;$ ls /bin /usr/bin | sort | less&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;sort&lt;/code&gt;　用于产生一个 有序列表&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;$ ls /bin /usr/bin | sort | uniq | less&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;uniq&lt;/code&gt; 忽略重复行&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;wc -打印行,字和字节数
+&lt;code&gt;$ wc ls-output.txt
+7902 64566 503634 ls-output.txt
+$ ls /bin /usr/bin | sort | uniq | wc -l
+2736&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;&lt;strong&gt;grep&lt;/strong&gt;&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;grep -打印匹配行
+&lt;code&gt;grep pattern [file...]&lt;/code&gt;
+grep 能够匹配的模式可以 很复杂,但是现在我们把
+注意力集中在简单文本匹配上面。在后面的章节中,我们将会研究 高级模式,叫做正则表达式。&lt;/p&gt;
+&lt;p&gt;grep :"-i"忽略大小写(通常,搜索是大小写 敏感的),
+&lt;strong&gt;"-v"选项会告诉 grep 只打印不匹配的行。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;&lt;strong&gt;tailf&lt;/strong&gt;&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;head / tail -打印文件开头部分/结尾部分
+&lt;code&gt;$ head -n 5 ls-output.txt&lt;/code&gt;
+&lt;code&gt;$ tail -n 5 ls-output.txt&lt;/code&gt;
+管道线中
+&lt;code&gt;$ ls /usr/bin | tail -n 5&lt;/code&gt;   &lt;br /&gt;
+实时的浏览文件  &lt;br /&gt;
+&lt;code&gt;tail -f /var/log/messages&lt;/code&gt;  &lt;br /&gt;
+或   &lt;br /&gt;
+&lt;code&gt;tailf /var/log/messages&lt;/code&gt;     &lt;/p&gt;
+&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Mon, 30 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-30:tlcl-kan-shu-bi-ji-3.html</guid><category>TLCL</category></item><item><title>git 复习巩固(1)</title><link>/git-fu-xi-gong-gu-1.html</link><description>&lt;h4&gt;1. git工作流&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p&gt;你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；最后是 HEAD，它指向你最后一次提交的结果。&lt;img alt="git_tree" src="http://tulparblog.qiniudn.com/trees.png" /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;

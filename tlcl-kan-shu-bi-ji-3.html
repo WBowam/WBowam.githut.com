@@ -6,7 +6,7 @@
         <meta name="author" content="tulpar" />
         <meta name="copyright" content="tulpar" />
 
-<meta name="keywords" content="TLCL, IT, " />
+<meta name="keywords" content="TLCL, Reading, " />
         <title>TLCL 看书笔记(3)  · Dreaming
 </title>
         <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
@@ -213,6 +213,62 @@
 
 
 <p>第二个和第三个例子里，为什么先执行后面呢？</p>
+<h4>管道</h4>
+<blockquote>
+<p>使用管道操作符"|"(竖杠),一个命令的 标准输出可以管道到另一个命令的标准输入</p>
+</blockquote>
+<div class="highlight"><pre><span class="n">command1</span> <span class="o">|</span> <span class="n">command2</span>
+</pre></div>
+
+
+<p>命令一的标准输出重定向到命令二的标准输入．如在统计目录内的文件总数<code>ls | wc -l</code></p>
+<h5>过滤器</h5>
+<blockquote>
+<p>管道线经常用来对数据完成复杂的操作。有可能会把几个命令放在一起组成一个管道线。 通常,以这种方式使用的命令被称
+为过滤器。</p>
+</blockquote>
+<p>其实是这样的</p>
+<div class="highlight"><pre><span class="n">command1</span> <span class="o">|</span> <span class="err">过滤</span> <span class="o">|</span> <span class="n">command2</span>
+</pre></div>
+
+
+<p>过滤一下命令一的结果，重定向到命令二的标准输入</p>
+<blockquote>
+<p><code>$ ls /bin /usr/bin | sort | less</code></p>
+</blockquote>
+<p><code>sort</code>　用于产生一个 有序列表</p>
+<blockquote>
+<p><code>$ ls /bin /usr/bin | sort | uniq | less</code></p>
+</blockquote>
+<p><code>uniq</code> 忽略重复行</p>
+<blockquote>
+<p>wc -打印行,字和字节数
+<code>$ wc ls-output.txt
+7902 64566 503634 ls-output.txt
+$ ls /bin /usr/bin | sort | uniq | wc -l
+2736</code></p>
+</blockquote>
+<h4><strong>grep</strong></h4>
+<blockquote>
+<p>grep -打印匹配行
+<code>grep pattern [file...]</code>
+grep 能够匹配的模式可以 很复杂,但是现在我们把
+注意力集中在简单文本匹配上面。在后面的章节中,我们将会研究 高级模式,叫做正则表达式。</p>
+<p>grep :"-i"忽略大小写(通常,搜索是大小写 敏感的),
+<strong>"-v"选项会告诉 grep 只打印不匹配的行。</strong></p>
+</blockquote>
+<h4><strong>tailf</strong></h4>
+<blockquote>
+<p>head / tail -打印文件开头部分/结尾部分
+<code>$ head -n 5 ls-output.txt</code>
+<code>$ tail -n 5 ls-output.txt</code>
+管道线中
+<code>$ ls /usr/bin | tail -n 5</code>   <br />
+实时的浏览文件  <br />
+<code>tail -f /var/log/messages</code>  <br />
+或   <br />
+<code>tailf /var/log/messages</code>     </p>
+</blockquote>
             <aside>
             <hr/>
             <nav>
@@ -231,11 +287,11 @@
             <h4>Published</h4>
             <time pubdate="pubdate" datetime="2015-03-30T00:00:00+08:00">Mar 30, 2015</time>
             <h4>Category</h4>
-            <a class="category-link" href="/categories.html#IT-ref">IT</a> 
+            <a class="category-link" href="/categories.html#Reading-ref">Reading</a> 
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article"> 
                 <li><a href="/tags.html#TLCL-ref">TLCL
-                    <span>3</span>
+                    <span>4</span>
 </a></li>
             </ul>
 
