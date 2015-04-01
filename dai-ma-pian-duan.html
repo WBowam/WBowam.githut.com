@@ -106,6 +106,26 @@
 <div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">)</span> <span class="err">##</span> <span class="n">a</span> <span class="n">meaning</span> <span class="n">append</span>
 <span class="n">f</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span> <span class="err">##</span> <span class="n">w</span> <span class="n">meaning</span> <span class="n">write</span>
 </pre></div>
+
+
+<h4>python 正则</h4>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">re</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;[a-zA-Z]&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="s">&quot;adsfuhefdfkj435&quot;</span><span class="p">)</span>
+<span class="n">print</span> <span class="n">result</span><span class="p">.</span><span class="n">group</span><span class="p">()</span>
+</pre></div>
+
+
+<h4>python 下载静态文件，如,mp3</h4>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">urllib</span>
+<span class="n">urllib</span><span class="p">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">audio_url</span><span class="p">,</span> <span class="s">&quot;name.mp3&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h4>shell: count files in dir</h4>
+<p><code>ls -1 | wc -l</code></p>
+<h4>shell: size of dir</h4>
+<p><code>du -hl dir/</code></p>
             <aside>
             <hr/>
             <nav>
