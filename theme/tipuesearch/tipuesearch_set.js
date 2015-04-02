@@ -22,7 +22,7 @@ var tipuesearch_stem = {"words": [
 
 var tipuesearch_pages;
 
-exclude_pages = ['/archives.html', '/tags.html', '/categories.html', '/search.html'];
+exclude_pages = ['/archives.html', '/tags.html', '/index.html', '/categories.html', '/search.html'];
 
 function showGetResult()
 {
