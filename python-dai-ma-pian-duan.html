@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="tulpar" />
-        <meta name="copyright" content="tulpar" />
+        <meta name="author" content="Won" />
+        <meta name="copyright" content="Won" />
 
 <meta name="keywords" content="Snippets, Python, IT, " />
-        <title>Python 代码片段  · Dreaming
+        <title>Python 代码片段  · Tugqi Biz
 </title>
         <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="/"><span class=site-name>Dreaming</span></a>
+                    <a class="brand" href="/"><span class=site-name>Tugqi Biz</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
                             <li ><a href="">Home</a></li>
@@ -58,21 +58,21 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
 
-            <h4>python logging</h4>
+            <h4 id="python-logging">python logging<a class="headerlink" href="#python-logging" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span class="n">import</span> <span class="n">logging</span>  
 <span class="n">logging</span><span class="p">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="err">&#39;</span><span class="n">log</span><span class="p">.</span><span class="n">txt</span><span class="err">&#39;</span><span class="p">),</span> <span class="n">level</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">)</span>  
 <span class="n">logging</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span><span class="err">&#39;</span><span class="n">this</span> <span class="n">is</span> <span class="n">a</span> <span class="n">message</span><span class="err">&#39;</span><span class="p">)</span>  
 </pre></div>
 
 
-<h4>python get line num</h4>
+<h4 id="python-get-line-num">python get line num<a class="headerlink" href="#python-get-line-num" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span> <span class="n">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">:</span>
     <span class="n">print</span> <span class="n">i</span>
 </pre></div>
 
 
-<h4>python 脚本基本结构</h4>
+<h4 id="python">python 脚本基本结构<a class="headerlink" href="#python" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span class="n">import</span> <span class="n">sys</span>
 
 <span class="n">source_file</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -82,13 +82,13 @@
 </pre></div>
 
 
-<h4>python file</h4>
+<h4 id="python-file">python file<a class="headerlink" href="#python-file" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">)</span> <span class="err">##</span> <span class="n">a</span> <span class="n">meaning</span> <span class="n">append</span>
 <span class="n">f</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span> <span class="err">##</span> <span class="n">w</span> <span class="n">meaning</span> <span class="n">write</span>
 </pre></div>
 
 
-<h4>python 正则</h4>
+<h4 id="python_1">python 正则<a class="headerlink" href="#python_1" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span class="n">import</span> <span class="n">re</span>
 <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;[a-zA-Z]&quot;</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="s">&quot;adsfuhefdfkj435&quot;</span><span class="p">)</span>
@@ -96,13 +96,13 @@
 </pre></div>
 
 
-<h4>python 下载静态文件，如,mp3</h4>
+<h4 id="python-mp3">python 下载静态文件，如,mp3<a class="headerlink" href="#python-mp3" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span class="n">import</span> <span class="n">urllib</span>
 <span class="n">urllib</span><span class="p">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">audio_url</span><span class="p">,</span> <span class="s">&quot;name.mp3&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<h4>升级pip</h4>
+<h4 id="pip">升级pip<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h4>
 <p><code>easy_install -U pip</code>    </p>
             <aside>
             <hr/>

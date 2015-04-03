@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="tulpar" />
-        <meta name="copyright" content="tulpar" />
+        <meta name="author" content="Won" />
+        <meta name="copyright" content="Won" />
 
 <meta name="keywords" content="git, It, " />
-        <title>git 复习巩固(4)  · Dreaming
+        <title>git 复习巩固(4)  · Tugqi Biz
 </title>
         <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="/"><span class=site-name>Dreaming</span></a>
+                    <a class="brand" href="/"><span class=site-name>Tugqi Biz</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
                             <li ><a href="">Home</a></li>
@@ -58,17 +58,17 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
 
-            <h3>分支</h3>
-<h4>＃ 新建分支</h4>
+            <h3 id="_1">分支<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h4 id="_2">＃ 新建分支<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <p><code>git branch branch-name</code></p>
-<h5>新建并切到该分支</h5>
+<h5 id="_3">新建并切到该分支<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
 <p><code>git checkout -b branch-name</code></p>
-<h5>删除分支</h5>
+<h5 id="_4">删除分支<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
 <p><code>$ git branch -d experimental</code></p>
-<h6>-d只能删除那些已经被当前分支的合并的分支.</h6>
-<h5>强制删除某个分支的话就用 –D</h5>
+<h6 id="-d">-d只能删除那些已经被当前分支的合并的分支.<a class="headerlink" href="#-d" title="Permanent link">&para;</a></h6>
+<h5 id="d">强制删除某个分支的话就用 –D<a class="headerlink" href="#d" title="Permanent link">&para;</a></h5>
 <p><code>$ git branch -D crazy-idea</code>  </p>
-<h4>合并冲突</h4>
+<h4 id="_5">合并冲突<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span class="n">git</span> <span class="n">merge</span> <span class="n">branch</span><span class="o">-</span><span class="n">name</span>
  <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span> <span class="n">done</span>
 <span class="n">Auto</span><span class="o">-</span><span class="n">merged</span> <span class="n">file</span><span class="p">.</span><span class="n">txt</span>
@@ -77,14 +77,14 @@
 </pre></div>
 
 
-<h5>解决合并中的冲突</h5>
+<h5 id="_6">解决合并中的冲突<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
 <p>有冲突(conflicts)的文件会保存在索引中，除非你解决了问题了并且更新了索引，否则执行 git commit都会失败:</p>
 <div class="highlight"><pre><span class="n">git</span> <span class="n">commit</span>
 <span class="n">file</span><span class="p">.</span><span class="n">txt</span><span class="o">:</span> <span class="n">needs</span> <span class="n">merge</span>
 </pre></div>
 
 
-<h4>撒销一个合并</h4>
+<h4 id="_7">撒销一个合并<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <p>放弃修改撤回到本分支头部
 <code>git reset --hard HEAD</code>  <br />
 或

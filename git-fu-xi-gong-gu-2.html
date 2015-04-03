@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="tulpar" />
-        <meta name="copyright" content="tulpar" />
+        <meta name="author" content="Won" />
+        <meta name="copyright" content="Won" />
 
 <meta name="keywords" content="git, It, " />
-        <title>git 复习巩固(2)  · Dreaming
+        <title>git 复习巩固(2)  · Tugqi Biz
 </title>
         <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="/"><span class=site-name>Dreaming</span></a>
+                    <a class="brand" href="/"><span class=site-name>Tugqi Biz</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
                             <li ><a href="">Home</a></li>
@@ -58,19 +58,19 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
 
-            <h4>1. 对象名</h4>
+            <h4 id="1">1. 对象名<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
 <p><code>6ff87c4664981e4397625791c8ea3bbb5f2279a3</code>  <br />
 <em> 所有用来表示项目历史信息的文件,是通过一个40个字符的（40-digit）“对象名”来索引的.<br />
 </em> 每一个“对象名”都是对“对象”内容做SHA1哈希计算得来的，（SHA1是一种密码学的哈希算法）。这样就意味着两个不同内容的对象不可能有相同的“对象名”。</p>
-<h4>2. 对象</h4>
+<h4 id="2">2. 对象<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>有四种类型的对象："blob"、"tree"、 "commit" 和"tag"   </li>
 </ul>
-<h4>3. Blob 对象</h4>
+<h4 id="3-blob">3. Blob 对象<a class="headerlink" href="#3-blob" title="Permanent link">&para;</a></h4>
 <p>新文件纳入到 Git 后会被五马分尸，它的内容被扔到在一个 blob 对象中，它的对象名是基于内容运算生成的一个 40个字符的 SHA1值。</p>
 <p>blob 没有文件名，只有内容。   </p>
 <p><img alt="blob" src="http://mednoter.com/media/files/2014/jul/29-object-blob.png" /></p>
-<h4>4. Tree 对象</h4>
+<h4 id="4-tree">4. Tree 对象<a class="headerlink" href="#4-tree" title="Permanent link">&para;</a></h4>
 <p>一个 tree 对象就是一大坨指针，指向：</p>
 <ul>
 <li>其他 small tree（子级 tree）</li>
@@ -78,7 +78,7 @@
 可以把 Tree 对象想象为 Linux 文件系统中的目录，记录了子目录的信息、文件信息。   </li>
 </ul>
 <p><img alt="tree" src="http://mednoter.com/media/files/2014/jul/29-object-tree.png" /></p>
-<h4>5. Commit 对象</h4>
+<h4 id="5-commit">5. Commit 对象<a class="headerlink" href="#5-commit" title="Permanent link">&para;</a></h4>
 <p>一个 commit 对象由以下几部分组成</p>
 <ul>
 <li>作者</li>
@@ -87,7 +87,7 @@
 <li>指向一个 big tree 的指针   </li>
 </ul>
 <p><img alt="commit" src="http://mednoter.com/media/files/2014/jul/29-object-commit.png" /></p>
-<h3>6. 我们已经了解了3种主要对象类型(blob, tree 和 commit), 让我们大概了解一下它们怎么组合到一起的</h3>
+<h3 id="6-3blob-tree-commit">6. 我们已经了解了3种主要对象类型(blob, tree 和 commit), 让我们大概了解一下它们怎么组合到一起的<a class="headerlink" href="#6-3blob-tree-commit" title="Permanent link">&para;</a></h3>
 <p>如果我们一个小项目, 有如下的目录结构:</p>
 <div class="highlight"><pre><span class="err">$</span><span class="o">&gt;</span><span class="n">tree</span>
 <span class="p">.</span>
@@ -103,7 +103,7 @@
 
 <p>如果我们把它提交(commit)到一个Git仓库中, 在Git中它们也许看起来就如下图:    </p>
 <p><img alt="示例" src="http://gitbook.liuhui998.com/assets/images/figure/objects-example.png" /></p>
-<h5>可以看到:</h5>
+<h5 id="_1">可以看到:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h5>
 <ul>
 <li>每个目录都创建了 tree对象 (包括根目录), </li>
 <li>每个文件都创建了一个对应的 blob对象 . </li>

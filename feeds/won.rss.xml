@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tugqi Biz</title><link>/</link><description></description><atom:link href="/feeds/won.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 01 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>为什么喜欢Linux</title><link>/wei-shi-yao-xi-huan-linux.html</link><description>&lt;p&gt;曾经有很多人问我，Windows界面那么好看，Windows用起来那么方便，为什么还说喜欢用Linux？　　　　　&lt;/p&gt;
+&lt;p&gt;我从未回答，因为我很难说清楚，我喜欢Linux不是因为装B~~&lt;/p&gt;
+&lt;p&gt;今天有了答案，感谢&lt;code&gt;William E. Shotts, Jr.&lt;/code&gt;    &lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Linux 可以激发我们的想象    &lt;/p&gt;
+&lt;p&gt;当我被要求解释 Windows 与 Linux 之间的差异时,我经常拿玩具来作比喻。     &lt;/p&gt;
+&lt;p&gt;Windows 就像一个游戏机。你去商店,买了一个包装在盒子里面的全新的游戏机。    &lt;/p&gt;
+&lt;p&gt;你把它带回家,打开盒子,开始玩游戏。 &lt;br /&gt;
+精美的画面,动人的声音。玩了一段时间之后, 你厌倦了它自带的游戏,所以你返回商店,又买了另一个游戏机。这个过程反复重复。 最后,你玩腻了游戏机自带的游戏,你回到商店,告诉售货员,“我想要一个这样的游戏!”  &lt;br /&gt;
+但售货员告诉你没有这样的游戏存在,因为它没有“市场需求”。然后你说,“但是我只 需要修改一下这个游戏!“,售货
+员又告诉你不能修改它。所有游戏都被封装在它们的 存储器中。到头来,你发现你的玩具只局限于别人为你规定好的
+游戏。     &lt;/p&gt;
+&lt;p&gt;另一方面,Linux 就像一个全世界上最大的建造模型。  &lt;br /&gt;
+你打开它,发现它只是一个巨大的 部件集合。有许多钢支柱,螺钉,螺母,齿轮,滑轮,发动机,和一些怎样来建造它的说明书。 &lt;br /&gt;
+然后你开始摆弄它。你建造了一个又一个样板模型。  &lt;br /&gt;
+过了一会儿,你发现你要建造自己的模型。 你不必返回商店,因为你已经拥有了你需要的一切。 &lt;br /&gt;
+建造模型以你构想的形状为模板,搭建 你想要的模型。&lt;/p&gt;
+&lt;p&gt;当然,选择哪一个玩具,是你的事情,那么你觉得哪个玩具更令人满意呢?&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Wed, 01 Apr 2015 00:00:00 +0800</pubDate><guid>tag:,2015-04-01:wei-shi-yao-xi-huan-linux.html</guid><category>Linux</category><category>TLCL</category></item><item><title>Linux分割文件</title><link>/linuxfen-ge-wen-jian.html</link><description>&lt;h4 id="_1"&gt;闲聊&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;抓取回来的英文资料需要翻译，当然用google翻译API　　　
+一行行的翻译，一行大概687ms，两万多行，　　
+汗！！需要几个小时啊！！不能接受！我要并发！！！！
+要分割文件了，要知道我刚刚才合并过的&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4 id="shellsplit"&gt;这次不饶弯路了,用shell命令&lt;code&gt;split&lt;/code&gt;&lt;a class="headerlink" href="#shellsplit" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;＃分割成&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="err"&gt;个文件&lt;/span&gt;
+&lt;span class="n"&gt;split&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="n"&gt;seg&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;
+&lt;span class="cp"&gt;# 或　按行分割，每500行&lt;/span&gt;
+&lt;span class="n"&gt;split&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt; &lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="n"&gt;seg&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Tue, 31 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-31:linuxfen-ge-wen-jian.html</guid><category>Linux</category><category>Python</category></item><item><title>Linux合并文件</title><link>/linuxhe-bing-wen-jian.html</link><description>&lt;h4 id="_1"&gt;闲聊&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;我爬一个网站数据时发现，需要４个小时．   &lt;br /&gt;
+汗！不能接受！我要并发！！！   &lt;br /&gt;
+于是我需要把抓回来的文件合并在一起     &lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4 id="pythoner"&gt;作为pythoner,第一个想到的是这种方案&lt;a class="headerlink" href="#pythoner" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;glob&lt;/span&gt;
+
+&lt;span class="n"&gt;source_files&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;*.txt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;#这里可以是任何正则&lt;/span&gt;
+
+&lt;span class="n"&gt;result_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;result.txt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;source_file&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;source_files&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;source_file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;r&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;result_file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+    &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;result_file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id="tlcl"&gt;在看TLCL时发现可以这样&lt;a class="headerlink" href="#tlcl" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;哈哈哈，就这么决定了&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Tue, 31 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-31:linuxhe-bing-wen-jian.html</guid><category>Linux</category><category>Python</category></item><item><title>Mysql 代码片段</title><link>/mysql-dai-ma-pian-duan.html</link><description>&lt;h4 id="mysql"&gt;mysql&lt;a class="headerlink" href="#mysql" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;change character&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ALTER&lt;/span&gt; &lt;span class="n"&gt;DATABASE&lt;/span&gt; &lt;span class="n"&gt;databasename&lt;/span&gt; &lt;span class="n"&gt;CHARACTER&lt;/span&gt; &lt;span class="n"&gt;SET&lt;/span&gt; &lt;span class="n"&gt;utf8&lt;/span&gt; &lt;span class="n"&gt;COLLATE&lt;/span&gt; &lt;span class="n"&gt;utf8_unicode_ci&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;ALTER&lt;/span&gt; &lt;span class="n"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;tablename&lt;/span&gt; &lt;span class="n"&gt;CONVERT&lt;/span&gt; &lt;span class="n"&gt;TO&lt;/span&gt; &lt;span class="n"&gt;CHARACTER&lt;/span&gt; &lt;span class="n"&gt;SET&lt;/span&gt; &lt;span class="n"&gt;utf8&lt;/span&gt; &lt;span class="n"&gt;COLLATE&lt;/span&gt; &lt;span class="n"&gt;utf8_unicode_ci&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;load data from file&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;LOAD&lt;/span&gt; &lt;span class="n"&gt;DATA&lt;/span&gt; &lt;span class="n"&gt;INFILE&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;/home/paul/clientdata.csv&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;CSVImport&lt;/span&gt;
+&lt;span class="n"&gt;COLUMNS&lt;/span&gt; &lt;span class="n"&gt;TERMINATED&lt;/span&gt; &lt;span class="n"&gt;BY&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39;,&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;OPTIONALLY&lt;/span&gt; &lt;span class="n"&gt;ENCLOSED&lt;/span&gt; &lt;span class="n"&gt;BY&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39;&amp;quot;&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;ESCAPED&lt;/span&gt; &lt;span class="n"&gt;BY&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39;&amp;quot;&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;LINES&lt;/span&gt; &lt;span class="n"&gt;TERMINATED&lt;/span&gt; &lt;span class="n"&gt;BY&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39;\n&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;IGNORE&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;LINES&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="cp"&gt;# 如&lt;/span&gt;
+&lt;span class="n"&gt;LOAD&lt;/span&gt; &lt;span class="n"&gt;DATA&lt;/span&gt; &lt;span class="n"&gt;INFILE&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;haici-two-all.csv&amp;quot;&lt;/span&gt; 
+&lt;span class="n"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;enname&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; 
+&lt;span class="n"&gt;COLUMNS&lt;/span&gt; &lt;span class="n"&gt;TERMINATED&lt;/span&gt; &lt;span class="n"&gt;BY&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt; 
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;meaning&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;zh_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sex&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pronunciation&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;display history of queries&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mysql_history&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Show Full Column Details of a Table&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;SHOW&lt;/span&gt; &lt;span class="n"&gt;FULL&lt;/span&gt; &lt;span class="n"&gt;COLUMNS&lt;/span&gt; &lt;span class="n"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;enname&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;或&lt;/span&gt;
+&lt;span class="n"&gt;DESCRIBE&lt;/span&gt; &lt;span class="n"&gt;table_name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Counting rows&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;COUNT&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;enname&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;empty a table&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;TRUNCATE&lt;/span&gt; &lt;span class="n"&gt;table_name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Get length of data of column&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;char_length&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;meaning&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;enname&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;zoe&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Ubuntu中配置Mysql编码&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;mysql的配置文件&lt;code&gt;/etc/mysql/my.cnf&lt;/code&gt;中对应位置加入：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;                            
+&lt;span class="k"&gt;default&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;character&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;utf8&lt;/span&gt;
+
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;default&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;character&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;utf8&lt;/span&gt;
+
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;mysqld&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;collation&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;utf8_unicode_ci&lt;/span&gt; 
+&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;connect&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;SET&lt;/span&gt; &lt;span class="n"&gt;NAMES&lt;/span&gt; &lt;span class="n"&gt;utf8&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;      
+&lt;span class="n"&gt;character&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;utf8&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Adding ID (auto increment, primary key) after table exist?&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ALTER&lt;/span&gt; &lt;span class="n"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;column&lt;/span&gt; &lt;span class="n"&gt;Id&lt;/span&gt; &lt;span class="n"&gt;INT&lt;/span&gt; &lt;span class="n"&gt;NOT&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt; &lt;span class="n"&gt;AUTO_INCREMENT&lt;/span&gt; &lt;span class="n"&gt;FIRST&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ADD&lt;/span&gt; &lt;span class="n"&gt;primary&lt;/span&gt; &lt;span class="n"&gt;KEY&lt;/span&gt; &lt;span class="n"&gt;Id&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Id&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;delete duplicate rows in mysql&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;DELETE&lt;/span&gt; &lt;span class="n"&gt;n1&lt;/span&gt; &lt;span class="n"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;n1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;n2&lt;/span&gt; &lt;span class="n"&gt;WHERE&lt;/span&gt; &lt;span class="n"&gt;n1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;n2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="n"&gt;AND&lt;/span&gt; &lt;span class="n"&gt;n1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;n2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;count with condition&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;select&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;old_name&lt;/span&gt; &lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="n"&gt;meaning&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;select&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;old_name&lt;/span&gt; &lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="n"&gt;meaning&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;null&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;join and dump&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;select&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;RIGHT&lt;/span&gt; &lt;span class="n"&gt;JOIN&lt;/span&gt; &lt;span class="n"&gt;old_name&lt;/span&gt; &lt;span class="n"&gt;ON&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;old_name&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;into&lt;/span&gt; &lt;span class="n"&gt;outfile&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;combined1.csv&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;fields&lt;/span&gt; &lt;span class="n"&gt;terminated&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39;\t&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt; &lt;span class="n"&gt;terminated&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;\&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;copy an existing table&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;CREATE&lt;/span&gt; &lt;span class="n"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;newtable&lt;/span&gt; &lt;span class="n"&gt;LIKE&lt;/span&gt; &lt;span class="n"&gt;oldtable&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;INSERT&lt;/span&gt; &lt;span class="n"&gt;newtable&lt;/span&gt; &lt;span class="n"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;oldtable&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;necessary&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Mon, 30 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-30:mysql-dai-ma-pian-duan.html</guid><category>Mysql</category><category>Snippets</category></item><item><title>Python 代码片段</title><link>/python-dai-ma-pian-duan.html</link><description>&lt;h4 id="python-logging"&gt;python logging&lt;a class="headerlink" href="#python-logging" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;  
+&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;basicConfig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getcwd&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;level&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
+&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;debug&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id="python-get-line-num"&gt;python get line num&lt;a class="headerlink" href="#python-get-line-num" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;test.txt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id="python"&gt;python 脚本基本结构&lt;a class="headerlink" href="#python" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;
+
+&lt;span class="n"&gt;source_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+     &lt;span class="n"&gt;my_func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;source_file&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id="python-file"&gt;python file&lt;a class="headerlink" href="#python-file" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;##&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;meaning&lt;/span&gt; &lt;span class="n"&gt;append&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;##&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;meaning&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id="python_1"&gt;python 正则&lt;a class="headerlink" href="#python_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;
+&lt;span class="n"&gt;pattern&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;[a-zA-Z]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pattern&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;adsfuhefdfkj435&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;group&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id="python-mp3"&gt;python 下载静态文件，如,mp3&lt;a class="headerlink" href="#python-mp3" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;urllib&lt;/span&gt;
+&lt;span class="n"&gt;urllib&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urlretrieve&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;audio_url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;name.mp3&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id="pip"&gt;升级pip&lt;a class="headerlink" href="#pip" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;easy_install -U pip&lt;/code&gt;    &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Mon, 30 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-30:python-dai-ma-pian-duan.html</guid><category>Snippets</category><category>Python</category></item><item><title>Shell 代码片段</title><link>/shell-dai-ma-pian-duan.html</link><description>&lt;h4 id="-hl"&gt;&lt;code&gt;-hl&lt;/code&gt; 参数&lt;a class="headerlink" href="#-hl" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;hl&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;human&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;readable&lt;/span&gt;
+    &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;sizes&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;human&lt;/span&gt; &lt;span class="n"&gt;readable&lt;/span&gt; &lt;span class="n"&gt;format&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt; &lt;span class="mi"&gt;234&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;hl&lt;/span&gt;
+&lt;span class="n"&gt;Filesystem&lt;/span&gt;      &lt;span class="n"&gt;Size&lt;/span&gt;  &lt;span class="n"&gt;Used&lt;/span&gt; &lt;span class="n"&gt;Avail&lt;/span&gt; &lt;span class="n"&gt;Use&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;Mounted&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sda5&lt;/span&gt;        &lt;span class="mi"&gt;92&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;   &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;   &lt;span class="mi"&gt;68&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;  &lt;span class="mi"&gt;23&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="n"&gt;none&lt;/span&gt;            &lt;span class="mf"&gt;4.0&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt;     &lt;span class="mi"&gt;0&lt;/span&gt;  &lt;span class="mf"&gt;4.0&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt;   &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cgroup&lt;/span&gt;
+&lt;span class="n"&gt;udev&lt;/span&gt;            &lt;span class="mf"&gt;2.9&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;  &lt;span class="mf"&gt;4.0&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt;  &lt;span class="mf"&gt;2.9&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;   &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;span class="n"&gt;tmpfs&lt;/span&gt;           &lt;span class="mi"&gt;584&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;  &lt;span class="mf"&gt;1.3&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;  &lt;span class="mi"&gt;582&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;   &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;
+&lt;span class="n"&gt;none&lt;/span&gt;            &lt;span class="mf"&gt;5.0&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;     &lt;span class="mi"&gt;0&lt;/span&gt;  &lt;span class="mf"&gt;5.0&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;   &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lock&lt;/span&gt;
+&lt;span class="n"&gt;none&lt;/span&gt;            &lt;span class="mf"&gt;2.9&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;   &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;  &lt;span class="mf"&gt;2.9&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;   &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;shm&lt;/span&gt;
+&lt;span class="n"&gt;none&lt;/span&gt;            &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;   &lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt;  &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;   &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id="manhelp"&gt;&lt;code&gt;man&lt;/code&gt;命令比&lt;code&gt;help&lt;/code&gt;更可阅读&lt;a class="headerlink" href="#manhelp" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id="shell-count-files-in-dir"&gt;shell: count files in dir&lt;a class="headerlink" href="#shell-count-files-in-dir" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;ls -1 | wc -l&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id="shell-size-of-dir"&gt;shell: size of dir&lt;a class="headerlink" href="#shell-size-of-dir" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;du -hl dir/&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Mon, 30 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-30:shell-dai-ma-pian-duan.html</guid><category>Snippets</category><category>Shell</category></item><item><title>TLCL 看书笔记(3)</title><link>/tlcl-kan-shu-bi-ji-3.html</link><description>&lt;h3 id="_1"&gt;笔记开始&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;命令行最酷的特性。它叫做 I/O 重定向&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;标准输入，标准输出，标准错误&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ls -l /bin/usr &amp;gt; ls-error.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;把标准输出写入（重定向）到文件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ls -l /bin/usr &amp;gt;&amp;gt; ls-error.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;把标准输出追加到（重定向）到文件（在文件末尾继续添加）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cat 命令读取一个或多个文件，然后复制它们到标准输出，就像这样&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;原来如此
+往标准输出写入东西，可以达到往别人屏幕输出东西的目的吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;命令的输入来自文件，输出也存至文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;哈哈，在Unix一切都是文件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我们用到的许多程序都会产生某种输出.这种输出，经常由两种类型组成．
+第一，程序的运行结果（程序要完成的功能所在）
+第二，状态或错误信息（程序的进展）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;输出结果都会写入到某种文件吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;观察一下会发现，很多程序的这两种结果都会输出在屏幕上&lt;/p&gt;
+&lt;p&gt;其实与Unix主题"任何东西都是文件"保持一致，程序会把上述两种结果输送到两个叫做标准输出(stdout)和标准错误(stderr)的文件．&lt;/p&gt;
+&lt;p&gt;默认情况下，标准输出和标准输入都会连接到屏幕上&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;那可不可以这样子：往别人电脑的标准输出写入message，达到聊天的目的？？？？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;类似，程序会从标准输入读取输入．标准输出默认连接到键盘．&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里好抽象了一个层面啊．屏幕怎么连接到标准输出；键盘怎么连接到标准输入？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I/O重定向其实就是允许我们更改输出走向和输入来向．
+默认的输入来自键盘，输出去向屏幕．&lt;/p&gt;
+&lt;p&gt;重定向标准输出到另一个文件(除了屏幕)，我们使用"&amp;gt;"重定向符号．&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这种做法应该很有用吧．．．．．&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有时候吧结果输出到另外一个文件很有用处．&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id="_2"&gt;实例（干货来也）&lt;a class="headerlink" href="#_2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#看看标准输入，标准输出和标准错误&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;   
+&lt;span class="nl"&gt;ls:&lt;/span&gt; &lt;span class="n"&gt;cannot&lt;/span&gt; &lt;span class="n"&gt;access&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;No&lt;/span&gt; &lt;span class="n"&gt;such&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;directory&lt;/span&gt;
+&lt;span class="nl"&gt;test:&lt;/span&gt;
+&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;  &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;  &lt;span class="n"&gt;styles&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#输出标准输出到文件&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;span class="nl"&gt;ls:&lt;/span&gt; &lt;span class="n"&gt;cannot&lt;/span&gt; &lt;span class="n"&gt;access&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;No&lt;/span&gt; &lt;span class="n"&gt;such&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;directory&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="n"&gt;test2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;   
+&lt;span class="nl"&gt;test:&lt;/span&gt;
+&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;
+&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+&lt;span class="n"&gt;styles&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;默认情况下可以缩写"1&amp;gt;"(上述命令相当于
+&lt;code&gt;ls test test1.txt 1&amp;gt;result.txt&lt;/code&gt;);
+标准错误照样输出到屏幕&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#标准错误也输出到文件&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;err&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#有时候我们想把结果追加写入文件而不是覆盖写入&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;err&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#有时候我们需要丢掉错误信息&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt;
+&lt;span class="cp"&gt;#可以缩写为&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;amp;-&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;/dev/null&lt;/code&gt;是linux黑洞，当垃圾箱用&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#于是有人关掉所有的输出&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;amp;-&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;amp;-&lt;/span&gt;
+&lt;span class="cp"&gt;#可以缩写为&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;amp;-&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;amp;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="cp"&gt;#或&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;test1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;一直在说标准输出和标准错误&lt;/p&gt;
+&lt;h4 id="_3"&gt;重定向标准输入&lt;a class="headerlink" href="#_3" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cat 命令读取一个或多个文件，然后重定向它们到标准输出&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;-- 原来如此啊
+-- 是的&lt;/p&gt;
+&lt;p&gt;于是cat有了个&lt;strong&gt;强大的功能&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;combine file segments&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;说道这个，可以看看我是怎么做分割与合并文件了&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="n"&gt;seg&lt;/span&gt;&lt;span class="o"&gt;-*&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;不给cat任何参数，它会读取标准输入，输出到标准输出&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#输入cat，输入一些文本，按Ctrl+D结束&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt; 
+&lt;span class="n"&gt;sdfdsgdsg&lt;/span&gt;
+&lt;span class="n"&gt;sgdfgdf&lt;/span&gt;
+&lt;span class="n"&gt;sdfdsgdsg&lt;/span&gt;
+&lt;span class="n"&gt;sgdfgdf&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;通过这个可爱的命令，我们可以实现世界上最小巧的文件创建器
+&lt;code&gt;cat &amp;gt; new_file.txt&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;怎么还没提过标准输入啊&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;想想下面的命令是如何重定向标准输入的
+&lt;code&gt;cat &amp;lt; from.txt&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;cat&lt;/code&gt;默认会读取标准输入，转输出到标准输出．这里把&lt;code&gt;from.txt&lt;/code&gt;s输出到标准输入了&lt;/p&gt;
+&lt;p&gt;再看看下面的几个例子&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;catfile&lt;/span&gt; 
+&lt;span class="n"&gt;testing&lt;/span&gt; 
+&lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;
+&lt;span class="cp"&gt;#这里按下 [ctrl]+d 离开 &lt;/span&gt;
+&lt;span class="cp"&gt;#从标准输入【键盘】获得数据，然后输出给catfile文件&lt;/span&gt;
+
+&lt;span class="n"&gt;cat&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;catfile&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+&lt;span class="cp"&gt;#cat 从test.sh 获得输入数据，然后输出给文件catfile &lt;/span&gt;
+
+&lt;span class="n"&gt;cat&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;catfile&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;eo&lt;/span&gt;
+&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
+&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;
+&lt;span class="n"&gt;eof&lt;/span&gt;
+
+&lt;span class="cp"&gt;#&amp;lt;&amp;lt; 这个连续两个小符号， 他代表的是『结束的输入字符』的意思。这样当空行输入eof字符，输入自动结束，不用ctrl+D&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;第二个和第三个例子里，为什么先执行后面呢？&lt;/p&gt;
+&lt;h4 id="_4"&gt;管道&lt;a class="headerlink" href="#_4" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用管道操作符"|"(竖杠),一个命令的 标准输出可以管道到另一个命令的标准输入&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;command1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;command2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;命令一的标准输出重定向到命令二的标准输入．如在统计目录内的文件总数&lt;code&gt;ls | wc -l&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id="_5"&gt;过滤器&lt;a class="headerlink" href="#_5" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;管道线经常用来对数据完成复杂的操作。有可能会把几个命令放在一起组成一个管道线。 通常,以这种方式使用的命令被称
+为过滤器。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其实是这样的&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;command1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="err"&gt;过滤&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;command2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;过滤一下命令一的结果，重定向到命令二的标准输入&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;$ ls /bin /usr/bin | sort | less&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;sort&lt;/code&gt;　用于产生一个 有序列表&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;$ ls /bin /usr/bin | sort | uniq | less&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;uniq&lt;/code&gt; 忽略重复行&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;wc -打印行,字和字节数
+&lt;code&gt;$ wc ls-output.txt
+7902 64566 503634 ls-output.txt
+$ ls /bin /usr/bin | sort | uniq | wc -l
+2736&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id="grep"&gt;&lt;strong&gt;grep&lt;/strong&gt;&lt;a class="headerlink" href="#grep" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;grep -打印匹配行
+&lt;code&gt;grep pattern [file...]&lt;/code&gt;
+grep 能够匹配的模式可以 很复杂,但是现在我们把
+注意力集中在简单文本匹配上面。在后面的章节中,我们将会研究 高级模式,叫做正则表达式。&lt;/p&gt;
+&lt;p&gt;grep :"-i"忽略大小写(通常,搜索是大小写 敏感的),
+&lt;strong&gt;"-v"选项会告诉 grep 只打印不匹配的行。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id="tailf"&gt;&lt;strong&gt;tailf&lt;/strong&gt;&lt;a class="headerlink" href="#tailf" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;head / tail -打印文件开头部分/结尾部分
+&lt;code&gt;$ head -n 5 ls-output.txt&lt;/code&gt;
+&lt;code&gt;$ tail -n 5 ls-output.txt&lt;/code&gt;
+管道线中
+&lt;code&gt;$ ls /usr/bin | tail -n 5&lt;/code&gt;   &lt;br /&gt;
+实时的浏览文件  &lt;br /&gt;
+&lt;code&gt;tail -f /var/log/messages&lt;/code&gt;  &lt;br /&gt;
+或   &lt;br /&gt;
+&lt;code&gt;tailf /var/log/messages&lt;/code&gt;     &lt;/p&gt;
+&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Mon, 30 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-30:tlcl-kan-shu-bi-ji-3.html</guid><category>TLCL</category></item><item><title>git 复习巩固(1)</title><link>/git-fu-xi-gong-gu-1.html</link><description>&lt;h4 id="1-git"&gt;1. git工作流&lt;a class="headerlink" href="#1-git" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；最后是 HEAD，它指向你最后一次提交的结果。&lt;img alt="git_tree" src="http://tulparblog.qiniudn.com/trees.png" /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id="2"&gt;2. 本地仓库连接到远程仓库&lt;a class="headerlink" href="#2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;git remote add origin &amp;lt;server&amp;gt;&lt;/code&gt; &lt;br /&gt;
+如:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;## 我的本地文件加到我的博客&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;init&lt;/span&gt; 
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;remote&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/tulpar008/blog.git&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;pull&lt;/span&gt; 
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;for test&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Sun, 29 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-29:git-fu-xi-gong-gu-1.html</guid><category>git</category></item><item><title>git 复习巩固(2)</title><link>/git-fu-xi-gong-gu-2.html</link><description>&lt;h4 id="1"&gt;1. 对象名&lt;a class="headerlink" href="#1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;6ff87c4664981e4397625791c8ea3bbb5f2279a3&lt;/code&gt;  &lt;br /&gt;
+&lt;em&gt; 所有用来表示项目历史信息的文件,是通过一个40个字符的（40-digit）“对象名”来索引的.&lt;br /&gt;
+&lt;/em&gt; 每一个“对象名”都是对“对象”内容做SHA1哈希计算得来的，（SHA1是一种密码学的哈希算法）。这样就意味着两个不同内容的对象不可能有相同的“对象名”。&lt;/p&gt;
+&lt;h4 id="2"&gt;2. 对象&lt;a class="headerlink" href="#2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;有四种类型的对象："blob"、"tree"、 "commit" 和"tag"   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="3-blob"&gt;3. Blob 对象&lt;a class="headerlink" href="#3-blob" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;新文件纳入到 Git 后会被五马分尸，它的内容被扔到在一个 blob 对象中，它的对象名是基于内容运算生成的一个 40个字符的 SHA1值。&lt;/p&gt;
+&lt;p&gt;blob 没有文件名，只有内容。   &lt;/p&gt;
+&lt;p&gt;&lt;img alt="blob" src="http://mednoter.com/media/files/2014/jul/29-object-blob.png" /&gt;&lt;/p&gt;
+&lt;h4 id="4-tree"&gt;4. Tree 对象&lt;a class="headerlink" href="#4-tree" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;一个 tree 对象就是一大坨指针，指向：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其他 small tree（子级 tree）&lt;/li&gt;
+&lt;li&gt;blob
+可以把 Tree 对象想象为 Linux 文件系统中的目录，记录了子目录的信息、文件信息。   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="tree" src="http://mednoter.com/media/files/2014/jul/29-object-tree.png" /&gt;&lt;/p&gt;
+&lt;h4 id="5-commit"&gt;5. Commit 对象&lt;a class="headerlink" href="#5-commit" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;一个 commit 对象由以下几部分组成&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;作者&lt;/li&gt;
+&lt;li&gt;提交者&lt;/li&gt;
+&lt;li&gt;注释&lt;/li&gt;
+&lt;li&gt;指向一个 big tree 的指针   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="commit" src="http://mednoter.com/media/files/2014/jul/29-object-commit.png" /&gt;&lt;/p&gt;
+&lt;h3 id="6-3blob-tree-commit"&gt;6. 我们已经了解了3种主要对象类型(blob, tree 和 commit), 让我们大概了解一下它们怎么组合到一起的&lt;a class="headerlink" href="#6-3blob-tree-commit" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;如果我们一个小项目, 有如下的目录结构:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;tree&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;|--&lt;/span&gt; &lt;span class="n"&gt;README&lt;/span&gt;
+&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;lib&lt;/span&gt;
+    &lt;span class="o"&gt;|--&lt;/span&gt; &lt;span class="n"&gt;inc&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt;   &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;tricks&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
+    &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;mylib&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
+
+&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;directories&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果我们把它提交(commit)到一个Git仓库中, 在Git中它们也许看起来就如下图:    &lt;/p&gt;
+&lt;p&gt;&lt;img alt="示例" src="http://gitbook.liuhui998.com/assets/images/figure/objects-example.png" /&gt;&lt;/p&gt;
+&lt;h5 id="_1"&gt;可以看到:&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;每个目录都创建了 tree对象 (包括根目录), &lt;/li&gt;
+&lt;li&gt;每个文件都创建了一个对应的 blob对象 . &lt;/li&gt;
+&lt;li&gt;最后有一个 commit对象 来指向根tree对象(root of trees), &lt;/li&gt;
+&lt;li&gt;这样我们就可以追踪项目每一项提交内容.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="http://gitbook.liuhui998.com/1_2.html"&gt;看到&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Sun, 29 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-29:git-fu-xi-gong-gu-2.html</guid><category>git</category></item><item><title>git 复习巩固(3)</title><link>/git-fu-xi-gong-gu-3.html</link><description>&lt;h4 id="1-working-directory"&gt;1. Working Directory（工作目录）&lt;a class="headerlink" href="#1-working-directory" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Git的工作目录是保存当前正在工作的文件所在的目录，和working tree是相同的意思。在这个目录中的文件可能会在切换branch时被GIT删除或者替换。这个目录是个临时目录，临时存储你从GIT库中取出的文件，这些文件一直会被保存，直到下次提交。 &lt;/p&gt;
+&lt;h4 id="2git"&gt;2.Git索引&lt;a class="headerlink" href="#2git" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Git索引是一个在你的工作目录和项目仓库间的暂存区(staging area). 有了它, 你可以把许多内容的修改一起提交(commit). 如果你创建了一个提交(commit), 那么提交的是当前索引(index)里的内容, 而不是工作目录中的内容.&lt;/p&gt;
+&lt;h4 id="3"&gt;3. 仓库&lt;a class="headerlink" href="#3" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Sun, 29 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-29:git-fu-xi-gong-gu-3.html</guid><category>git</category></item><item><title>git 复习巩固(4)</title><link>/git-fu-xi-gong-gu-4.html</link><description>&lt;h3 id="_1"&gt;分支&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="_2"&gt;＃ 新建分支&lt;a class="headerlink" href="#_2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;git branch branch-name&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id="_3"&gt;新建并切到该分支&lt;a class="headerlink" href="#_3" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;git checkout -b branch-name&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id="_4"&gt;删除分支&lt;a class="headerlink" href="#_4" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;$ git branch -d experimental&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id="-d"&gt;-d只能删除那些已经被当前分支的合并的分支.&lt;a class="headerlink" href="#-d" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h6&gt;
+&lt;h5 id="d"&gt;强制删除某个分支的话就用 –D&lt;a class="headerlink" href="#d" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;$ git branch -D crazy-idea&lt;/code&gt;  &lt;/p&gt;
+&lt;h4 id="_5"&gt;合并冲突&lt;a class="headerlink" href="#_5" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;merge&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;
+ &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;done&lt;/span&gt;
+&lt;span class="n"&gt;Auto&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;merged&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;span class="n"&gt;CONFLICT&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Merge&lt;/span&gt; &lt;span class="n"&gt;conflict&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;span class="n"&gt;Automatic&lt;/span&gt; &lt;span class="n"&gt;merge&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;fix&lt;/span&gt; &lt;span class="n"&gt;conflicts&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;then&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5 id="_6"&gt;解决合并中的冲突&lt;a class="headerlink" href="#_6" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;有冲突(conflicts)的文件会保存在索引中，除非你解决了问题了并且更新了索引，否则执行 git commit都会失败:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt;
+&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;needs&lt;/span&gt; &lt;span class="n"&gt;merge&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id="_7"&gt;撒销一个合并&lt;a class="headerlink" href="#_7" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;放弃修改撤回到本分支头部
+&lt;code&gt;git reset --hard HEAD&lt;/code&gt;  &lt;br /&gt;
+或
+&lt;code&gt;git checkout -f&lt;/code&gt;  &lt;br /&gt;
+撤回到之前的commit
+&lt;code&gt;git reset 4ba467213eb73480431b95c7dba03aac1c7a2c26&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Sun, 29 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-29:git-fu-xi-gong-gu-4.html</guid><category>git</category></item><item><title>git 复习巩固(５)</title><link>/git-fu-xi-gong-gu-5.html</link><description>&lt;h4 id="fetch-all-git-branches"&gt;fetch all git branches&lt;a class="headerlink" href="#fetch-all-git-branches" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;git fetch --all&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id="git-branchcheckout"&gt;但是&lt;code&gt;git branch&lt;/code&gt;不会显示信拉下来的分支列表，直接checkout就行&lt;a class="headerlink" href="#git-branchcheckout" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h6&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Sun, 29 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-29:git-fu-xi-gong-gu-5.html</guid><category>git</category></item><item><title>TLCL 看书笔记(1)</title><link>/tlcl-kan-shu-bi-ji-1.html</link><description>&lt;h6 id="_1"&gt;声明：&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;这不是shell入门文章，&lt;br /&gt;
+这不是TLCL(The Linux Command Line)评语，&lt;br /&gt;
+这甚至不是逻辑清晰的文章，&lt;br /&gt;
+是的，本文逻辑会很混乱，&lt;br /&gt;
+因为这是我的看书笔记． &lt;br /&gt;
+仅供本人日后翻阅，因此本文会有很多胡言乱语，只有本人能看懂．&lt;br /&gt;
+欢迎吐槽，请先绕过！   &lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3 id="1-tlcl"&gt;1. TLCL&lt;a class="headerlink" href="#1-tlcl" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://book.douban.com/subject/6806862/"&gt;The Linux Command Line&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;作者: William E. Shotts, Jr. &lt;/li&gt;
+&lt;li&gt;&lt;img alt="TLCL" src="http://tulparblog.qiniudn.com/blogtlcl1.jpg" /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_2"&gt;笔记开始&lt;a class="headerlink" href="#_2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;cd ~{username}&lt;/code&gt;更改工作目录到用户主目录．&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;（一直用~，但不知道这个的全称）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Linux 没有“文件扩展名”的概念，不像其它一些系统。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个以前没有想到过&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ls ~ /usr&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;可以传两个以上的目录，，好神奇&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有充分的理由证明，ls 可能是用户最常使用的命令。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;之前注意到，自己有一些习惯，如在命令行下无意识中打ls，在vi中保存生疏命令&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ls 命令的“-l”选项，则结果以长模式输出。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;“l” 选项产生长格式输出，“t”选项按文件修改时间的先后来排序。&lt;/p&gt;
+&lt;h5 id="ls"&gt;ls 命令常用的参数&lt;a class="headerlink" href="#ls" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="err"&gt;选项产生长格式输出&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="err"&gt;选项按文件修改时间的先后来排序。&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="err"&gt;列出目录下的所有文件，包括以&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="err"&gt;开头的隐含文件。&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="err"&gt;在每个文件名后输出该文件的大小。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ls命令比较复杂的用法，可参看&lt;a href="http://www.cnblogs.com/peida/archive/2012/10/23/2734829.html"&gt;每天一个linux命令(1)：ls命令&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Linux，有个普遍的观念就是“任何东西都是一个文件”。 随着课程的进行，我们将会明白这句话的真谛。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其他系统不是这样的吗，怎么个不这样法&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;file 命令会打印出文件内容的简单描述&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;picture&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;
+&lt;span class="n"&gt;picture&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;JPEG&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;JFIF&lt;/span&gt; &lt;span class="n"&gt;standard&lt;/span&gt; &lt;span class="mf"&gt;1.01&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;less 程序是早期 Unix 程序 more 的改进版。“less” 这个名字，对习语 “less is more” 开了个玩笑， 这个习语是现代主义建筑师和设计者的座右铭。  &lt;/p&gt;
+&lt;p&gt;记得复制和粘贴技巧！如果你正在使用鼠标，双击文件名，来复制它，然后按下鼠标中键，粘贴文件名到命令行中。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;平时用Crl+Shift+C,好渣啊&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在系统中游玩时，不要害怕粘花惹草。普通用户是很难把东西弄乱的。那是系统管理员的工作！ 如果一个命令抱怨一些事情，不要管它，尽管去玩别的东西。花一些时间四处走走。 系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;MFJ很喜欢翻来翻去（我说的不是在床上哈~~）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大多数安装在系统中的软件包会包含一些文档。在/usr/share/doc 目录下， 我们可以找到按照软件包分类的文档。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;平时可以翻翻&lt;br /&gt;
+如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;crontab&lt;/span&gt;&lt;span class="err"&gt;，&lt;/span&gt; &lt;span class="err"&gt;定义自动运行的任务。&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fstab&lt;/span&gt;&lt;span class="err"&gt;，包含存储设备的列表，以及与他们相关的挂载点。&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;passwd&lt;/span&gt;&lt;span class="err"&gt;，包含用户帐号列表。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;在现在的 Linux 系统中，/media 目录会包含可移除媒体设备的挂载点， 例如 USB 驱动器，CD-ROMs 等等。这些设备连接到计算机之后，会自动地挂载到这个目录结点下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以前，三年前吧,,,大一下学期的样子，入门过linux文件系统,挂载等知识点，现在想想忘完了&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有趣的文件：  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;boot&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;grub&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;grub&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;menu&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lst&lt;/span&gt;&lt;span class="err"&gt;，&lt;/span&gt; &lt;span class="err"&gt;被用来配置启动加载程序。&lt;/span&gt;  
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;boot&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vmlinuz&lt;/span&gt;&lt;span class="err"&gt;，&lt;/span&gt;&lt;span class="n"&gt;Linux&lt;/span&gt; &lt;span class="err"&gt;内核。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;系统内核哈，看到眼前一亮，可以折腾折腾&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个程序要求使用某个包含在名为“foo”文件中的共享资源，但是“foo”经常改变版本号。 这样，在文件名中包含版本号，会是一个好主意，因此管理员或者其它相关方，会知道安装了哪个“foo”版本。 这又会导致一个问题。如果我们更改了共享资源的名字，那么我们必须跟踪每个可能使用了 这个共享资源的程序，当每次这个资源的新版本被安装后，都要让使用了它的程序去寻找新的资源名。 这听起来很没趣。
+这就是符号链接存在至今的原因。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这是一个关于软链接的故事。讲述了软链接活着的意义~~&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Sun, 29 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-29:tlcl-kan-shu-bi-ji-1.html</guid><category>TLCL</category></item><item><title>TLCL 看书笔记(2)</title><link>/tlcl-kan-shu-bi-ji-2.html</link><description>&lt;h3 id="_1"&gt;笔记开始&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;坦诚地说，用图形文件管理器来完成一些由这些命令执行的任务会更容易些。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;cp -u *.html destination&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;那么， 为什么还使用早期的命令行程序呢？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;会有很多小白问这个问题，，，，，，，我总是说不清楚自己为什么喜欢命令行&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;命令行程序，功能强大灵活。虽然图形文件管理器能轻松地实现简单的文件操作，但是对于 复杂的文件操作任务，则使用命令行程序比较容易完成。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;答案来了～这是为什么极客们喜欢用Linux&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ln — 创建硬链接和符号链接&lt;/p&gt;
+&lt;p&gt;mkdir dir1 dir2 dir3&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;原来也可以传多个参数啊，&lt;code&gt;mk blog blog/content&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;接受文件名作为参数的任何命令，都可以使用通配符&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;到目前为止，我以为通配符就是正则，，难道我有错吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cp item... directory&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;原来能一次性复制好多文件，　三个点表示能接受多个参数&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;cp file1 file2&lt;/code&gt; 复制文件 file1 内容到文件 file2。
+如果 file2 已经存在，file2 的内容会被 file1 的 内容重写。
+如果 file2 不存在，则会创建 file2。
+&lt;code&gt;cp -i file1 file2&lt;/code&gt; 这条命令和上面的命令一样，除了如果文件 file2 存在的话，在文件 file2 被重写之前，会提示用户确认信息。
+&lt;code&gt;cp file1 file2 dir1&lt;/code&gt; 复制文件 file1 和文件 file2 到目录 dir1。目录 dir1 必须存在。
+&lt;code&gt;cp dir1/* dir2&lt;/code&gt; 使用一个通配符，在目录 dir1 中的所有文件都被复制到目录 dir2 中。 dir2 必须已经存在。
+&lt;code&gt;cp -r dir1 dir2&lt;/code&gt; 这里的&lt;code&gt;r&lt;/code&gt;参数是递归的意思，如下&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cp&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;R&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;recursive&lt;/span&gt;
+      &lt;span class="n"&gt;copy&lt;/span&gt; &lt;span class="n"&gt;directories&lt;/span&gt; &lt;span class="n"&gt;recursively&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;递归地复制目录及目录中的内容。当复制目录时， 需要这个选项（或者-a 选项）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;当把文件从一个目录复制到另一个目录时，仅复制 目标目录中不存在的文件，或者是文件内容新于目标目录中已经存在的文件。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;force&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;Linux，没有复原命令。一旦你用 rm 删除了一些东西， 它就消失了。Linux 假定你很聪明，你知道你在做什么。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;曾经亲身经历过这么悲催的事情，，，那是一个蛋疼的上午和中午，我写了一个上午的代码啊～～本来我想删swp文件的，一不小心．．．当时我是正准备commit 的&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;小贴士。 无论什么时候，rm 命令用到通配符（除了仔细检查输入的内容外！）， 用 ls 命令来测试通配符。这会让你看到要删除的文件列表。然后按下上箭头按键，重新调用 刚刚执行的命令，用 rm 替换 ls。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;嗯嗯，当构造复杂的通配符时，可以先用这个技巧验证一下&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;符号链接是文件的特殊类型，它包含一个指向 目标文件或目录的文本指针。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;普通文件是由文件名和指针组成
+符号链接是由文件名和指向目标文件的指针
+我的理解对吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;符号链接类似Windows的快捷方式
+当然，符号链接早于 Windows 的快捷方式 很多年;-)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作者很逗，总是在讽刺widows的抄袭(这是软链接的笔记，不知怎么的跑到这里了)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个程序要求使用某个包含在名为“foo”文件中的共享资源，但是“foo”经常改变版本号。 这样，在文件名中包含版本号，会是一个好主意，因此管理员或者其它相关方，会知道安装了哪个“foo”版本。 这又会导致一个问题。如果我们更改了共享资源的名字，那么我们必须跟踪每个可能使用了 这个共享资源的程序，当每次这个资源的新版本被安装后，都要让使用了它的程序去寻找新的资源名。 这听起来很没趣。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这就是符号链接存在至今的原因。
+这是一个关于软链接的故事。讲述了软链接活着的意义&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="n"&gt;dir1&lt;/span&gt;
+&lt;span class="n"&gt;total&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;me&lt;/span&gt; &lt;span class="n"&gt;me&lt;/span&gt; &lt;span class="mi"&gt;1650&lt;/span&gt; &lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt; &lt;span class="n"&gt;fun&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;hard&lt;/span&gt;
+&lt;span class="n"&gt;lrwxrwxrwx&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;me&lt;/span&gt; &lt;span class="n"&gt;me&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="mi"&gt;2008&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt; &lt;span class="n"&gt;fun&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sym&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;..&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fun&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;dir1 中，fun-sym 的列表说明了它是一个符号链接，通过在第一字段中的首字符"l" 可知，并且它还指向"../fun"，也是正确的。相对于 fun-sym 的存储位置，fun 在它的 上一个目录。同时注意，符号链接文件的长度是6，这是字符串"../fun"所包含的字符数， 而不是符号链接所指向的文件长度&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;不太理解，软链接文件的大小是目标文件名(包括路径名哈，但为什么不是绝对路径啊？)的长度,这是因为&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Linux，有个普遍的观念就是“任何东西都是一个文件”。 随着课程的进行，我们将会明白这句话的真谛。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;明白字面上的意思了，但还没震撼过&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;file 命令会打印出文件内容的简单描述&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;感觉不是很常用啊&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;less 程序是早期 Unix 程序 more 的改进版。“less” 这个名字，对习语 “less is more” 开了个玩笑， 这个习语是现代主义建筑师和设计者的座右铭。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;喜欢Unix这种风格&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;记得复制和粘贴技巧！如果你正在使用鼠标，双击文件名，来复制它，然后按下鼠标中键，粘贴文件名到命令行中&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;见过几次赵宇这样复制粘贴，很实用的样子&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在系统中游玩时，不要害怕粘花惹草。普通用户是很难把东西弄乱的。那是系统管理员的工作！ 如果一个命令抱怨一些事情，不要管它，尽管去玩别的东西。花一些时间四处走走。 系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这话足够风趣，够吸引人&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大多数安装在系统中的软件包会包含一些文档。在/usr/share/doc 目录下， 我们可以找到按照软件包分类的文档。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;平时可以翻翻&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/crontab， 定义自动运行的任务。
+/etc/fstab，包含存储设备的列表，以及与他们相关的挂载点。
+/etc/passwd，包含用户帐号列表。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;自动运行的任务哈，，可以写到一些配置文件里哈&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在现在的 Linux 系统中，/media 目录会包含可移除媒体设备的挂载点， 例如 USB 驱动器，CD-ROMs 等等。这些设备连接到计算机之后，会自动地挂载到这个目录结点下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;曾经学过怎么挂载硬盘或U盘，现在忘记了，因为Ubuntu的自动挂载&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;type－显示命令的类型&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="n"&gt;ls&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;alias&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;tty&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="n"&gt;cp&lt;/span&gt;    
+&lt;span class="n"&gt;cp&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cp&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;alias – 创建命令别名&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;alias&lt;/span&gt; &lt;span class="n"&gt;fj&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;tulpar&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;由于阅读难度而能拿到特等奖的手册页应该是 bash 手册页。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;哈哈哈，所以我刚刚才跨国&lt;code&gt;man&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;zless 可以显示由gzip 压缩的文本文件的内容。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;直接解压看不行吗，非要个这样的命令吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;可以把多个命令放在同一行上，命令之间 用";"分开。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个知识点实用，必须掌握&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;alias foo='cd /usr; ls; cd -'&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;想知道重新登录这个配置还在吗?
+肯定不在了哈...所以写到&lt;code&gt;.bashrc&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;grep － 打印匹配行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;神一样的命令终于出现了，看到这里我再次确定这是一本好书了
+话说XX推荐用&lt;a href="http://beyondgrep.com/"&gt;ACK&lt;/a&gt;替代grep&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Sun, 29 Mar 2015 00:00:00 +0800</pubDate><guid>tag:,2015-03-29:tlcl-kan-shu-bi-ji-2.html</guid><category>TLCL</category></item></channel></rss>

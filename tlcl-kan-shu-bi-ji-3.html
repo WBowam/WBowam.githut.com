@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="tulpar" />
-        <meta name="copyright" content="tulpar" />
+        <meta name="author" content="Won" />
+        <meta name="copyright" content="Won" />
 
 <meta name="keywords" content="TLCL, Reading, " />
-        <title>TLCL 看书笔记(3)  · Dreaming
+        <title>TLCL 看书笔记(3)  · Tugqi Biz
 </title>
         <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="/"><span class=site-name>Dreaming</span></a>
+                    <a class="brand" href="/"><span class=site-name>Tugqi Biz</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
                             <li ><a href="">Home</a></li>
@@ -58,7 +58,7 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
 
-            <h3>笔记开始</h3>
+            <h3 id="_1">笔记开始<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>命令行最酷的特性。它叫做 I/O 重定向</p>
 </blockquote>
@@ -105,7 +105,7 @@
 <blockquote>
 <p>有时候吧结果输出到另外一个文件很有用处．</p>
 </blockquote>
-<h4>实例（干货来也）</h4>
+<h4 id="_2">实例（干货来也）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span class="cp">#看看标准输入，标准输出和标准错误</span>
 <span class="err">$</span> <span class="n">ls</span> <span class="n">test</span> <span class="n">test1</span><span class="p">.</span><span class="n">txt</span>   
 <span class="nl">ls:</span> <span class="n">cannot</span> <span class="n">access</span> <span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="o">:</span> <span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span>
@@ -156,7 +156,7 @@
 
 
 <p>一直在说标准输出和标准错误</p>
-<h4>重定向标准输入</h4>
+<h4 id="_3">重定向标准输入<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>cat 命令读取一个或多个文件，然后重定向它们到标准输出</p>
 </blockquote>
@@ -213,7 +213,7 @@
 
 
 <p>第二个和第三个例子里，为什么先执行后面呢？</p>
-<h4>管道</h4>
+<h4 id="_4">管道<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>使用管道操作符"|"(竖杠),一个命令的 标准输出可以管道到另一个命令的标准输入</p>
 </blockquote>
@@ -222,7 +222,7 @@
 
 
 <p>命令一的标准输出重定向到命令二的标准输入．如在统计目录内的文件总数<code>ls | wc -l</code></p>
-<h5>过滤器</h5>
+<h5 id="_5">过滤器<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p>管道线经常用来对数据完成复杂的操作。有可能会把几个命令放在一起组成一个管道线。 通常,以这种方式使用的命令被称
 为过滤器。</p>
@@ -248,7 +248,7 @@
 $ ls /bin /usr/bin | sort | uniq | wc -l
 2736</code></p>
 </blockquote>
-<h4><strong>grep</strong></h4>
+<h4 id="grep"><strong>grep</strong><a class="headerlink" href="#grep" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>grep -打印匹配行
 <code>grep pattern [file...]</code>
@@ -257,7 +257,7 @@ grep 能够匹配的模式可以 很复杂,但是现在我们把
 <p>grep :"-i"忽略大小写(通常,搜索是大小写 敏感的),
 <strong>"-v"选项会告诉 grep 只打印不匹配的行。</strong></p>
 </blockquote>
-<h4><strong>tailf</strong></h4>
+<h4 id="tailf"><strong>tailf</strong><a class="headerlink" href="#tailf" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>head / tail -打印文件开头部分/结尾部分
 <code>$ head -n 5 ls-output.txt</code>
