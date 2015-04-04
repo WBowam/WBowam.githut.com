@@ -148,6 +148,17 @@
 <div class="highlight"><pre><span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">newtable</span> <span class="n">LIKE</span> <span class="n">oldtable</span><span class="p">;</span>
 <span class="n">INSERT</span> <span class="n">newtable</span> <span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">oldtable</span><span class="p">;</span> <span class="err">#</span> <span class="k">if</span> <span class="n">necessary</span>
 </pre></div>
+
+
+<p><strong>LOAD DATA INFILE does not work</strong></p>
+<div class="highlight"><pre><span class="nx">Just</span> <span class="nx">change</span> <span class="nx">the</span> <span class="nx">owner</span> <span class="nx">of</span> <span class="nx">a</span> <span class="nx">file.</span>
+
+<span class="mi">1</span><span class="p">)</span> <span class="nx">Check</span> <span class="nx">permissions</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nb">file</span> <span class="k">with</span> <span class="nx">this</span> <span class="nb">command</span><span class="p">:</span>  <span class="nx">ls</span> <span class="na">-lhrt</span> <span class="o">&lt;</span><span class="nb">filename</span><span class="o">&gt;</span>
+
+<span class="mi">2</span><span class="p">)</span> <span class="nx">Then</span> <span class="nx">change</span> <span class="nx">ownership</span><span class="p">:</span>  <span class="nb">chown</span> <span class="nx">mysql.mysql</span> <span class="o">&lt;</span><span class="nb">filename</span><span class="o">&gt;</span>
+
+<span class="mi">3</span><span class="p">)</span> <span class="nx">Now</span> <span class="nx">try</span> <span class="nx">LOAD</span> <span class="kd">DATA</span> <span class="nx">INFILE</span> <span class="nx">command.</span> <span class="nx">It</span> <span class="nx">will</span> <span class="nx">work.</span>
+</pre></div>
             <aside>
             <hr/>
             <nav>
