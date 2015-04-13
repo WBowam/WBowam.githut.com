@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Won" />
+        <meta name="copyright" content="Won" />
+
+<meta name="keywords" content="Git, Github, It, " />
+        <title>git 取消错误的上传  · Tugqi Biz
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="http://wbowam.github.io/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://wbowam.github.io/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://wbowam.github.io/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://wbowam.github.io/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://wbowam.github.io/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://wbowam.github.io/"><span class=site-name>Tugqi Biz</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://wbowam.github.io">Home</a></li>
+                            <li ><a href="http://wbowam.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://wbowam.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://wbowam.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://wbowam.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10">
+    <h1><a href="http://wbowam.github.io/git-qu-xiao-cuo-wu-de-shang-chuan.html"> git 取消错误的上传  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span10 article-content">
+
+            <h5 id="stackoverflow">参考<a href="http://stackoverflow.com/questions/448919/how-can-i-remove-a-commit-on-github">Stackoverflow</a><a class="headerlink" href="#stackoverflow" title="Permanent link">&para;</a></h5>
+<h4 id="_1">通过如下命令显示最近的上传情况<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<p><code>git rebase -i HEAD~3</code>    </p>
+<h6 id="2head10">将会显示最近的2个上传，也可以显示任意个，如<code>HEAD~10</code><a class="headerlink" href="#2head10" title="Permanent link">&para;</a></h6>
+<div class="highlight"><pre><span class="n">pick</span> <span class="n">d877e57</span> <span class="o">%</span><span class="n">s</span>
+<span class="n">pick</span> <span class="n">f032eda</span> <span class="o">%</span><span class="n">s</span>
+<span class="n">pick</span> <span class="n">e545efa</span> <span class="n">jiali</span>
+
+<span class="cp"># Rebase eb78f1f..f032eda onto eb78f1f</span>
+<span class="cp">#</span>
+<span class="cp"># Commands:</span>
+<span class="cp">#  p, pick = use commit</span>
+<span class="cp">#  r, reword = use commit, but edit the commit message</span>
+<span class="cp">#  e, edit = use commit, but stop for amending</span>
+<span class="cp">#  s, squash = use commit, but meld into previous commit</span>
+<span class="cp">#  f, fixup = like &quot;squash&quot;, but discard this commit&#39;s log message</span>
+<span class="cp">#  x, exec = run command (the rest of the line) using shell</span>
+<span class="cp">#</span>
+<span class="cp"># If you remove a line here THAT COMMIT WILL BE LOST.</span>
+<span class="cp"># However, if you remove everything, the rebase will be aborted.</span>
+<span class="cp">#</span>
+</pre></div>
+
+
+<p>再此我想取消，备注为“jiali”的上传，   </p>
+<h4 id="_2">删除第三行<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<h4 id="_3">然后通过下面的命令，强制上传即可<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p><code>git push origin +master</code>   </p>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="http://wbowam.github.io/linux-xiao-ji-qiao-2.html" title="Previous: linux 小技巧（2）">linux 小技巧（2）</a></li>
+ 
+                <li class="next_article"><a href="http://wbowam.github.io/git-ru-men.html" title="Next: Git 入门">Git 入门</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+		    <!-- Duoshuo Comment BEGIN -->
+		    <div class="ds-thread" data-author-key="4433755"></div>
+		    <script type="text/javascript">
+			var duoshuoQuery = {short_name:"tlbog"};
+			(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = 'http://static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			|| document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+		    </script>
+		    <!-- Duoshuo Comment END -->	
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2013-07-23T00:00:00+08:00">Jul 23, 2013</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#It-ref">It</a> 
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#Git-ref">Git
+                    <span>7</span>
+</a></li>
+                <li><a href="/tags.html#Github-ref">Github
+                    <span>1</span>
+</a></li>
+            </ul>
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>

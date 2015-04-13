@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Won" />
+        <meta name="copyright" content="Won" />
+
+<meta name="keywords" content="ssh, IT, " />
+        <title>sshd_config配置  · Tugqi Biz
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="http://wbowam.github.io/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://wbowam.github.io/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://wbowam.github.io/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://wbowam.github.io/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://wbowam.github.io/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://wbowam.github.io/"><span class=site-name>Tugqi Biz</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://wbowam.github.io">Home</a></li>
+                            <li ><a href="http://wbowam.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://wbowam.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://wbowam.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://wbowam.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10">
+    <h1><a href="http://wbowam.github.io/sshd_configpei-zhi.html"> sshd_config配置  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span10 article-content">
+
+            <p>基本上，在您的系统中，『除非有必要，否则请不要更改 /etc/ssh/sshd_config 这个档案的设定值！』因为预设的情况下通常都是最严密的 SSH 保护了，因此，可以不需要更动他！上面的说明仅是在让大家了解每个细项的一些基本内容而已！需要注意的是最后一项，如果您不愿意开放 SFTP 的话，将最后一行批注掉即可！  </p>
+<hr />
+<div class="highlight"><pre><span class="cp">### 1. 关于 SSH Server 的整体设定，包含使用的 port 啦，以及使用的密码演算方式</span>
+<span class="n">Port</span> <span class="mi">22</span><span class="err">　　　　　　　　　　#</span> <span class="n">SSH</span> <span class="err">预设使用</span> <span class="mi">22</span> <span class="err">这个</span> <span class="n">port</span><span class="err">，您也可以使用多的</span> <span class="n">port</span> <span class="err">！</span>
+<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">亦即重复使用</span> <span class="n">port</span> <span class="err">这个设定项目即可！</span>
+<span class="n">Protocol</span> <span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="err">　　　　　　　</span> <span class="err">#</span> <span class="err">选择的</span> <span class="n">SSH</span> <span class="err">协议版本，可以是</span> <span class="mi">1</span> <span class="err">也可以是</span> <span class="mi">2</span> <span class="err">，</span>
+<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">如果要同时支持两者，就必须要使用</span> <span class="mi">2</span><span class="p">,</span><span class="mi">1</span> <span class="err">这个分隔了！</span>
+<span class="cp">#ListenAddress 0.0.0.0　　 # 监听的主机适配卡！举个例子来说，如果您有两个 IP，</span>
+<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">分别是</span> <span class="mf">192.168.0.100</span> <span class="err">及</span> <span class="mf">192.168.2.20</span> <span class="err">，那么只想要</span>
+<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">开放</span> <span class="mf">192.168.0.100</span> <span class="err">时，就可以写如同下面的样式：</span>
+<span class="n">ListenAddress</span> <span class="mf">192.168.0.100</span>          <span class="err">#</span> <span class="err">只监听来自</span> <span class="mf">192.168.0.100</span> <span class="err">这个</span> <span class="n">IP</span> <span class="err">的</span><span class="n">SSH</span><span class="err">联机。</span>
+<span class="err">　　　　　　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">如果不使用设定的话，则预设所有接口均接受</span> <span class="n">SSH</span>
+<span class="n">PidFile</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">sshd</span><span class="p">.</span><span class="n">pid</span><span class="err">　　　　　　#</span> <span class="err">可以放置</span> <span class="n">SSHD</span> <span class="err">这个</span> <span class="n">PID</span> <span class="err">的档案！左列为默认值</span>
+<span class="n">LoginGraceTime</span> <span class="mi">600</span><span class="err">　　　　</span> <span class="err">#</span> <span class="err">当使用者连上</span> <span class="n">SSH</span> <span class="n">server</span> <span class="err">之后，会出现输入密码的画面，</span>
+<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">在该画面中，在多久时间内没有成功连上</span> <span class="n">SSH</span> <span class="n">server</span> <span class="err">，</span>
+<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">就断线！时间为秒！</span>
+<span class="n">Compression</span> <span class="n">yes</span><span class="err">　　　　　　#</span> <span class="err">是否可以使用压缩指令？当然可以啰！</span>
+<span class="err">　</span>
+<span class="cp"># 2. 说明主机的 Private Key 放置的档案，预设使用下面的档案即可！</span>
+<span class="n">HostKey</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">ssh_host_key</span><span class="err">　　　　#</span> <span class="n">SSH</span> <span class="n">version</span> <span class="mi">1</span> <span class="err">使用的私钥</span>
+<span class="n">HostKey</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">ssh_host_rsa_key</span><span class="err">　　#</span> <span class="n">SSH</span> <span class="n">version</span> <span class="mi">2</span> <span class="err">使用的</span> <span class="n">RSA</span> <span class="err">私钥</span>
+<span class="n">HostKey</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">ssh_host_dsa_key</span><span class="err">　　#</span> <span class="n">SSH</span> <span class="n">version</span> <span class="mi">2</span> <span class="err">使用的</span> <span class="n">DSA</span> <span class="err">私钥</span>
+<span class="cp"># 2.1 关于 version 1 的一些设定！</span>
+<span class="n">KeyRegenerationInterval</span> <span class="mi">3600</span><span class="err">　</span> <span class="err">　　　#</span> <span class="err">由前面联机的说明可以知道，</span> <span class="n">version</span> <span class="mi">1</span> <span class="err">会使用</span> 
+<span class="err">　　　　　　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="n">server</span> <span class="err">的</span> <span class="n">Public</span> <span class="n">Key</span> <span class="err">，那么如果这个</span> <span class="n">Public</span> 
+<span class="err">　　　　　　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="n">Key</span> <span class="err">被偷的话，岂不完蛋？所以需要每隔一段时间</span>
+<span class="err">　　　　　　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">来重新建立一次！这里的时间为秒！</span>
+<span class="n">ServerKeyBits</span> <span class="mi">768</span> <span class="err">　　　　　　　　　</span> <span class="err">#</span> <span class="err">没错！这个就是</span> <span class="n">Server</span> <span class="n">key</span> <span class="err">的长度！</span>
+<span class="cp"># 3. 关于登录文件的讯息数据放置与 daemon 的名称！</span>
+<span class="n">SyslogFacility</span> <span class="n">AUTH</span><span class="err">　　　　　　　　　#</span> <span class="err">当有人使用</span> <span class="n">SSH</span> <span class="err">登入系统的时候，</span><span class="n">SSH</span><span class="err">会记录资</span>
+<span class="err">　　　　　　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">讯，这个信息要记录在什么</span> <span class="n">daemon</span> <span class="n">name</span> <span class="err">底下？</span>
+<span class="err">　　　　　　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">预设是以</span> <span class="n">AUTH</span> <span class="err">来设定的，即是</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">secure</span>
+<span class="err">　　　　　　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">里面！什么？忘记了！回到</span> <span class="n">Linux</span> <span class="err">基础去翻一下</span>
+<span class="err">　　　　　　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">其它可用的</span> <span class="n">daemon</span> <span class="n">name</span> <span class="err">为：</span><span class="n">DAEMON</span><span class="p">,</span><span class="n">USER</span><span class="p">,</span><span class="n">AUTH</span><span class="p">,</span>
+<span class="err">　　　　　　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="n">LOCAL0</span><span class="p">,</span><span class="n">LOCAL1</span><span class="p">,</span><span class="n">LOCAL2</span><span class="p">,</span><span class="n">LOCAL3</span><span class="p">,</span><span class="n">LOCAL4</span><span class="p">,</span><span class="n">LOCAL5</span><span class="p">,</span>
+<span class="n">LogLevel</span> <span class="n">INFO</span><span class="err">　　　　　　　　　　　　#</span> <span class="err">登录记录的等级！嘿嘿！任何讯息！</span>
+<span class="err">　　　　　　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">同样的，忘记了就回去参考！</span>
+<span class="cp"># 4. 安全设定项目！极重要！</span>
+<span class="cp"># 4.1 登入设定部分</span>
+<span class="n">PermitRootLogin</span> <span class="n">no</span><span class="err">　　</span> <span class="err">　　#</span> <span class="err">是否允许</span> <span class="n">root</span> <span class="err">登入！预设是允许的，但是建议设定成</span> <span class="n">no</span><span class="err">！</span>
+<span class="n">UserLogin</span> <span class="n">no</span><span class="err">　　　　　　　</span> <span class="err">#</span> <span class="err">在</span> <span class="n">SSH</span> <span class="err">底下本来就不接受</span> <span class="n">login</span> <span class="err">这个程序的登入！</span>
+<span class="n">StrictModes</span> <span class="n">yes</span><span class="err">　　　　　　#</span> <span class="err">当使用者的</span> <span class="n">host</span> <span class="n">key</span> <span class="err">改变之后，</span><span class="n">Server</span> <span class="err">就不接受联机，</span>
+<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">可以抵挡部分的木马程序！</span>
+<span class="cp">#RSAAuthentication yes　　 # 是否使用纯的 RSA 认证！？仅针对 version 1 ！</span>
+<span class="n">PubkeyAuthentication</span> <span class="n">yes</span><span class="err">　</span> <span class="err">#</span> <span class="err">是否允许</span> <span class="n">Public</span> <span class="n">Key</span> <span class="err">？当然允许啦！只有</span> <span class="n">version</span> <span class="mi">2</span>
+<span class="n">AuthorizedKeysFile</span>      <span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span>
+<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">上面这个在设定若要使用不需要密码登入的账号时，那么那个</span>
+<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">账号的存放档案所在档名！</span>
+<span class="cp"># 4.2 认证部分</span>
+<span class="n">RhostsAuthentication</span> <span class="n">no</span><span class="err">　　#</span> <span class="err">本机系统不止使用</span> <span class="p">.</span><span class="n">rhosts</span> <span class="err">，因为仅使用</span> <span class="p">.</span><span class="n">rhosts</span> <span class="err">太</span>
+<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">不安全了，所以这里一定要设定为</span> <span class="n">no</span> <span class="err">！</span>
+<span class="n">IgnoreRhosts</span> <span class="n">yes</span><span class="err">　　　　　</span> <span class="err">#</span> <span class="err">是否取消使用</span> <span class="o">~/</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="p">.</span><span class="n">rhosts</span> <span class="err">来做为认证！当然是！</span>
+<span class="n">RhostsRSAAuthentication</span> <span class="n">no</span> <span class="err">#</span> <span class="err">这个选项是专门给</span> <span class="n">version</span> <span class="mi">1</span> <span class="err">用的，使用</span> <span class="n">rhosts</span> <span class="err">档案在</span>
+<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span><span class="p">.</span><span class="n">equiv</span><span class="err">配合</span> <span class="n">RSA</span> <span class="err">演算方式来进行认证！不要使用</span>
+<span class="n">HostbasedAuthentication</span> <span class="n">no</span> <span class="err">#</span> <span class="err">这个项目与上面的项目类似，不过是给</span> <span class="n">version</span> <span class="mi">2</span> <span class="err">使用的！</span>
+<span class="n">IgnoreUserKnownHosts</span> <span class="n">no</span><span class="err">　　#</span> <span class="err">是否忽略家目录内的</span> <span class="o">~/</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">known_hosts</span> <span class="err">这个档案所记录</span>
+<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">的主机内容？当然不要忽略，所以这里就是</span> <span class="n">no</span> <span class="err">啦！</span>
+<span class="n">PasswordAuthentication</span> <span class="n">yes</span> <span class="err">#</span> <span class="err">密码验证当然是需要的！所以这里写</span> <span class="n">yes</span> <span class="err">啰！</span>
+<span class="n">PermitEmptyPasswords</span> <span class="n">no</span><span class="err">　　#</span> <span class="err">若上面那一项如果设定为</span> <span class="n">yes</span> <span class="err">的话，这一项就最好设定</span>
+<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">为</span> <span class="n">no</span> <span class="err">，这个项目在是否允许以空的密码登入！当然不许！</span>
+<span class="n">ChallengeResponseAuthentication</span> <span class="n">yes</span>  <span class="err">#</span> <span class="err">挑战任何的密码认证！所以，任何</span> <span class="n">login</span><span class="p">.</span><span class="n">conf</span> 
+<span class="err">　　　　　　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">规定的认证方式，均可适用！</span>
+<span class="cp">#PAMAuthenticationViaKbdInt yes      # 是否启用其它的 PAM 模块！启用这个模块将会</span>
+<span class="err">　　　　　　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">导致</span> <span class="n">PasswordAuthentication</span> <span class="err">设定失效！</span>
+<span class="err">　</span>
+<span class="cp"># 4.3 与 Kerberos 有关的参数设定！因为我们没有 Kerberos 主机，所以底下不用设定！</span>
+<span class="cp">#KerberosAuthentication no</span>
+<span class="cp">#KerberosOrLocalPasswd yes</span>
+<span class="cp">#KerberosTicketCleanup yes</span>
+<span class="cp">#KerberosTgtPassing no</span>
+<span class="err">　</span>
+<span class="cp"># 4.4 底下是有关在 X-Window 底下使用的相关设定！</span>
+<span class="n">X11Forwarding</span> <span class="n">yes</span>
+<span class="cp">#X11DisplayOffset 10</span>
+<span class="cp">#X11UseLocalhost yes</span>
+<span class="cp"># 4.5 登入后的项目：</span>
+<span class="n">PrintMotd</span> <span class="n">no</span>              <span class="err">#</span> <span class="err">登入后是否显示出一些信息呢？例如上次登入的时间、地点等</span>
+<span class="err">　　　　　　　　　　　　　#</span> <span class="err">等，预设是</span> <span class="n">yes</span> <span class="err">，但是，如果为了安全，可以考虑改为</span> <span class="n">no</span> <span class="err">！</span>
+<span class="n">PrintLastLog</span> <span class="n">yes</span><span class="err">　　　　　#</span> <span class="err">显示上次登入的信息！可以啊！预设也是</span> <span class="n">yes</span> <span class="err">！</span>
+<span class="n">KeepAlive</span> <span class="n">yes</span><span class="err">　　　　　　</span> <span class="err">#</span> <span class="err">一般而言，如果设定这项目的话，那么</span> <span class="n">SSH</span> <span class="n">Server</span> <span class="err">会传送</span>
+<span class="err">　　　　　　　　　　　　　#</span> <span class="n">KeepAlive</span> <span class="err">的讯息给</span> <span class="n">Client</span> <span class="err">端，以确保两者的联机正常！</span>
+<span class="err">　　　　　　　　　　　　　#</span> <span class="err">在这个情况下，任何一端死掉后，</span> <span class="n">SSH</span> <span class="err">可以立刻知道！而不会</span>
+<span class="err">　　　　　　　　　　　　　#</span> <span class="err">有僵尸程序的发生！</span>
+<span class="n">UsePrivilegeSeparation</span> <span class="n">yes</span> <span class="err">#</span> <span class="err">使用者的权限设定项目！就设定为</span> <span class="n">yes</span> <span class="err">吧！</span>
+<span class="n">MaxStartups</span> <span class="mi">10</span><span class="err">　　　　　　#</span> <span class="err">同时允许几个尚未登入的联机画面？当我们连上</span> <span class="n">SSH</span> <span class="err">，</span>
+<span class="err">　　　　　　　　　　　　　#</span> <span class="err">但是尚未输入密码时，这个时候就是我们所谓的联机画面啦！</span>
+<span class="err">　　　　　　　　　　　　　#</span> <span class="err">在这个联机画面中，为了保护主机，所以需要设定最大值，</span>
+<span class="err">　　　　　　　　　　　　　#</span> <span class="err">预设最多十个联机画面，而已经建立联机的不计算在这十个当中</span>
+<span class="cp"># 4.6 关于使用者抵挡的设定项目：</span>
+<span class="n">DenyUsers</span> <span class="o">*</span><span class="err">　　　　　　　</span> <span class="err">#</span> <span class="err">设定受抵挡的使用者名称，如果是全部的使用者，那就是全部</span>
+<span class="err">　　　　　　　　　　　　　#</span> <span class="err">挡吧！若是部分使用者，可以将该账号填入！例如下列！</span>
+<span class="n">DenyUsers</span> <span class="n">test</span>
+<span class="n">DenyGroups</span> <span class="n">test</span><span class="err">　　　　　</span> <span class="err">#</span> <span class="err">与</span> <span class="n">DenyUsers</span> <span class="err">相同！仅抵挡几个群组而已！</span>
+<span class="cp"># 5. 关于 SFTP 服务的设定项目！</span>
+<span class="n">Subsystem</span>       <span class="n">sftp</span>    <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">sftp</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+
+
+<p>另外，如果您修改过上面这个档案(/etc/ssh/sshd_config)，那么就必需要重新启动一次 sshd 这个 daemon 才行！亦即是：<br />
+<code>/etc/rc.d/init.d/sshd restart</code></p>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="http://wbowam.github.io/sshyuan-li.html" title="Previous: SSH原理">SSH原理</a></li>
+ 
+                <li class="next_article"><a href="http://wbowam.github.io/ubuntu-yong-hu-yong-ming-ling-an-zhuang-virtualbox-438.html" title="Next: Ubuntu 用户用命令安装 VirtualBox 4.3.8">Ubuntu 用户用命令安装 VirtualBox 4.3.8</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+		    <!-- Duoshuo Comment BEGIN -->
+		    <div class="ds-thread" data-author-key="4433755"></div>
+		    <script type="text/javascript">
+			var duoshuoQuery = {short_name:"tlbog"};
+			(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = 'http://static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			|| document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+		    </script>
+		    <!-- Duoshuo Comment END -->	
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2013-12-08T00:00:00+08:00">Dec 8, 2013</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#IT-ref">IT</a> 
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#ssh-ref">ssh
+                    <span>2</span>
+</a></li>
+            </ul>
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>

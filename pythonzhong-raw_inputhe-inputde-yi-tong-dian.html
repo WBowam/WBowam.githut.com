@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Won" />
+        <meta name="copyright" content="Won" />
+
+<meta name="keywords" content="Python, It, " />
+        <title>Python中raw_input和input的异同点  · Tugqi Biz
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="http://wbowam.github.io/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://wbowam.github.io/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://wbowam.github.io/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://wbowam.github.io/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://wbowam.github.io/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://wbowam.github.io/"><span class=site-name>Tugqi Biz</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://wbowam.github.io">Home</a></li>
+                            <li ><a href="http://wbowam.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://wbowam.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://wbowam.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://wbowam.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10">
+    <h1><a href="http://wbowam.github.io/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html"> Python中raw_input和input的异同点  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span10 article-content">
+
+            <p>一般软件做的事情主要就是下面几条：<br />
+· 接受人的输入。 <br />
+· 改变输入。 <br />
+· 打印出改变了的输入  <br />
+                  ———来自&lt;<a href="http://tulpar008.github.io/ben-ban-fa-xue-python.html">笨办法学Python</a>&gt;</p>
+<hr />
+<h3 id="_1">相同点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>这两个函数均用来接收输入，上述真理已足以说明它们的重要性，我不赘述了。</p>
+<h3 id="_2">不同点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><strong>1. raw_input() 直接读取控制台的输入（任何类型的输入它都可以接收）。而对于 input() ，它希望能够读取一个合法的 python 表达式，即你输入字符串的时候必须使用引号将它括起来，否则它会引发一个 SyntaxError 。</strong></p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span><span class="n">a</span><span class="o">=</span><span class="nx">raw_input</span><span class="p">(</span><span class="s2">&quot;请输入字符串，不用写引号：&quot;</span><span class="p">)</span>
+<span class="err">请输入字符串，不用写引号：</span><span class="nx">guoshu</span>
+
+<span class="o">&gt;&gt;&gt;</span><span class="n">b</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入字符串，不写引号试试：&quot;</span><span class="p">)</span>
+<span class="err">请输入字符串，不写引号试试：</span><span class="nx">guoshu</span>
+
+<span class="nx">Traceback</span> <span class="p">(</span><span class="nx">most</span> <span class="nx">recent</span> <span class="nb">call</span> <span class="nb">last</span><span class="p">):</span>
+ <span class="nb">File</span> <span class="s2">&quot;&lt;pyshell#1&gt;&quot;</span><span class="p">,</span> <span class="nb">line</span> <span class="mi">1</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="nx">module</span><span class="o">&gt;</span>
+ <span class="n">input_A</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Input: &quot;</span><span class="p">)</span>
+ <span class="nb">File</span> <span class="s2">&quot;&lt;string&gt;&quot;</span><span class="p">,</span> <span class="nb">line</span> <span class="mi">1</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="nx">module</span><span class="o">&gt;</span>
+<span class="nx">NameError</span><span class="p">:</span> <span class="nb">name</span> <span class="s1">&#39;guoshu&#39;</span> <span class="nx">is</span> <span class="ow">not</span> <span class="nx">defined</span>
+
+<span class="o">&gt;&gt;&gt;</span><span class="n">c</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入字符串，必须写引号：&quot;</span><span class="p">)</span>
+<span class="err">请输入字符串，必须写引号：</span><span class="nx">guoshu</span>
+</pre></div>
+
+
+<p><strong>2. raw_input() 将所有输入作为字符串看待，返回字符串类型。而input() 可接受合法的 python 表达式，包括数字，字符串（有引号才算合法的字符串表达式），其他（如1+2）。</strong></p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span><span class="n">d1</span><span class="o">=</span><span class="n">raw_input</span><span class="p">(</span><span class="s">&quot;raw_input输入数字时：&quot;</span>
+<span class="n">raw_input</span><span class="err">输入数字时：</span><span class="mi">123</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">type</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="n">str</span><span class="err">&#39;</span><span class="o">&gt;</span>
+
+<span class="o">&gt;&gt;&gt;</span><span class="n">d2</span><span class="o">=</span><span class="n">input</span><span class="p">(</span><span class="s">&quot;input输入数字时：&quot;</span><span class="p">)</span>
+<span class="n">input</span><span class="err">输入数字时：</span><span class="mi">123</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">type</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="kt">int</span><span class="err">&#39;</span><span class="o">&gt;</span>
+
+<span class="o">&gt;&gt;&gt;</span><span class="n">e1</span><span class="o">=</span><span class="n">raw_input</span><span class="p">(</span><span class="s">&quot;raw_input输入表达式时：&quot;</span>
+<span class="n">raw_input</span><span class="err">输入表达式时：</span><span class="mi">3</span><span class="o">+</span><span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">type</span><span class="p">(</span><span class="n">e1</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="n">str</span><span class="err">&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">e1</span>
+<span class="err">&#39;</span><span class="mi">3</span><span class="o">+</span><span class="mi">2</span><span class="err">&#39;</span>
+
+<span class="o">&gt;&gt;&gt;</span><span class="n">e2</span><span class="o">=</span><span class="n">input</span><span class="p">(</span><span class="s">&quot;input输入表达式时：&quot;</span>
+<span class="n">input</span><span class="err">输入表达式时：</span><span class="mi">3</span><span class="o">+</span><span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">type</span><span class="p">(</span><span class="n">e2</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="kt">int</span><span class="err">&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">e2</span>
+<span class="mi">5</span>
+</pre></div>
+
+
+<h3 id="_3">看看文档时怎么说滴：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span class="nx">input</span><span class="p">(</span><span class="cp">[</span><span class="nx">prompt</span><span class="cp">]</span><span class="p">)</span>
+<span class="o">*</span> <span class="nx">Equivalent</span> <span class="nx">to</span> <span class="nb">eval</span><span class="p">(</span><span class="nx">raw_input</span><span class="p">(</span><span class="nx">prompt</span><span class="p">)).</span>
+
+<span class="o">*</span> <span class="nx">This</span> <span class="kd">function</span> <span class="nx">does</span> <span class="nx">not</span> <span class="k">catch</span> <span class="nx">user</span> <span class="nx">errors</span><span class="p">.</span> <span class="nx">If</span> <span class="nx">the</span> <span class="nx">input</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">syntactically</span> <span class="nx">valid</span><span class="p">,</span> <span class="nx">a</span> <span class="nx">SyntaxError</span> <span class="nx">will</span> <span class="nx">be</span>          <span class="nx">raised</span><span class="p">.</span> <span class="nx">Other</span> <span class="nx">exceptions</span> <span class="nx">may</span> <span class="nx">be</span> <span class="nx">raised</span> <span class="k">if</span> <span class="nx">there</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">error</span> <span class="nx">during</span> <span class="nx">evaluation</span><span class="p">.</span>
+
+<span class="o">*</span> <span class="nx">If</span> <span class="nx">the</span> <span class="nx">readline</span> <span class="nx">module</span> <span class="nx">was</span> <span class="nx">loaded</span><span class="p">,</span> <span class="nx">then</span> <span class="nx">input</span><span class="p">()</span> <span class="nx">will</span> <span class="nx">use</span> <span class="nx">it</span> <span class="nx">to</span> <span class="nx">provide</span> <span class="nx">elaborate</span> <span class="nx">line</span> <span class="nx">editing</span> <span class="nx">and</span> <span class="nx">history</span> <span class="nx">features</span><span class="p">.</span>
+
+<span class="o">*</span> <span class="nx">Consider</span> <span class="nx">using</span> <span class="nx">the</span> <span class="nx">raw_input</span><span class="p">()</span> <span class="kd">function</span> <span class="k">for</span> <span class="nx">general</span> <span class="nx">input</span> <span class="nx">from</span> <span class="nx">users</span><span class="p">.</span>
+</pre></div>
+
+
+<h5 id="_4">第一点<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
+<p>input() 本质上还是使用 raw_input() 来实现的，只是调用完 raw_input() 之后再调用 <a href="http://tulpar008.github.io/python-exeche-evalyu-ju.html">eval() 函数</a>。</p>
+<h5 id="_5">第四点<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
+<p>除非对 input() 有特别需要，否则一般情况下我们都是推荐使用 raw_input() 来与用户交互。</p>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="http://wbowam.github.io/__init__fang-fa.html" title="Previous: __init__()方法">__init__()方法</a></li>
+ 
+                <li class="next_article"><a href="http://wbowam.github.io/pythonshi-jian-cao-zuo.html" title="Next: Python时间操作">Python时间操作</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+		    <!-- Duoshuo Comment BEGIN -->
+		    <div class="ds-thread" data-author-key="4433755"></div>
+		    <script type="text/javascript">
+			var duoshuoQuery = {short_name:"tlbog"};
+			(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = 'http://static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			|| document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+		    </script>
+		    <!-- Duoshuo Comment END -->	
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-07-08T00:00:00+08:00">Jul 8, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#It-ref">It</a> 
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#Python-ref">Python
+                    <span>13</span>
+</a></li>
+            </ul>
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>

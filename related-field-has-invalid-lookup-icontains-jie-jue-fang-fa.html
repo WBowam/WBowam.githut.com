@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Won" />
+        <meta name="copyright" content="Won" />
+
+<meta name="keywords" content="Django, It, " />
+        <title>related Field has invalid lookup: icontains 解决方法  · Tugqi Biz
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="http://wbowam.github.io/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://wbowam.github.io/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://wbowam.github.io/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://wbowam.github.io/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://wbowam.github.io/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://wbowam.github.io/"><span class=site-name>Tugqi Biz</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://wbowam.github.io">Home</a></li>
+                            <li ><a href="http://wbowam.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://wbowam.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://wbowam.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://wbowam.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10">
+    <h1><a href="http://wbowam.github.io/related-field-has-invalid-lookup-icontains-jie-jue-fang-fa.html"> related Field has invalid lookup: icontains 解决方法  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span10 article-content">
+
+            <p>这种错误常见于：    </p>
+<h5 id="1">1. 后台查询部分，如：<a class="headerlink" href="#1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span class="cp"># 有一个表Category是表Article的category外键，Category有属性叫name，</span>
+<span class="n">class</span> <span class="n">ArticleAdmin</span><span class="p">(</span><span class="n">admin</span><span class="p">.</span><span class="n">ModelAdmin</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="s">&quot;&quot;&quot;</span>
+    <span class="n">A</span> <span class="n">simple</span> <span class="n">AdminModel</span> <span class="k">for</span> <span class="n">Article</span><span class="p">.</span>
+    <span class="s">&quot;&quot;&quot;</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">title</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">category</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>以上情况下肯定会报一个<code>related Field has invalid lookup: icontains</code>错误   </p>
+<h5 id="2">2. 你在其他地方写了查询语句，如以下函数：<a class="headerlink" href="#2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span class="err">@</span><span class="n">classmethod</span>
+    <span class="n">def</span> <span class="n">get_articles</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">CATEGORY</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">TAG</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">NUM</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="o">:</span>
+        <span class="s">&quot;&quot;&quot;</span>
+        <span class="n">A</span> <span class="n">simple</span> <span class="n">classmethod</span><span class="p">.</span>
+        <span class="n">Use</span> <span class="n">Article</span><span class="p">.</span><span class="n">get_articles</span><span class="p">(</span><span class="n">CATEGORY</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">TAG</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">NUM</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="n">to</span> <span class="n">get</span> <span class="n">articles</span> <span class="n">list</span><span class="p">.</span>
+        <span class="s">&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">CATEGORY</span><span class="o">:</span>
+            <span class="n">article_list</span> <span class="o">=</span> <span class="n">cls</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">Q</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Q</span><span class="p">(</span><span class="n">category__icontains</span><span class="o">=</span><span class="n">CATEGORY</span><span class="p">))[</span><span class="o">:</span><span class="n">NUM</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">article_list</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="o">:</span><span class="n">NUM</span><span class="p">]</span>
+</pre></div>
+
+
+<p>如上第二个Q查询里。</p>
+<h4 id="_1">以上两种情况原因都是一样的：设置搜索范围，如果有外键，要注明外键的哪个字段，双下划线。<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">ArticleAdmin</span><span class="p">(</span><span class="n">admin</span><span class="p">.</span><span class="n">ModelAdmin</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="s">&quot;&quot;&quot;</span>
+    <span class="n">A</span> <span class="n">simple</span> <span class="n">AdminModel</span> <span class="k">for</span> <span class="n">Article</span><span class="p">.</span>
+    <span class="s">&quot;&quot;&quot;</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">title</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">category__name</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="err">@</span><span class="n">classmethod</span>
+    <span class="n">def</span> <span class="n">get_articles</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">CATEGORY</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">TAG</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">NUM</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="o">:</span>
+        <span class="s">&quot;&quot;&quot;</span>
+        <span class="n">A</span> <span class="n">simple</span> <span class="n">classmethod</span><span class="p">.</span>
+        <span class="n">Use</span> <span class="n">Article</span><span class="p">.</span><span class="n">get_articles</span><span class="p">(</span><span class="n">CATEGORY</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">TAG</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">NUM</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="n">to</span> <span class="n">get</span> <span class="n">articles</span> <span class="n">list</span><span class="p">.</span>
+        <span class="s">&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">CATEGORY</span><span class="o">:</span>
+            <span class="n">article_list</span> <span class="o">=</span> <span class="n">cls</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">Q</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Q</span><span class="p">(</span><span class="n">category__name__icontains</span><span class="o">=</span><span class="n">CATEGORY</span><span class="p">))[</span><span class="o">:</span><span class="n">NUM</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">article_list</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="o">:</span><span class="n">NUM</span><span class="p">]</span>
+</pre></div>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="http://wbowam.github.io/shi-yong-django-17.html" title="Previous: 试用 Django 1.7">试用 Django 1.7</a></li>
+ 
+                <li class="next_article"><a href="http://wbowam.github.io/i-am-just-testing.html" title="Next: I am just Testing">I am just Testing</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+		    <!-- Duoshuo Comment BEGIN -->
+		    <div class="ds-thread" data-author-key="4433755"></div>
+		    <script type="text/javascript">
+			var duoshuoQuery = {short_name:"tlbog"};
+			(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = 'http://static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			|| document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+		    </script>
+		    <!-- Duoshuo Comment END -->	
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-09-07T00:00:00+08:00">Sep 7, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#It-ref">It</a> 
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#Django-ref">Django
+                    <span>19</span>
+</a></li>
+            </ul>
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>

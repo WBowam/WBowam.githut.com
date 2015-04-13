@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Won" />
+        <meta name="copyright" content="Won" />
+
+<meta name="keywords" content="Xadmin, It, " />
+        <title>Xadmin入门（2）  · Tugqi Biz
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="http://wbowam.github.io/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://wbowam.github.io/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://wbowam.github.io/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://wbowam.github.io/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://wbowam.github.io/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://wbowam.github.io/"><span class=site-name>Tugqi Biz</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://wbowam.github.io">Home</a></li>
+                            <li ><a href="http://wbowam.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://wbowam.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://wbowam.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://wbowam.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10">
+    <h1><a href="http://wbowam.github.io/xadminru-men-2.html"> Xadmin入门（2）  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span10 article-content">
+
+            <h2 id="xadmin">Xadmin 的插件介绍<a class="headerlink" href="#xadmin" title="Permanent link">&para;</a></h2>
+<p>(本来想自己总结一遍的，可太喜欢Xadmin的文档了，言简意赅，排版精美，就直接搬了，望大侠们勿喷）</p>
+<h3 id="1-action">1. Action<a class="headerlink" href="#1-action" title="Permanent link">&para;</a></h3>
+<h4 id="_1">功能<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<p>Action 插件在数据列表页面提供了数据选择功能, 选择后的数据可以经过 Action 做特殊的处理. 默认提供的 Action 为批量删除功能.</p>
+<h4 id="_2">截图<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p><img alt="Action" src="http://xadmin.readthedocs.org/en/docs-chinese/_images/action.png" /></p>
+<h4 id="_3">使用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>开发者可以设置 Model OptionClass 的 actions 属性, 该属性是一个列表, 包含您想启用的 Action 的类. 系统已经默认内置了删除数据的 Action, 当然您可以自己制作 Action 来实现特定的功能, 制作 Action 的实例如下.</p>
+<p>首先要创建一个 Action 类, 该类需要继承 BaseActionView. BaseActionView 是 ModelAdminView 的子类:</p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">xadmin</span><span class="p">.</span><span class="n">plugins</span><span class="p">.</span><span class="n">actions</span> <span class="n">import</span> <span class="n">BaseActionView</span>
+
+<span class="n">class</span> <span class="n">MyAction</span><span class="p">(</span><span class="n">BaseActionView</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="err">#</span> <span class="err">这里需要填写三个属性</span>
+    <span class="n">action_name</span> <span class="o">=</span> <span class="s">&quot;my_action&quot;</span>    <span class="err">#</span><span class="o">:</span> <span class="err">相当于这个</span> <span class="n">Action</span> <span class="err">的唯一标示</span><span class="p">,</span> <span class="err">尽量用比较针对性的名字</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="n">u</span><span class="err">&#39;</span><span class="n">Test</span> <span class="n">selected</span> <span class="o">%</span><span class="p">(</span><span class="n">verbose_name_plural</span><span class="p">)</span><span class="n">s</span><span class="err">&#39;</span><span class="p">)</span> <span class="err">#</span><span class="o">:</span> <span class="err">描述</span><span class="p">,</span> <span class="err">出现在</span> <span class="n">Action</span> <span class="err">菜单中</span><span class="p">,</span> <span class="err">可以使用</span> <span class="err">``</span><span class="o">%</span><span class="p">(</span><span class="n">verbose_name_plural</span><span class="p">)</span><span class="n">s</span><span class="err">``</span> <span class="err">代替</span> <span class="n">Model</span> <span class="err">的名字</span><span class="p">.</span>
+
+    <span class="n">model_perm</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">change</span><span class="err">&#39;</span>    <span class="err">#</span><span class="o">:</span> <span class="err">该</span> <span class="n">Action</span> <span class="err">所需权限</span>
+
+    <span class="err">#</span> <span class="err">而后实现</span> <span class="n">do_action</span> <span class="err">方法</span>
+    <span class="n">def</span> <span class="n">do_action</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">queryset</span><span class="p">)</span><span class="o">:</span>
+        <span class="err">#</span> <span class="n">queryset</span> <span class="err">是包含了已经选择的数据的</span> <span class="n">queryset</span>
+        <span class="k">for</span> <span class="n">obj</span> <span class="n">in</span> <span class="n">queryset</span><span class="o">:</span>
+            <span class="err">#</span> <span class="n">obj</span> <span class="err">的操作</span>
+            <span class="p">...</span>
+        <span class="err">#</span> <span class="err">返回</span> <span class="n">HttpResponse</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(...)</span>
+</pre></div>
+
+
+<p>然后在 Model 的 OptionClass 中使用这个 Action:</p>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">MyModelAdmin</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="n">actions</span> <span class="o">=</span> <span class="p">[</span><span class="n">MyAction</span><span class="p">,</span> <span class="p">]</span>
+</pre></div>
+
+
+<p>这样就完成了自己的 Action</p>
+<h4 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">xadmin</span><span class="p">.</span><span class="n">plugins</span><span class="p">.</span><span class="n">actions</span><span class="p">.</span><span class="n">ActionPlugin</span><span class="p">(</span><span class="n">admin_view</span><span class="p">)</span>
+</pre></div>
+
+
+<h4 id="_4">我的效果如下:       <a href="https://github.com/tulpar008/testing_Xadmin">我的源码在此</a><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p><img alt="Action" src="http://tulparblog.qiniudn.com/xadmin2action.png" /></p>
+<h3 id="2">2. 数据过滤器<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h4 id="_5">功能<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>在数据列表页面提供数据过滤功能, 包括: 模糊搜索, 数字范围搜索, 日期搜索等等</p>
+<h4 id="_6">截图<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p><img alt="数据过滤器" src="http://xadmin.readthedocs.org/en/docs-chinese/_images/filter.png" /></p>
+<h4 id="_7">使用<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>在 Model OptionClass 中设置以下属性:  </p>
+<p><code>list_filter</code> 属性:  </p>
+<p>该属性指定可以过滤的列的名字, 系统会自动生成搜索器  </p>
+<p><code>search_fields</code> 属性:  </p>
+<p>属性指定可以通过搜索框搜索的数据列的名字, 搜索框搜索使用的是模糊查找的方式, 一般用来搜素名字等字符串字段   </p>
+<p><code>free_query_filter</code> 属性:  </p>
+<p>默认为 True , 指定是否可以自由搜索. 如果开启自有搜索, 用户可以通过 url 参数来进行特定的搜索, 例如:  </p>
+<p><code>http://xxx.com/xadmin/auth/user/?name__contains=tony</code>
+使用过滤器的例子:  </p>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">UserAdmin</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">is_staff</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">is_superuser</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">is_active</span><span class="err">&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">username</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">first_name</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">last_name</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">email</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h4 id="_8">制作过滤器<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>您也可以制作自己的过滤器, 用来进行一些特定的过滤. 过滤器需要继承 <code>xadmin.filters.BaseFilter</code> 类, 并使用 <code>xadmin.filters.manager</code> 注册过滤器.</p>
+<h4 id="_9"><a href="https://github.com/tulpar008/testing_Xadmin/tree/master">我的源码在此</a> 我的效果如下<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p><img alt="数据过滤" src="http://tulparblog.qiniudn.com/xadmin2%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4%E5%99%A8.png" /></p>
+<h3 id="3">3. 图表插件<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h4 id="_10">功能<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>在数据列表页面, 跟列表数据生成图表. 可以指定多个数据列, 生成多个图表.</p>
+<h4 id="_11">截图<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p><img alt="图表" src="http://xadmin.readthedocs.org/en/docs-chinese/_images/chart.png" /></p>
+<h4 id="_12">使用<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>在 Model OptionClass 中设定 data_charts 属性, 该属性为 dict 类型, key 是图表的标示名称, value 是图表的具体设置属性. 使用示例:  </p>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">RecordAdmin</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">data_charts</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">&quot;user_count&quot;</span><span class="o">:</span> <span class="p">{</span><span class="err">&#39;</span><span class="n">title</span><span class="err">&#39;</span><span class="o">:</span> <span class="n">u</span><span class="s">&quot;User Report&quot;</span><span class="p">,</span> <span class="s">&quot;x-field&quot;</span><span class="o">:</span> <span class="s">&quot;date&quot;</span><span class="p">,</span> <span class="s">&quot;y-field&quot;</span><span class="o">:</span> <span class="p">(</span><span class="s">&quot;user_count&quot;</span><span class="p">,</span> <span class="s">&quot;view_count&quot;</span><span class="p">),</span> <span class="s">&quot;order&quot;</span><span class="o">:</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">date</span><span class="err">&#39;</span><span class="p">,)},</span>
+        <span class="s">&quot;avg_count&quot;</span><span class="o">:</span> <span class="p">{</span><span class="err">&#39;</span><span class="n">title</span><span class="err">&#39;</span><span class="o">:</span> <span class="n">u</span><span class="s">&quot;Avg Report&quot;</span><span class="p">,</span> <span class="s">&quot;x-field&quot;</span><span class="o">:</span> <span class="s">&quot;date&quot;</span><span class="p">,</span> <span class="s">&quot;y-field&quot;</span><span class="o">:</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">avg_count</span><span class="err">&#39;</span><span class="p">,),</span> <span class="s">&quot;order&quot;</span><span class="o">:</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">date</span><span class="err">&#39;</span><span class="p">,)}</span>
+    <span class="p">}</span>
+</pre></div>
+
+
+<p>图表的主要属性为:   </p>
+<p><code>title</code> : 图表的显示名称  </p>
+<p><code>x-field</code> : 图表的 X 轴数据列, 一般是日期, 时间等  </p>
+<p><code>y-field</code> : 图表的 Y 轴数据列, 该项是一个 list, 可以同时设定多个列, 这样多个列的数据会在同一个图表中显示  </p>
+<p><code>order</code> : 排序信息, 如果不写则使用数据列表的排序  </p>
+<h4 id="api_1">API<a class="headerlink" href="#api_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">xadmin</span><span class="p">.</span><span class="n">plugins</span><span class="p">.</span><span class="n">chart</span><span class="p">.</span><span class="n">ChartsPlugin</span><span class="p">(</span><span class="n">admin_view</span><span class="p">)[</span><span class="n">source</span><span class="p">]</span>
+<span class="n">class</span> <span class="n">xadmin</span><span class="p">.</span><span class="n">plugins</span><span class="p">.</span><span class="n">chart</span><span class="p">.</span><span class="n">ChartsView</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)[</span><span class="n">source</span><span class="p">]</span><span class="err">¶</span>
+</pre></div>
+
+
+<h4 id="_13">我的效果图：不知怎么也没弄出图表。。。。。<a href="https://github.com/tulpar008/testing_Xadmin/tree/master">我的代码在此</a><a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p><img alt="图表" src="http://tulparblog.qiniudn.com/xadmin2%E5%9B%BE%E8%A1%A8%E6%8F%92%E4%BB%B6.png" /></p>
+<h3 id="4">4.数据导出<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h4 id="_14">功能<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p>该插件在数据列表页面提供了数据导出功能, 可以导出 <code>Excel</code>, <code>CSV</code>, <code>XML</code>, <code>json</code> 格式.  </p>
+<h4 id="_15">截图<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p><img alt="数据导出" src="http://xadmin.readthedocs.org/en/docs-chinese/_images/export.png" /></p>
+<h4 id="_16">使用<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<h6 id="note-excel-xlwt">Note：如果想要导出 Excel 数据, 需要安装 xlwt.<a class="headerlink" href="#note-excel-xlwt" title="Permanent link">&para;</a></h6>
+<p>默认情况下, xadmin 会提供 Excel, CSV, XML, json 四种格式的数据导出. 您可以通过设置 OptionClass 的 list_export 属性来指定使用 哪些导出格式 (四种各使用分别用 xls, csv, xml, json 表示), 或是将 list_export 设置为 None 来禁用数据导出功能. 示例如下:</p>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">MyModelAdmin</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="n">list_export</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">xls</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">xml</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">json</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h4 id="_17">我的效果图：不知怎么也没弄出图表。。。。。<a href="https://github.com/tulpar008/testing_Xadmin/tree/master">我的代码在此</a><a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<p><img alt="数据导出" src="http://tulparblog.qiniudn.com/xadmin2%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA.png" /></p>
+<h3 id="5">5. 列表定时刷新<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<h4 id="_18">功能<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p>该插件在数据列表页面提供了定时刷新功能, 对于需要实时刷新列表页面查看即时数据的情况非常有用.</p>
+<h4 id="_19">截图<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<p><img alt="列表刷新" src="http://xadmin.readthedocs.org/en/docs-chinese/_images/refresh.png" /></p>
+<h4 id="_20">使用<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<p>使用数据刷新插件非常简单, 设置 OptionClass 的 refresh_times 属性即可. refresh_times 属性是存有刷新时间的数组. xadmin 默认不开启该插件. 示例如下:</p>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">MyModelAdmin</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="err">#</span> <span class="err">这会显示一个下拉列表</span><span class="p">,</span> <span class="err">用户可以选择</span><span class="mi">3</span><span class="err">秒或</span><span class="mi">5</span><span class="err">秒刷新一次页面</span><span class="p">.</span>
+    <span class="n">refresh_times</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+
+<h4 id="_21">我的效果图：<a href="https://github.com/tulpar008/testing_Xadmin/tree/master">我的代码在此</a><a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<p><img alt="刷新" src="http://tulparblog.qiniudn.com/xadmin2%E5%88%B7%E6%96%B0.png" /></p>
+<h3 id="6">6. 显示数据详情<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<h4 id="_22">功能<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<p>该插件可以在列表页中显示相关字段的详细信息, 使用 Ajax 在列表页中显示.</p>
+<h4 id="_23">截图<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<p><img alt="数据详情" src="http://xadmin.readthedocs.org/en/docs-chinese/_images/details.png" /></p>
+<h4 id="_24">使用<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<p>使用该插件主要设置 <code>OptionClass</code> 的 <code>show_detail_fields</code>, <code>show_all_rel_details</code> 两个属性. <code>show_detail_fields</code> 属性设置哪些字段要显示详细信息, <code>show_all_rel_details</code> 属性设置时候自动显示所有关联字段的详细信息, 该属性默认为 <code>True</code>. 示例如下:</p>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">MyModelAdmin</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="n">show_detail_fields</span> <span class="o">=</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">group</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">father</span><span class="err">&#39;</span><span class="p">,</span> <span class="p">...]</span>
+</pre></div>
+
+
+<h4 id="_25">每弄出来啊<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<h3 id="7">7. 数据即时编辑<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<h4 id="_26">功能<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h4>
+<p>该插件可以在列表页中即时编辑某字段的值, 使用 Ajax 技术, 无需提交或刷新页面即可完成数据的修改, 对于需要频繁修改的字段(如: 状态)相当有用.</p>
+<h4 id="_27">截图<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h4>
+<p><img alt="即时编辑" src="http://xadmin.readthedocs.org/en/docs-chinese/_images/editable.png" /></p>
+<h4 id="_28">使用<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h4>
+<p>使用该插件主要设置 OptionClass 的 list_editable 属性. list_editable 属性设置哪些字段需要即时修改功能. 示例如下:</p>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">MyModelAdmin</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">price</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">status</span><span class="err">&#39;</span><span class="p">,</span> <span class="p">...]</span>
+</pre></div>
+
+
+<h4 id="_29">我的效果图<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h4>
+<p><img alt="即时编辑" src="http://tulparblog.qiniudn.com/xadmin2%E5%8D%B3%E6%97%B6%E7%BC%96%E8%BE%91.png" /></p>
+<h3 id="8">8.改主题的插件<a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
+<p>在<code>adminx.py</code>中加入下面代码：   </p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">xadmin</span> <span class="n">import</span> <span class="n">views</span>
+<span class="n">class</span> <span class="n">BaseSetting</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">enable_themes</span> <span class="o">=</span> <span class="n">True</span>
+    <span class="n">use_bootswatch</span> <span class="o">=</span> <span class="n">True</span>
+<span class="n">xadmin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">views</span><span class="p">.</span><span class="n">BaseAdminView</span><span class="p">,</span><span class="n">BaseSetting</span><span class="p">)</span>
+</pre></div>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="http://wbowam.github.io/yu-men-de-fa-xian-yi-ge-shuang-bao-tai-shi-xiong.html" title="Previous: 郁闷的发现一个双胞胎师兄">郁闷的发现一个双胞胎师兄</a></li>
+ 
+                <li class="next_article"><a href="http://wbowam.github.io/ueditorzai-djangozhong-de-shi-yong.html" title="Next: Ueditor在Django中的使用">Ueditor在Django中的使用</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+		    <!-- Duoshuo Comment BEGIN -->
+		    <div class="ds-thread" data-author-key="4433755"></div>
+		    <script type="text/javascript">
+			var duoshuoQuery = {short_name:"tlbog"};
+			(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = 'http://static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			|| document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+		    </script>
+		    <!-- Duoshuo Comment END -->	
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-06-13T00:00:00+08:00">Jun 13, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#It-ref">It</a> 
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#Xadmin-ref">Xadmin
+                    <span>4</span>
+</a></li>
+            </ul>
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>

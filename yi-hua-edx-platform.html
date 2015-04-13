@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Won" />
+        <meta name="copyright" content="Won" />
+
+<meta name="keywords" content="Edx, IT, " />
+        <title>汉化edx-platform  · Tugqi Biz
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="http://wbowam.github.io/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://wbowam.github.io/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://wbowam.github.io/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://wbowam.github.io/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://wbowam.github.io/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://wbowam.github.io/"><span class=site-name>Tugqi Biz</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://wbowam.github.io">Home</a></li>
+                            <li ><a href="http://wbowam.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://wbowam.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://wbowam.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://wbowam.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10">
+    <h1><a href="http://wbowam.github.io/yi-hua-edx-platform.html"> 汉化edx-platform  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span10 article-content">
+
+            <h5 id="edx-paltform">搭建好edx-paltform 之后，需要定制：汉化，处理视频存储问题，定制前台。<a class="headerlink" href="#edx-paltform" title="Permanent link">&para;</a></h5>
+<h5 id="fmyzjs">此文讲解汉化。谢谢<a href="http://d.edustack.org/t/edx-platform/40">fmyzjs</a>，<a href="http://www.idefs.comr/recordsedx-platform-internationalization-i18n.html">竹轩小站</a><a class="headerlink" href="#fmyzjs" title="Permanent link">&para;</a></h5>
+<h3 id="1">1.准备<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>基本的linux运维知识</li>
+<li>部署成功的edx平台（如果没有可以去edustack.org下载我们的测试镜像）</li>
+<li>transifex账号（OpenEdx翻译项目是在transifex.com上，有兴趣的同学可以参与进来）</li>
+<li>耐心
+最后提醒，请不要使用root用户，必要时请使用sudo，如果您执意，GoodBye!</li>
+</ul>
+<hr />
+<h3 id="2transifex">2.安装transifex客户端<a class="headerlink" href="#2transifex" title="Permanent link">&para;</a></h3>
+<p><code>sudo apt-get install transifex-client</code></p>
+<h3 id="3transifex">3.在用户家目录新建transifex配置文件并编辑<a class="headerlink" href="#3transifex" title="Permanent link">&para;</a></h3>
+<p><code>vi ~/.transifexrc</code></p>
+<h5 id="_1">写入以下内容<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span class="k">[https://www.transifex.com]</span>
+<span class="na">hostname</span> <span class="o">=</span> <span class="s">https://www.transifex.com</span>
+<span class="na">username</span> <span class="o">=</span> <span class="s">user</span>
+<span class="na">password</span> <span class="o">=</span> <span class="s">pass</span>
+<span class="na">token</span> <span class="o">=</span>
+</pre></div>
+
+
+<h5 id="usernamepasswordtoken">其中请将username和password改成您自己的用户名和密码，token留空<a class="headerlink" href="#usernamepasswordtoken" title="Permanent link">&para;</a></h5>
+<h3 id="4transifexrc">4.修改.transifexrc文件权限<a class="headerlink" href="#4transifexrc" title="Permanent link">&para;</a></h3>
+<p><code>chmod o+rw ~/.transifexrc</code></p>
+<h3 id="5edxapp">5.切换到edxapp用户并加载对应的环境变量<a class="headerlink" href="#5edxapp" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">edxapp</span> <span class="n">bash</span>
+<span class="n">source</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">edxapp</span><span class="o">/</span><span class="n">edxapp_env</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">edxapp</span><span class="o">/</span><span class="n">edx</span><span class="o">-</span><span class="n">platform</span>
+</pre></div>
+
+
+<h3 id="6msenvjson">6.修改＊ms.env.json文件<a class="headerlink" href="#6msenvjson" title="Permanent link">&para;</a></h3>
+<p><code>vim ../lms.env.json</code></p>
+<h5 id="lmsenvjson">lms.env.json添加以下内容<a class="headerlink" href="#lmsenvjson" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span class="s">&quot;USE_I18N&quot;</span><span class="o">:</span> <span class="nb">true</span><span class="p">,</span>
+<span class="s">&quot;LANGUAGE_CODE&quot;</span><span class="o">:</span> <span class="s">&quot;zh-cn&quot;</span>
+</pre></div>
+
+
+<p><code>vim ../cms.env.json</code></p>
+<h5 id="cmsenvjson">cms.env.json添加以下内容<a class="headerlink" href="#cmsenvjson" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span class="s">&quot;USE_I18N&quot;</span><span class="o">:</span> <span class="nb">true</span><span class="p">,</span>
+<span class="s">&quot;LANGUAGE_CODE&quot;</span><span class="o">:</span> <span class="s">&quot;zh-cn&quot;</span>
+</pre></div>
+
+
+<h3 id="7">7.执行翻译（请注意我说的是翻译，不是汉化，因为这不仅仅是汉化）<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span class="n">tx</span> <span class="n">pull</span> <span class="o">-</span><span class="n">l</span> <span class="n">zh_CN</span>
+<span class="n">python</span>  <span class="p">.</span><span class="o">/</span><span class="n">i18n</span><span class="o">/</span><span class="n">generate</span><span class="p">.</span><span class="n">py</span>
+</pre></div>
+
+
+<h3 id="8assets">8.更新assets<a class="headerlink" href="#8assets" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span class="n">paver</span> <span class="n">update_assets</span> <span class="n">lms</span> <span class="o">--</span><span class="n">settings</span> <span class="n">aws</span>
+<span class="n">paver</span> <span class="n">update_assets</span> <span class="n">cms</span> <span class="o">--</span><span class="n">settings</span> <span class="n">aws</span>
+</pre></div>
+
+
+<h3 id="9edxappedxapp">9.退出edxapp用户并重启edxapp<a class="headerlink" href="#9edxappedxapp" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span class="n">exit</span>
+<span class="n">sudo</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">supervisorctl</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">supervisord</span><span class="p">.</span><span class="n">conf</span> <span class="n">restart</span> <span class="n">edxapp</span><span class="o">:</span>
+</pre></div>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="http://wbowam.github.io/linuxte-bie-qiang-da-he-ling-huo-de-ming-ling-xing-gong-ju-1.html" title="Previous: Linux特别强大和灵活的命令行工具 (1)">Linux特别强大和灵活的命令行工具 (1)</a></li>
+ 
+                <li class="next_article"><a href="http://wbowam.github.io/xadminru-men.html" title="Next: Xadmin入门">Xadmin入门</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+		    <!-- Duoshuo Comment BEGIN -->
+		    <div class="ds-thread" data-author-key="4433755"></div>
+		    <script type="text/javascript">
+			var duoshuoQuery = {short_name:"tlbog"};
+			(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = 'http://static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			|| document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+		    </script>
+		    <!-- Duoshuo Comment END -->	
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-02-09T00:00:00+08:00">Feb 9, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#IT-ref">IT</a> 
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#Edx-ref">Edx
+                    <span>4</span>
+</a></li>
+            </ul>
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>

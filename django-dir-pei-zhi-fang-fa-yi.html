@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Won" />
+        <meta name="copyright" content="Won" />
+
+<meta name="keywords" content="Django, It, " />
+        <title>Django Dir 配置（方法一）  · Tugqi Biz
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="http://wbowam.github.io/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://wbowam.github.io/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://wbowam.github.io/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://wbowam.github.io/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://wbowam.github.io/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://wbowam.github.io/"><span class=site-name>Tugqi Biz</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://wbowam.github.io">Home</a></li>
+                            <li ><a href="http://wbowam.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://wbowam.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://wbowam.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://wbowam.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10">
+    <h1><a href="http://wbowam.github.io/django-dir-pei-zhi-fang-fa-yi.html"> Django Dir 配置（方法一）  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span10 article-content">
+
+            <h5 id="env">Env:<a class="headerlink" href="#env" title="Permanent link">&para;</a></h5>
+<ul>
+<li>django==1.4.5</li>
+<li>python==2.7</li>
+<li>ubuntu==13.04</li>
+</ul>
+<hr />
+<h3 id="_1">公用部分<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>settings.py</p>
+<div class="highlight"><pre><span class="cp">##added by Tulpar,20140514</span>
+<span class="n">import</span> <span class="n">os</span>
+<span class="n">settings_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
+<span class="n">PROJECT_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">settings_dir</span><span class="p">))</span>
+</pre></div>
+
+
+<h3 id="media">MEDIA<a class="headerlink" href="#media" title="Permanent link">&para;</a></h3>
+<p>settings.py</p>
+<div class="highlight"><pre><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<p>urls.py</p>
+<div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar</span><span class="p">,</span><span class="mi">20140514</span>
+<span class="nb">from</span> <span class="nx">django.conf</span> <span class="k">import</span> <span class="nx">settings</span>
+
+<span class="nx">urlpatterns</span> <span class="o">+=</span> <span class="nx">patterns</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nb">url</span><span class="p">(</span><span class="nb">r</span><span class="s2">&quot;^media/(?P&lt;path&gt;.*)$&quot;</span><span class="p">,</span><span class="s2">&quot;django.views.static.serve&quot;</span><span class="p">,{</span><span class="s2">&quot;document_root&quot;</span><span class="p">:</span> <span class="nx">settings.MEDIA_ROOT</span><span class="p">,}),</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h3 id="static">STATIC<a class="headerlink" href="#static" title="Permanent link">&para;</a></h3>
+<p>Settings.py</p>
+<div class="highlight"><pre><span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="k">static</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
+
+<span class="n">STATIC_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="k">static</span><span class="o">/</span><span class="err">&#39;</span>
+
+<span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="err">#</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="k">static</span><span class="o">/</span><span class="err">&#39;</span><span class="p">),</span>
+    <span class="p">)</span>
+</pre></div>
+
+
+<p>url.py</p>
+<div class="highlight"><pre><span class="nb">from</span> <span class="nx">django.conf</span> <span class="k">import</span> <span class="nx">settings</span>
+<span class="nx">urlpatterns</span> <span class="o">+=</span> <span class="nx">patterns</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nb">url</span><span class="p">(</span><span class="nb">r</span><span class="s2">&quot;^static/(?P&lt;path&gt;.*)$&quot;</span><span class="p">,</span><span class="s2">&quot;django.views.static.serve&quot;</span><span class="p">,{</span><span class="s2">&quot;document_root&quot;</span><span class="p">:</span> <span class="nx">settings.STATIC_ROOT</span><span class="p">,}),</span>
+    <span class="p">)</span>
+</pre></div>
+
+
+<h3 id="template">TEMPLATE<a class="headerlink" href="#template" title="Permanent link">&para;</a></h3>
+<p>settings.py   </p>
+<div class="highlight"><pre><span class="n">TEMPLATE_DIRS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">templates</span><span class="o">/</span><span class="err">&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="http://wbowam.github.io/pep8-zong-jie.html" title="Previous: PEP8 总结">PEP8 总结</a></li>
+ 
+                <li class="next_article"><a href="http://wbowam.github.io/bu-shu-socketio-de-demo.html" title="Next: 部署Socket.io 的demo">部署Socket.io 的demo</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+		    <!-- Duoshuo Comment BEGIN -->
+		    <div class="ds-thread" data-author-key="4433755"></div>
+		    <script type="text/javascript">
+			var duoshuoQuery = {short_name:"tlbog"};
+			(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = 'http://static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			|| document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+		    </script>
+		    <!-- Duoshuo Comment END -->	
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-05-14T00:00:00+08:00">May 14, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#It-ref">It</a> 
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#Django-ref">Django
+                    <span>19</span>
+</a></li>
+            </ul>
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>

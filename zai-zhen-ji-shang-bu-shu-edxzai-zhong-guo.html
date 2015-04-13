@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Won" />
+        <meta name="copyright" content="Won" />
+
+<meta name="keywords" content="Edx, IT, " />
+        <title>在真机上部署Edx（在中国）  · Tugqi Biz
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="http://wbowam.github.io/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://wbowam.github.io/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://wbowam.github.io/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://wbowam.github.io/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://wbowam.github.io/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://wbowam.github.io/"><span class=site-name>Tugqi Biz</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://wbowam.github.io">Home</a></li>
+                            <li ><a href="http://wbowam.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://wbowam.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://wbowam.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://wbowam.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10">
+    <h1><a href="http://wbowam.github.io/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html"> 在真机上部署Edx（在中国）  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span10 article-content">
+
+            <h3 id="1-update-your-ubuntu-package-sources">1. Update your Ubuntu package sources<a class="headerlink" href="#1-update-your-ubuntu-package-sources" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+
+
+<h3 id="2sshuttle">2.用sshuttle翻墙<a class="headerlink" href="#2sshuttle" title="Permanent link">&para;</a></h3>
+<p>(ubuntu下)首先安装它: <br />
+<code>sudo apt-get install sshuttle</code> <br />
+<code>sshuttle -r action@apne1.nitrousbox.com:22411 0.0.0.0/0 -vv</code>  <br />
+搞定 , 就这么简单 注意action@apne1.nitrousbox.com:22411是我的ssh,你可以用你自己的,格式为username@sshserver,
+我把sshserver理解为跳板机,在我的需求中,需要有一个国外的ssh账号,你有国外的vps的话就好办了,没有也没关系,感谢云平台的的兴起,我们只要注册(nitrous)[https://www.nitrous.io],就能有一个免费的ssh账号.</p>
+<p>如果你使用(nitrous)[https://www.nitrous.io]记得每次使用时登录后把它打开.</p>
+<h3 id="3one-step-installation">3.One step installation<a class="headerlink" href="#3one-step-installation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span class="n">wget</span> <span class="n">https</span><span class="o">:</span><span class="c1">//raw.github.com/edx/configuration/master/util/install/vagrant.sh -O - | bash</span>
+</pre></div>
+
+
+<h3 id="4">4.防止出错<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h6 id="nltk">上一步中，因为自动化脚本涉及到下载nltk包，由于我们翻墙了，网速可能会较慢，长时间下载（很有可能会出错），我们不想等待，如下操作。当然，如果你执意要等，不用做如下的操作<a class="headerlink" href="#nltk" title="Permanent link">&para;</a></h6>
+<h4 id="nltk_1">手动下载nltk<a class="headerlink" href="#nltk_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span class="n">cd</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">tmp</span>
+<span class="n">wget</span> <span class="n">http</span><span class="o">:</span><span class="c1">//edx-static.s3.amazonaws.com/nltk/nltk-data-20131113.tar.gz</span>
+<span class="n">chmod</span> <span class="n">o</span><span class="o">+</span><span class="n">rw</span> <span class="n">nltk</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="mf">20131113.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+</pre></div>
+
+
+<p>修改<code>/var/tmp/configuration/playbooks/edx-east/roles/ora/tasks/ease.yml</code> 中的<code>download and install nltk</code>任务内容为:</p>
+<div class="highlight"><pre><span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">download</span> <span class="n">and</span> <span class="n">install</span> <span class="n">nltk</span>
+  <span class="nl">shell:</span> <span class="o">|</span>
+      <span class="n">set</span> <span class="o">-</span><span class="n">e</span>
+      <span class="n">cp</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">nltk</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="mf">20131113.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span> <span class="p">{{</span> <span class="n">ora_nltk_tmp_file</span> <span class="p">}}</span>
+      <span class="n">tar</span> <span class="n">zxf</span> <span class="p">{{</span> <span class="n">ora_nltk_tmp_file</span> <span class="p">}}</span>
+      <span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="p">{{</span> <span class="n">ora_nltk_tmp_file</span> <span class="p">}}</span>
+      <span class="n">touch</span> <span class="p">{{</span> <span class="n">ora_nltk_download_url</span><span class="o">|</span><span class="n">basename</span> <span class="p">}}</span><span class="o">-</span><span class="n">installed</span>
+        <span class="n">creates</span><span class="o">=</span><span class="p">{{</span> <span class="n">ora_data_dir</span> <span class="p">}}</span><span class="o">/</span><span class="p">{{</span> <span class="n">ora_nltk_download_url</span><span class="o">|</span><span class="n">basename</span> <span class="p">}}</span><span class="o">-</span><span class="n">installed</span>
+        <span class="n">chdir</span><span class="o">=</span><span class="p">{{</span> <span class="n">ora_data_dir</span> <span class="p">}}</span>
+  <span class="nl">sudo_user:</span> <span class="s">&quot;{{ common_web_user }}&quot;</span>
+  <span class="nl">notify:</span>
+    <span class="o">-</span> <span class="n">restart</span> <span class="n">ora</span>
+    <span class="o">-</span> <span class="n">restart</span> <span class="n">ora_celery</span>
+</pre></div>
+
+
+<p>修改<code>/var/tmp/configuration/playbooks/edx-east/roles/discern/tasks/deploy.yml</code> 中的<code>download and install nltk</code>任务内容为</p>
+<div class="highlight"><pre><span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">download</span> <span class="n">and</span> <span class="n">install</span> <span class="n">nltk</span>
+  <span class="nl">shell:</span> <span class="o">|</span>
+      <span class="n">set</span> <span class="o">-</span><span class="n">e</span>
+      <span class="n">cp</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">nltk</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="mf">20131113.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span> <span class="p">{{</span> <span class="n">discern_nltk_tmp_file</span> <span class="p">}}</span>
+      <span class="n">tar</span> <span class="n">zxf</span> <span class="p">{{</span> <span class="n">discern_nltk_tmp_file</span> <span class="p">}}</span>
+      <span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="p">{{</span> <span class="n">discern_nltk_tmp_file</span> <span class="p">}}</span>
+      <span class="n">touch</span> <span class="p">{{</span> <span class="n">discern_nltk_download_url</span><span class="o">|</span><span class="n">basename</span> <span class="p">}}</span><span class="o">-</span><span class="n">installed</span>
+        <span class="n">creates</span><span class="o">=</span><span class="p">{{</span> <span class="n">discern_data_dir</span> <span class="p">}}</span><span class="o">/</span><span class="p">{{</span> <span class="n">discern_nltk_download_url</span><span class="o">|</span><span class="n">basename</span> <span class="p">}}</span><span class="o">-</span><span class="n">installed</span>
+        <span class="n">chdir</span><span class="o">=</span><span class="p">{{</span> <span class="n">discern_data_dir</span> <span class="p">}}</span>
+  <span class="nl">sudo_user:</span> <span class="s">&quot;{{ discern_user }}&quot;</span>
+  <span class="nl">notify:</span>
+    <span class="o">-</span> <span class="n">restart</span> <span class="n">discern</span>
+</pre></div>
+
+
+<h5 id="django143">手动安装<code>django==1.4.3</code><a class="headerlink" href="#django143" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">venvs</span><span class="o">/</span><span class="n">ora</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span><span class="o">==</span><span class="mf">1.4.3</span>
+</pre></div>
+
+
+<p>将<code>/edx/app/ora/ora/requirements.txt</code>里的<code>django==1.4.3</code>注释掉</p>
+<hr />
+<h6 id="_1">安装的过程中，可能因为各种原因自动化脚本报错而停止，修复完问题后，可用如下命令从出错的位置开始执行<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h6>
+<p><code>cd /var/tmp/configuration/playbooks &amp;&amp; sudo ansible-playbook -c local ./edx_sandbox.yml -i "localhost,"</code></p>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="http://wbowam.github.io/fan-qiang-zhi-dian-nao-pian.html" title="Previous: 翻墙之电脑篇">翻墙之电脑篇</a></li>
+ 
+                <li class="next_article"><a href="http://wbowam.github.io/edx_errors.html" title="Next: Edx_errors">Edx_errors</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+		    <!-- Duoshuo Comment BEGIN -->
+		    <div class="ds-thread" data-author-key="4433755"></div>
+		    <script type="text/javascript">
+			var duoshuoQuery = {short_name:"tlbog"};
+			(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = 'http://static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			|| document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+		    </script>
+		    <!-- Duoshuo Comment END -->	
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-04-08T00:00:00+08:00">Apr 8, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#IT-ref">IT</a> 
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#Edx-ref">Edx
+                    <span>4</span>
+</a></li>
+            </ul>
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>
