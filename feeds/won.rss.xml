@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tugqi Biz</title><link>http://wbowam.github.io/</link><description></description><atom:link href="http://wbowam.github.io/feeds/won.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 01 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>为什么喜欢Linux</title><link>http://wbowam.github.io/wei-shi-yao-xi-huan-linux.html</link><description>&lt;p&gt;曾经有很多人问我，Windows界面那么好看，Windows用起来那么方便，为什么还说喜欢用Linux？　　　　　&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tugqi Biz</title><link>http://wbowam.github.io/</link><description></description><atom:link href="http://wbowam.github.io/feeds/won.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 01 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>为什么喜欢Liniux 2</title><link>http://wbowam.github.io/wei-shi-yao-xi-huan-liniux-2.html</link><description>&lt;p&gt;曾经有很多人问我，Windows界面那么好看，Windows用起来那么方便，为什么还说喜欢用Linux？　　　　　&lt;/p&gt;
 &lt;p&gt;我从未回答，因为我很难说清楚，我喜欢Linux不是因为装B~~&lt;/p&gt;
 &lt;p&gt;今天有了答案，感谢&lt;code&gt;William E. Shotts, Jr.&lt;/code&gt;    &lt;/p&gt;
 &lt;hr /&gt;
@@ -16,7 +16,7 @@
 然后你开始摆弄它。你建造了一个又一个样板模型。  &lt;br /&gt;
 过了一会儿,你发现你要建造自己的模型。 你不必返回商店,因为你已经拥有了你需要的一切。 &lt;br /&gt;
 建造模型以你构想的形状为模板,搭建 你想要的模型。&lt;/p&gt;
-&lt;p&gt;当然,选择哪一个玩具,是你的事情,那么你觉得哪个玩具更令人满意呢?&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Wed, 01 Apr 2015 00:00:00 +0800</pubDate><guid>tag:wbowam.github.io,2015-04-01:wei-shi-yao-xi-huan-linux.html</guid><category>Linux</category><category>TLCL</category></item><item><title>Linux分割文件</title><link>http://wbowam.github.io/linuxfen-ge-wen-jian.html</link><description>&lt;h4 id="_1"&gt;闲聊&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;当然,选择哪一个玩具,是你的事情,那么你觉得哪个玩具更令人满意呢?&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Wed, 01 Apr 2015 00:00:00 +0800</pubDate><guid>tag:wbowam.github.io,2015-04-01:wei-shi-yao-xi-huan-liniux-2.html</guid><category>Linux</category><category>TLCL</category></item><item><title>Linux分割文件</title><link>http://wbowam.github.io/linuxfen-ge-wen-jian.html</link><description>&lt;h4 id="_1"&gt;闲聊&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;抓取回来的英文资料需要翻译，当然用google翻译API　　　
 一行行的翻译，一行大概687ms，两万多行，　　
 汗！！需要几个小时啊！！不能接受！我要并发！！！！
