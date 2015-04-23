@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Won" />
+        <meta name="copyright" content="Won" />
+
+<meta name="keywords" content="Django, IT, " />
+        <title>优化Django项目  · Tugqi Biz
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://wbowam.github.io/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="http://wbowam.github.io/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://wbowam.github.io/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://wbowam.github.io/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://wbowam.github.io/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://wbowam.github.io/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="http://wbowam.github.io/theme/images/apple-touch-icon-144x144.png" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://wbowam.github.io/"><span class=site-name>Tugqi Biz</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://wbowam.github.io">Home</a></li>
+                            <li ><a href="http://wbowam.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://wbowam.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://wbowam.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://wbowam.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10">
+    <h1><a href="http://wbowam.github.io/you-hua-djangoxiang-mu.html"> 优化Django项目  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span10 article-content">
+
+            <blockquote>
+<p>优化工作一般是放在后期来做，早期的优化是“万恶之源”</p>
+</blockquote>
+<h3 id="query">加速Query查询<a class="headerlink" href="#query" title="Permanent link">&para;</a></h3>
+<h5 id="1">1. 善于使用批量方法<a class="headerlink" href="#1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span class="nt">Entry</span><span class="nc">.objects.bulk_create</span><span class="o">(</span><span class="cp">[</span>
+    <span class="nb">Entry</span><span class="p">(</span><span class="n">headline</span><span class="o">=</span><span class="s2">&quot;Python 3.0 Released&quot;</span><span class="p">),</span>
+    <span class="nb">Entry</span><span class="p">(</span><span class="n">headline</span><span class="o">=</span><span class="s2">&quot;Python 3.1 Planned&quot;</span><span class="p">)</span>
+<span class="cp">]</span><span class="o">)</span>
+
+<span class="err">#优于</span>
+
+<span class="nt">Entry</span><span class="nc">.objects.create</span><span class="o">(</span><span class="nt">headline</span><span class="o">=</span><span class="s2">&quot;Python 3.0 Released&quot;</span><span class="o">)</span>
+<span class="nt">Entry</span><span class="nc">.objects.create</span><span class="o">(</span><span class="nt">headline</span><span class="o">=</span><span class="s2">&quot;Python 3.1 Planned&quot;</span><span class="o">)</span>
+<span class="err">#前者只连接一次数据库，而后者连接两次。</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="n">my_band</span><span class="p">.</span><span class="n">members</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">me</span><span class="p">,</span> <span class="n">my_friend</span><span class="p">)</span>
+<span class="cp">#优于</span>
+<span class="n">my_band</span><span class="p">.</span><span class="n">members</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">me</span><span class="p">)</span>
+<span class="n">my_band</span><span class="p">.</span><span class="n">members</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">my_friend</span><span class="p">)</span>
+</pre></div>
+
+
+<h5 id="2">2.  对于一次性取出来的关联记录，获取外键的时候，直接取关联表的属性，而不是取关联属性，如：<a class="headerlink" href="#2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span class="n">entry</span><span class="p">.</span><span class="n">blog</span><span class="p">.</span><span class="n">id</span>
+<span class="cp">#优于</span>
+<span class="n">entry</span><span class="p">.</span><span class="n">blog_id</span>
+</pre></div>
+
+
+<h5 id="3-querysets">3. QuerySets是有缓存的，一旦取出来，它就会在内存里呆上一段时间，尽量重用它，如下<a class="headerlink" href="#3-querysets" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">entry</span><span class="p">.</span><span class="n">blog</span>   <span class="err">#</span> <span class="err">博客实体第一次取出，是要访问数据库的</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">entry</span><span class="p">.</span><span class="n">blog</span>   <span class="err">#</span> <span class="err">第二次再用，那它就是缓存里的实体了，不再访问数据库</span>
+</pre></div>
+
+
+<p>但是，all，count exists是调用函数，需要连接数据库处理结果的，如</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">entry</span><span class="p">.</span><span class="n">authors</span><span class="p">.</span><span class="n">all</span><span class="p">()</span>   <span class="err">#</span> <span class="err">第一次</span><span class="n">all</span><span class="err">函数会查询数据库</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">entry</span><span class="p">.</span><span class="n">authors</span><span class="p">.</span><span class="n">all</span><span class="p">()</span>   <span class="err">#</span> <span class="err">第二次</span><span class="n">all</span><span class="err">函数还会查询数据库</span>
+</pre></div>
+
+
+<h5 id="4-querysetselect_related-prefetch_related">4.  单一动作（如：同一个页面）需要多次连接数据库时，最好一次性取出所有需要的数据，减少连接数据库次数。此类需求推荐使用QuerySet.select_related() 和 prefetch_related()<a class="headerlink" href="#4-querysetselect_related-prefetch_related" title="Permanent link">&para;</a></h5>
+<h5 id="5-templatesquerysetvalues-values_listdictlist">5. 相反，别取出你不需要的东西，模版templates里往往只需要实体的某几个字段而不是全部，这时QuerySet.values() 和 values_list()，对你有用，它们只取你需要的字段，返回字典dict和列表list类型的东西，在模版里够用即可，这可减少内存损耗，提高性能。<a class="headerlink" href="#5-templatesquerysetvalues-values_listdictlist" title="Permanent link">&para;</a></h5>
+<h5 id="6-querysetdeferonlydjangopythonquerysetdeferonlydefer">6. QuerySet.defer()和only()对提高性能也有很大的帮助，一个实体里可能有不少的字段，有些字段包含很多元数据，比如博客的正文，很多字符组成，Django获取实体时（取出实体过程中会进行一些python类型转换工作），我们可以延迟大量元数据字段的处理，只处理需要的关键字段，这时QuerySet.defer()就派上用场了，在函数里传入需要延时处理的字段即可；而only()和defer()是相反功能。<a class="headerlink" href="#6-querysetdeferonlydjangopythonquerysetdeferonlydefer" title="Permanent link">&para;</a></h5>
+<h5 id="7-querysetcountlenquerysetquerysetexistsif-queryset">7. 使用QuerySet.count()代替len(queryset)，同理判断记录存在时，QuerySet.exists()比if queryset实在强得太多了<a class="headerlink" href="#7-querysetcountlenquerysetquerysetexistsif-queryset" title="Permanent link">&para;</a></h5>
+<h5 id="8-queryquery">8. 找到包含过多的query数的页面，并采取措施减少query数<a class="headerlink" href="#8-queryquery" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>在ORM中使用select_related()减少query数: 使用select_related()会自动扩展外键关系, 将外键中的数据提前合并到本次query. 如果使用CBV, django-braces的SelectRelatedMixin达到同样的目地. 但要小心query扩展的过深.</p>
+</li>
+<li>
+<p>如果同样的query发生多次, 那么将其移到view中, 在使用context将其传到template中.</p>
+</li>
+<li>
+<p>使用redis等cache  </p>
+</li>
+<li>
+<p>使用django.utils.functional.cached_property修饰器, 将query结果cache在内存中</p>
+</li>
+</ul>
+<h5 id="9query">9.query提速<a class="headerlink" href="#9query" title="Permanent link">&para;</a></h5>
+<p>获取一个大的query结果同样也会影响速度, 因此我们首先需要:</p>
+<ul>
+<li>
+<p>确保index起到了加速query的作用</p>
+</li>
+<li>
+<p>理解在部署服务器中index的作用, 分析理解数据库中真正发生了什么</p>
+</li>
+<li>
+<p>查看ORM生成的raw SQL语句</p>
+</li>
+<li>
+<p>开启数据库的 slow query logging功能, 并查看慢query发生的频率</p>
+</li>
+<li>
+<p>使用django-debug-toolbar找到慢query</p>
+</li>
+</ul>
+<p>然后我们便可以:</p>
+<ul>
+<li>
+<p>重写代码, 使query获得更小的片段</p>
+</li>
+<li>
+<p>重写代码, 使query更好的利用index</p>
+</li>
+<li>
+<p>使用raw SQL语句代替ORM生成的慢SQL语句</p>
+</li>
+</ul>
+<h3 id="_1">数据库优化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>索引，搜索频率高的字段加上索引   </li>
+<li>使用适当字段类型，如本来varchar就搞定的字段，就别要text类型</li>
+<li>不属于数据库的文件不要放数据库
+有两种数据不应该储存在数据库中, 一个是log信息, 另一个则是经常变化的数据. log信息在开发时看似没有什么影响, 但在正式服务器上运行时, 可能会拖慢数据库, 因此我们建议使用Splunk, Loggly这样的第三方服务或使用NoSQL数据库保存这些数据. 经常变换的数据比如django.contrib.sessions, django.contrib.messages等应尽量保存到Memcached, Redis, Riak或其他NoSQL数据库中.</li>
+</ol>
+<h3 id="memcachedredisquery-cache">使用Memcached或Redis进行Query Cache<a class="headerlink" href="#memcachedredisquery-cache" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Django为缓存提供很多的选择。目前最好的无疑是Memcache,用Django安装memcache非常地简单</li>
+<li>重要的是, 你需要确定哪些需要cache, 哪些不需要cache. 你需要考虑, 哪些view/template包含的query最多? 哪些URL被浏览的最多? 被cache的页面何时需要失效处理?</li>
+</ol>
+<h3 id="html-cssjavascript">压缩HTML, CSS和JavaScript等静态文件<a class="headerlink" href="#html-cssjavascript" title="Permanent link">&para;</a></h3>
+<p>当浏览器呈现网页时, 必须载入HTML, CSS, JavaScript和图片. 所有这些文件都会消耗用户的带宽, 使浏览速度下降. 虽然Django自带了GZipMiddleware和{% spaceless %} template tag, 还有WSGI的 middleware都能帮助我们减小这些文件. 但使用以上方法都会增加Django自身的系统资源占有量, 可能会导致瓶颈. 最好的方式则是将这一操作交给Apache或Nginx这些web server, 比如利用PageSpeed Module.</p>
+<p>当然django的第三方package来压缩和最小化CSS和JavaScript文件也是可行的, 常见的插件有django-pipeline, django-compressor, django-htmlmin等.</p>
+<h3 id="upstream-cachingcdn">使用Upstream caching或CDN<a class="headerlink" href="#upstream-cachingcdn" title="Permanent link">&para;</a></h3>
+<p>使用Varnish等upstream caching也能加快系统的载入速度. 当然我们还可以AWS等云服务部署自己的CDN, 为全球的用户提供快速的图片, 视频, CSS文件和JavaScript的载入.</p>
+<h3 id="_2">适当的配置便于迁移<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>在配置中使用相对路径能够确保你的Django项目在部署过程中能够轻松的来回迁移。   </li>
+</ol>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">os</span>
+<span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+
+<span class="n">TEMPLATE_DIRS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">BASE_DIR</span> <span class="o">+</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">templates</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<ol>
+<li>使用{%url%}标签  </li>
+</ol>
+<h3 id="_3">使用独立的媒体服务器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>通过一台独立的服务器来处理静态文件，性能将得到有效的提升</p>
+<h3 id="_4">其他<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li>利用好模板的with标签：<br />
+模板中多次使用的变量，要用with标签，把它看成变量的缓存行为吧。</li>
+<li>django-debug-toolbar可以找到query的来源, 并且找到:</li>
+<li>重复的query</li>
+<li>产生大量query的ORM语句</li>
+<li>慢query</li>
+</ol>
+<p>你对哪些页面载入较慢应该有个大致的了解, 所以你只需要使用django-debug-toolbar打开这些页面, 查看是哪些query拖慢了整体速度.</p>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="http://wbowam.github.io/python-decorators.html" title="Previous: Python Decorators">Python Decorators</a></li>
+ 
+                <li class="next_article"><a href="http://wbowam.github.io/pep8-zong-jie.html" title="Next: PEP8 总结">PEP8 总结</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+		    <!-- Duoshuo Comment BEGIN -->
+		    <div class="ds-thread" data-author-key="4433755"></div>
+		    <script type="text/javascript">
+			var duoshuoQuery = {short_name:"tlbog"};
+			(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = 'http://static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			|| document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+		    </script>
+		    <!-- Duoshuo Comment END -->	
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-04-23T00:00:00+08:00">Apr 23, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#IT-ref">IT</a> 
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#Django-ref">Django
+                    <span>20</span>
+</a></li>
+            </ul>
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>
