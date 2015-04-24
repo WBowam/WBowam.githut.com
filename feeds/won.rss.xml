@@ -3129,10 +3129,17 @@ Sun拼音输入法：&lt;code&gt;sudo apt-get install ibus-sunpinyin&lt;/code&gt
 
 &lt;h3 id="_9"&gt;七 源码文件的编码&lt;a class="headerlink" href="#_9" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;python2 默认ASCII ，python3 默认utf8 &lt;br /&gt;
-都用utf8省事   &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Wed, 14 May 2014 00:00:00 +0800</pubDate><guid>tag:wbowam.github.io,2014-05-14:pep8-zong-jie.html</guid><category>Django，python</category></item><item><title>优化Django项目</title><link>http://wbowam.github.io/you-hua-djangoxiang-mu.html</link><description>&lt;blockquote&gt;
+都用utf8省事   &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Wed, 14 May 2014 00:00:00 +0800</pubDate><guid>tag:wbowam.github.io,2014-05-14:pep8-zong-jie.html</guid><category>Django，python</category></item><item><title>优化Django项目</title><link>http://wbowam.github.io/you-hua-djangoxiang-mu.html</link><description>&lt;h3 id="query"&gt;加速Query查询&lt;a class="headerlink" href="#query" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="_1"&gt;数据库优化&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="memcachedredis"&gt;使用缓存系统(Memcached或Redis)&lt;a class="headerlink" href="#memcachedredis" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="_2"&gt;压缩静态文件&lt;a class="headerlink" href="#_2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="_3"&gt;使用独立的媒体服务器&lt;a class="headerlink" href="#_3" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="_4"&gt;适当的配置便于迁移&lt;a class="headerlink" href="#_4" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="_5"&gt;其他&lt;a class="headerlink" href="#_5" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
 &lt;p&gt;优化工作一般是放在后期来做，早期的优化是“万恶之源”&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id="query"&gt;加速Query查询&lt;a class="headerlink" href="#query" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="query_1"&gt;加速Query查询&lt;a class="headerlink" href="#query_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
 &lt;h5 id="1"&gt;1. 善于使用批量方法&lt;a class="headerlink" href="#1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;Entry&lt;/span&gt;&lt;span class="nc"&gt;.objects.bulk_create&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;
     &lt;span class="nb"&gt;Entry&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;headline&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Python 3.0 Released&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
@@ -3224,7 +3231,7 @@ Sun拼音输入法：&lt;code&gt;sudo apt-get install ibus-sunpinyin&lt;/code&gt
 &lt;p&gt;使用raw SQL语句代替ORM生成的慢SQL语句&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="_1"&gt;数据库优化&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="_6"&gt;数据库优化&lt;a class="headerlink" href="#_6" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;索引，搜索频率高的字段加上索引   &lt;/li&gt;
 &lt;li&gt;使用适当字段类型，如本来varchar就搞定的字段，就别要text类型&lt;/li&gt;
@@ -3241,7 +3248,7 @@ Sun拼音输入法：&lt;code&gt;sudo apt-get install ibus-sunpinyin&lt;/code&gt
 &lt;p&gt;当然django的第三方package来压缩和最小化CSS和JavaScript文件也是可行的, 常见的插件有django-pipeline, django-compressor, django-htmlmin等.&lt;/p&gt;
 &lt;h3 id="upstream-cachingcdn"&gt;使用Upstream caching或CDN&lt;a class="headerlink" href="#upstream-cachingcdn" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;使用Varnish等upstream caching也能加快系统的载入速度. 当然我们还可以AWS等云服务部署自己的CDN, 为全球的用户提供快速的图片, 视频, CSS文件和JavaScript的载入.&lt;/p&gt;
-&lt;h3 id="_2"&gt;适当的配置便于迁移&lt;a class="headerlink" href="#_2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="_7"&gt;适当的配置便于迁移&lt;a class="headerlink" href="#_7" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;在配置中使用相对路径能够确保你的Django项目在部署过程中能够轻松的来回迁移。   &lt;/li&gt;
 &lt;/ol&gt;
@@ -3257,9 +3264,9 @@ Sun拼音输入法：&lt;code&gt;sudo apt-get install ibus-sunpinyin&lt;/code&gt
 &lt;ol&gt;
 &lt;li&gt;使用{%url%}标签  &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id="_3"&gt;使用独立的媒体服务器&lt;a class="headerlink" href="#_3" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="_8"&gt;使用独立的媒体服务器&lt;a class="headerlink" href="#_8" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;通过一台独立的服务器来处理静态文件，性能将得到有效的提升&lt;/p&gt;
-&lt;h3 id="_4"&gt;其他&lt;a class="headerlink" href="#_4" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="_9"&gt;其他&lt;a class="headerlink" href="#_9" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;利用好模板的with标签：&lt;br /&gt;
 模板中多次使用的变量，要用with标签，把它看成变量的缓存行为吧。&lt;/li&gt;
