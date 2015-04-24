@@ -58,17 +58,10 @@
 <div class="row-fluid">
         <div class="span10 article-content">
 
-            <h3 id="query">加速Query查询<a class="headerlink" href="#query" title="Permanent link">&para;</a></h3>
-<h3 id="_1">数据库优化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<h3 id="memcachedredis">使用缓存系统(Memcached或Redis)<a class="headerlink" href="#memcachedredis" title="Permanent link">&para;</a></h3>
-<h3 id="_2">压缩静态文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<h3 id="_3">使用独立的媒体服务器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<h3 id="_4">适当的配置便于迁移<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<h3 id="_5">其他<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<blockquote>
+            <blockquote>
 <p>优化工作一般是放在后期来做，早期的优化是“万恶之源”</p>
 </blockquote>
-<h3 id="query_1">加速Query查询<a class="headerlink" href="#query_1" title="Permanent link">&para;</a></h3>
+<h3 id="query">加速Query查询<a class="headerlink" href="#query" title="Permanent link">&para;</a></h3>
 <h5 id="1">1. 善于使用批量方法<a class="headerlink" href="#1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span class="nt">Entry</span><span class="nc">.objects.bulk_create</span><span class="o">(</span><span class="cp">[</span>
     <span class="nb">Entry</span><span class="p">(</span><span class="n">headline</span><span class="o">=</span><span class="s2">&quot;Python 3.0 Released&quot;</span><span class="p">),</span>
@@ -160,7 +153,7 @@
 <p>使用raw SQL语句代替ORM生成的慢SQL语句</p>
 </li>
 </ul>
-<h3 id="_6">数据库优化<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_1">数据库优化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>索引，搜索频率高的字段加上索引   </li>
 <li>使用适当字段类型，如本来varchar就搞定的字段，就别要text类型</li>
@@ -177,7 +170,7 @@
 <p>当然django的第三方package来压缩和最小化CSS和JavaScript文件也是可行的, 常见的插件有django-pipeline, django-compressor, django-htmlmin等.</p>
 <h3 id="upstream-cachingcdn">使用Upstream caching或CDN<a class="headerlink" href="#upstream-cachingcdn" title="Permanent link">&para;</a></h3>
 <p>使用Varnish等upstream caching也能加快系统的载入速度. 当然我们还可以AWS等云服务部署自己的CDN, 为全球的用户提供快速的图片, 视频, CSS文件和JavaScript的载入.</p>
-<h3 id="_7">适当的配置便于迁移<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_2">适当的配置便于迁移<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ol>
 <li>在配置中使用相对路径能够确保你的Django项目在部署过程中能够轻松的来回迁移。   </li>
 </ol>
@@ -193,9 +186,9 @@
 <ol>
 <li>使用{%url%}标签  </li>
 </ol>
-<h3 id="_8">使用独立的媒体服务器<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_3">使用独立的媒体服务器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>通过一台独立的服务器来处理静态文件，性能将得到有效的提升</p>
-<h3 id="_9">其他<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h3 id="_4">其他<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ol>
 <li>利用好模板的with标签：<br />
 模板中多次使用的变量，要用with标签，把它看成变量的缓存行为吧。</li>
