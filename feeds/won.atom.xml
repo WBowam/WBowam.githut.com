@@ -156,7 +156,7 @@
 &lt;li&gt;产生大量query的ORM语句&lt;/li&gt;
 &lt;li&gt;慢query&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;你对哪些页面载入较慢应该有个大致的了解, 所以你只需要使用django-debug-toolbar打开这些页面, 查看是哪些query拖慢了整体速度.&lt;/p&gt;</summary><category term="Django"></category></entry><entry><title>为什么喜欢Liniux 2</title><link href="http://wbowam.github.io/wei-shi-yao-xi-huan-liniux-2.html" rel="alternate"></link><updated>2015-04-01T00:00:00+08:00</updated><author><name>Won</name></author><id>tag:wbowam.github.io,2015-04-01:wei-shi-yao-xi-huan-liniux-2.html</id><summary type="html">&lt;p&gt;曾经有很多人问我，Windows界面那么好看，Windows用起来那么方便，为什么还说喜欢用Linux？　　　　　&lt;/p&gt;
+&lt;p&gt;你对哪些页面载入较慢应该有个大致的了解, 所以你只需要使用django-debug-toolbar打开这些页面, 查看是哪些query拖慢了整体速度.&lt;/p&gt;</summary><category term="Django"></category></entry><entry><title>为什么喜欢Liniux</title><link href="http://wbowam.github.io/wei-shi-yao-xi-huan-liniux.html" rel="alternate"></link><updated>2015-04-01T00:00:00+08:00</updated><author><name>Won</name></author><id>tag:wbowam.github.io,2015-04-01:wei-shi-yao-xi-huan-liniux.html</id><summary type="html">&lt;p&gt;曾经有很多人问我，Windows界面那么好看，Windows用起来那么方便，为什么还说喜欢用Linux？　　　　　&lt;/p&gt;
 &lt;p&gt;我从未回答，因为我很难说清楚，我喜欢Linux不是因为装B~~&lt;/p&gt;
 &lt;p&gt;今天有了答案，感谢&lt;code&gt;William E. Shotts, Jr.&lt;/code&gt;    &lt;/p&gt;
 &lt;hr /&gt;
