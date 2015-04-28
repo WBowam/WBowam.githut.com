@@ -1,5 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tugqi Biz</title><link>http://wbowam.github.io/</link><description></description><atom:link href="http://wbowam.github.io/feeds/won.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 01 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>为什么喜欢Liniux 2</title><link>http://wbowam.github.io/wei-shi-yao-xi-huan-liniux-2.html</link><description>&lt;p&gt;曾经有很多人问我，Windows界面那么好看，Windows用起来那么方便，为什么还说喜欢用Linux？　　　　　&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tugqi Biz</title><link>http://wbowam.github.io/</link><description></description><atom:link href="http://wbowam.github.io/feeds/won.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 26 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>使用django celery</title><link>http://wbowam.github.io/shi-yong-django-celery.html</link><description>&lt;p&gt;很多时候需要用异步来处理一些业务，于是就有了Celery．  &lt;br /&gt;
+大量的社区支持使Celery成为Django处理异步任务的首选．  &lt;/p&gt;
+&lt;h4 id="_1"&gt;功能&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;实现异步：
+&lt;em&gt; 延时执行
+&lt;/em&gt; 定时执行&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;待续．．．&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Sun, 26 Apr 2015 00:00:00 +0800</pubDate><guid>tag:wbowam.github.io,2015-04-26:shi-yong-django-celery.html</guid><category>Django</category><category>Celery</category></item><item><title>正确使用django signal</title><link>http://wbowam.github.io/zheng-que-shi-yong-django-signal.html</link><description>&lt;blockquote&gt;
+&lt;p&gt;当我学会使用Django signal时无比兴奋，正如大多数django开发者&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;新的开发人员得知django signal后会无比兴奋，很喜欢使用它．只要是能用它的地方就会用它，无意中身处坑底．为什么说是个坑呢？&lt;/p&gt;
+&lt;h4 id="_1"&gt;问题&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;错误的用法：
+&lt;em&gt; 大量使用django signal;&lt;br /&gt;
+&lt;/em&gt; 用signal处理大的进程；&lt;/p&gt;
+&lt;p&gt;导致：
+&lt;em&gt; django项目越来越复杂；
+&lt;/em&gt; 项目效率越来越低；&lt;/p&gt;
+&lt;h4 id="_2"&gt;原因&lt;a class="headerlink" href="#_2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;新鸟很容易认为signal是异步的．　　
+其实django signal是同步的．&lt;/p&gt;
+&lt;h3 id="django-signal"&gt;django signal的正确用法&lt;a class="headerlink" href="#django-signal" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;尽量避免使用django signal(能用其他方法处理就用其他方法处理,如下)&lt;ol&gt;
+&lt;li&gt;post_save和pre_save的逻辑可以考虑放在Model的save里&lt;/li&gt;
+&lt;li&gt;不要在pre_save里做数据验证．可以去自定义ModelForm的clean();也可以自己写一个validator &lt;/li&gt;
+&lt;li&gt;有些复杂的操作你可以用ModelManager来处理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;给它异步的功能(如，与celery一起使用)
+     有些情况下不得不使用signal,如下：&lt;ol&gt;
+&lt;li&gt;signal的receiver需要同事操作多个Model&lt;/li&gt;
+&lt;li&gt;清除cache时&lt;/li&gt;
+&lt;li&gt;无法使用其他方法替代signal时&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Sun, 26 Apr 2015 00:00:00 +0800</pubDate><guid>tag:wbowam.github.io,2015-04-26:zheng-que-shi-yong-django-signal.html</guid><category>Django</category><category>Signal</category></item><item><title>开发环境的备份，同步</title><link>http://wbowam.github.io/kai-fa-huan-jing-de-bei-fen-tong-bu.html</link><description>&lt;h6 id="_1"&gt;大环境,如下&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h6&gt;
+&lt;h3 id="vagrant"&gt;Vagrant&lt;a class="headerlink" href="#vagrant" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Vagrant是VirtualBox或其他虚拟机的一个wrapper, 它可以让你使用一个命令行就配置好你想要的VM(虚拟机). 通过Vagrant创建的VM可以使用命令行访问和控制, 免去了GUI的繁琐.&lt;/p&gt;
+&lt;p&gt;Vagrant的优势是, 其创建的VM可以通过scripts, Salt, Ansible, Chef或Puppet管理, 使得我们可以在不同的环境中设置相同的开发环境.&lt;/p&gt;
+&lt;p&gt;传统虚拟机的劣势：会让本地主机很慢&lt;/p&gt;
+&lt;h3 id="docker"&gt;Docker&lt;a class="headerlink" href="#docker" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;优势，革命性的解决了虚拟机问题
+劣势，太新，很多创业团队不敢用．（大公司值得大把大把的砸钱哈）&lt;/p&gt;
+&lt;h3 id="boxen"&gt;Boxen&lt;a class="headerlink" href="#boxen" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Boxen 是 GitHub 内部开发和使用的电脑环境部署套件，用于帮助新员工快速部署开发环境，只需运行一行命令，半个小时内即可将 GitHub.com 的开发环境部署到新电脑中。   &lt;/p&gt;
+&lt;p&gt;Boxen 不仅适用于给程序员部署开发环境依赖、配置编辑器，也可以用来给爸妈设置播放器，壁纸等。其他用途还有保持开发环境同步、设置防火墙，恢复环境备份等。Boxen 以 MIT 协议开源。&lt;/p&gt;
+&lt;p&gt;据说是从mysql到minecraft，从path到音乐播放器都能还原。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h6 id="_2"&gt;小配置，如下&lt;a class="headerlink" href="#_2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h6&gt;
+&lt;h3 id="makeup"&gt;Makeup&lt;a class="headerlink" href="#makeup" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Fri, 24 Apr 2015 00:00:00 +0800</pubDate><guid>tag:wbowam.github.io,2015-04-24:kai-fa-huan-jing-de-bei-fen-tong-bu.html</guid><category>运维</category></item><item><title>优化Django项目</title><link>http://wbowam.github.io/you-hua-djangoxiang-mu.html</link><description>&lt;blockquote&gt;
+&lt;p&gt;优化工作一般是放在后期来做，早期的优化是“万恶之源”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="query"&gt;加速Query查询&lt;a class="headerlink" href="#query" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h5 id="1"&gt;1. 善于使用批量方法&lt;a class="headerlink" href="#1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;Entry&lt;/span&gt;&lt;span class="nc"&gt;.objects.bulk_create&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;
+    &lt;span class="nb"&gt;Entry&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;headline&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Python 3.0 Released&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="nb"&gt;Entry&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;headline&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Python 3.1 Planned&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+
+&lt;span class="err"&gt;#优于&lt;/span&gt;
+
+&lt;span class="nt"&gt;Entry&lt;/span&gt;&lt;span class="nc"&gt;.objects.create&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;headline&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Python 3.0 Released&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="nt"&gt;Entry&lt;/span&gt;&lt;span class="nc"&gt;.objects.create&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;headline&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Python 3.1 Planned&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;#前者只连接一次数据库，而后者连接两次。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;my_band&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;members&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;me&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;my_friend&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="cp"&gt;#优于&lt;/span&gt;
+&lt;span class="n"&gt;my_band&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;members&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;me&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;my_band&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;members&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_friend&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5 id="2"&gt;2.  对于一次性取出来的关联记录，获取外键的时候，直接取关联表的属性，而不是取关联属性，如：&lt;a class="headerlink" href="#2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;
+&lt;span class="cp"&gt;#优于&lt;/span&gt;
+&lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;blog_id&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5 id="3-querysets"&gt;3. QuerySets是有缓存的，一旦取出来，它就会在内存里呆上一段时间，尽量重用它，如下&lt;a class="headerlink" href="#3-querysets" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;   &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;博客实体第一次取出，是要访问数据库的&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;   &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;第二次再用，那它就是缓存里的实体了，不再访问数据库&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;但是，all，count exists是调用函数，需要连接数据库处理结果的，如&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;entry&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Entry&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;authors&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;   &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;第一次&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="err"&gt;函数会查询数据库&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;authors&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;   &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;第二次&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="err"&gt;函数还会查询数据库&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5 id="4-querysetselect_related-prefetch_related"&gt;4. 单一动作（如：同一个页面）需要多次连接数据库时，最好一次性取出所有需要的数据，减少连接数据库次数。此类需求推荐使用QuerySet.select_related() 和 prefetch_related()&lt;a class="headerlink" href="#4-querysetselect_related-prefetch_related" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;h5 id="5-templatesquerysetvalues-values_listdictlist"&gt;5. 相反，别取出你不需要的东西，模版templates里往往只需要实体的某几个字段而不是全部，这时QuerySet.values() 和 values_list()，对你有用，它们只取你需要的字段，返回字典dict和列表list类型的东西，在模版里够用即可，这可减少内存损耗，提高性能。&lt;a class="headerlink" href="#5-templatesquerysetvalues-values_listdictlist" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;h5 id="6-querysetdeferonlydjangopythonquerysetdeferonlydefer"&gt;6. QuerySet.defer()和only()对提高性能也有很大的帮助，一个实体里可能有不少的字段，有些字段包含很多元数据，比如博客的正文，很多字符组成，Django获取实体时（取出实体过程中会进行一些python类型转换工作），我们可以延迟大量元数据字段的处理，只处理需要的关键字段，这时QuerySet.defer()就派上用场了，在函数里传入需要延时处理的字段即可；而only()和defer()是相反功能。&lt;a class="headerlink" href="#6-querysetdeferonlydjangopythonquerysetdeferonlydefer" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;h5 id="7-querysetcountlenquerysetquerysetexistsif-queryset"&gt;7. 使用QuerySet.count()代替len(queryset)，同理判断记录存在时，QuerySet.exists()比if queryset实在强得太多了&lt;a class="headerlink" href="#7-querysetcountlenquerysetquerysetexistsif-queryset" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;h5 id="8-queryquery"&gt;8. 找到包含过多的query数的页面，并采取措施减少query数&lt;a class="headerlink" href="#8-queryquery" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在ORM中使用select_related()减少query数: 使用select_related()会自动扩展外键关系, 将外键中的数据提前合并到本次query. 如果使用CBV, django-braces的SelectRelatedMixin达到同样的目地. 但要小心query扩展的过深.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果同样的query发生多次, 那么将其移到view中, 在使用context将其传到template中.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用redis等cache  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用django.utils.functional.cached_property修饰器, 将query结果cache在内存中&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_1"&gt;数据库优化&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;索引，搜索频率高的字段加上索引   &lt;/li&gt;
+&lt;li&gt;使用适当字段类型，如本来varchar就搞定的字段，就别要text类型&lt;/li&gt;
+&lt;li&gt;不属于数据库的文件不要放数据库
+有两种数据不应该储存在数据库中, 一个是log信息, 另一个则是经常变化的数据. log信息在开发时看似没有什么影响, 但在正式服务器上运行时, 可能会拖慢数据库, 因此我们建议使用Splunk, Loggly这样的第三方服务或使用NoSQL数据库保存这些数据. 经常变换的数据比如django.contrib.sessions, django.contrib.messages等应尽量保存到Memcached, Redis, Riak或其他NoSQL数据库中.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="memcachedredisquery-cache"&gt;使用Memcached或Redis进行Query Cache&lt;a class="headerlink" href="#memcachedredisquery-cache" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Django为缓存提供很多的选择。目前最好的无疑是Memcache,用Django安装memcache非常地简单&lt;/li&gt;
+&lt;li&gt;重要的是, 你需要确定哪些需要cache, 哪些不需要cache. 你需要考虑, 哪些view/template包含的query最多? 哪些URL被浏览的最多? 被cache的页面何时需要失效处理?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="html-cssjavascript"&gt;压缩HTML, CSS和JavaScript等静态文件&lt;a class="headerlink" href="#html-cssjavascript" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;虽然Django自带了GZipMiddleware和{% spaceless %} template tag, 还有WSGI的 middleware都能帮助我们减小这些文件.&lt;/p&gt;
+&lt;p&gt;但使用以上方法都会增加Django自身的系统资源占有量, 可能会导致瓶颈. 最好的方式则是将这一操作交给Apache或Nginx这些web server, 比如利用PageSpeed Module.&lt;/p&gt;
+&lt;p&gt;当然django的第三方package来压缩和最小化CSS和JavaScript文件也是可行的, 常见的插件有django-pipeline, django-compressor, django-htmlmin等.&lt;/p&gt;
+&lt;h3 id="upstream-caching"&gt;使用Upstream caching&lt;a class="headerlink" href="#upstream-caching" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用Varnish等upstream caching也能加快系统的载入速度.&lt;/p&gt;
+&lt;h3 id="cdn"&gt;使用CDN&lt;a class="headerlink" href="#cdn" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;部署自己的CDN, 为全球的用户提供快速的图片, 视频, CSS文件,javaScript等静态文件的载入.&lt;/p&gt;
+&lt;h3 id="_2"&gt;适当的配置便于迁移&lt;a class="headerlink" href="#_2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h5 id="1-django"&gt;1. 在配置中使用相对路径能够确保你的Django项目在部署过程中能够轻松的来回迁移。&lt;a class="headerlink" href="#1-django" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;
+&lt;span class="n"&gt;BASE_DIR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;abspath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__file__&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="n"&gt;TEMPLATE_DIRS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;BASE_DIR&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;templates&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5 id="2-url"&gt;2. 使用{%url%}标签&lt;a class="headerlink" href="#2-url" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;h3 id="_3"&gt;使用独立的媒体服务器&lt;a class="headerlink" href="#_3" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;通过一台独立的服务器来处理静态文件，性能将得到有效的提升&lt;/p&gt;
+&lt;h3 id="_4"&gt;其他&lt;a class="headerlink" href="#_4" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;利用好模板的with标签：&lt;br /&gt;
+模板中多次使用的变量，要用with标签，把它看成变量的缓存行为吧。&lt;/li&gt;
+&lt;li&gt;django-debug-toolbar可以找到query的来源, 并且找到:&lt;/li&gt;
+&lt;li&gt;重复的query&lt;/li&gt;
+&lt;li&gt;产生大量query的ORM语句&lt;/li&gt;
+&lt;li&gt;慢query&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;你对哪些页面载入较慢应该有个大致的了解, 所以你只需要使用django-debug-toolbar打开这些页面, 查看是哪些query拖慢了整体速度.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Thu, 23 Apr 2015 00:00:00 +0800</pubDate><guid>tag:wbowam.github.io,2015-04-23:you-hua-djangoxiang-mu.html</guid><category>Django</category></item><item><title>为什么喜欢Liniux 2</title><link>http://wbowam.github.io/wei-shi-yao-xi-huan-liniux-2.html</link><description>&lt;p&gt;曾经有很多人问我，Windows界面那么好看，Windows用起来那么方便，为什么还说喜欢用Linux？　　　　　&lt;/p&gt;
 &lt;p&gt;我从未回答，因为我很难说清楚，我喜欢Linux不是因为装B~~&lt;/p&gt;
 &lt;p&gt;今天有了答案，感谢&lt;code&gt;William E. Shotts, Jr.&lt;/code&gt;    &lt;/p&gt;
 &lt;hr /&gt;
@@ -3129,146 +3286,7 @@ Sun拼音输入法：&lt;code&gt;sudo apt-get install ibus-sunpinyin&lt;/code&gt
 
 &lt;h3 id="_9"&gt;七 源码文件的编码&lt;a class="headerlink" href="#_9" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;python2 默认ASCII ，python3 默认utf8 &lt;br /&gt;
-都用utf8省事   &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Wed, 14 May 2014 00:00:00 +0800</pubDate><guid>tag:wbowam.github.io,2014-05-14:pep8-zong-jie.html</guid><category>Django，python</category></item><item><title>优化Django项目</title><link>http://wbowam.github.io/you-hua-djangoxiang-mu.html</link><description>&lt;blockquote&gt;
-&lt;p&gt;优化工作一般是放在后期来做，早期的优化是“万恶之源”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="query"&gt;加速Query查询&lt;a class="headerlink" href="#query" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;h5 id="1"&gt;1. 善于使用批量方法&lt;a class="headerlink" href="#1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;Entry&lt;/span&gt;&lt;span class="nc"&gt;.objects.bulk_create&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;
-    &lt;span class="nb"&gt;Entry&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;headline&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Python 3.0 Released&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-    &lt;span class="nb"&gt;Entry&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;headline&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Python 3.1 Planned&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-
-&lt;span class="err"&gt;#优于&lt;/span&gt;
-
-&lt;span class="nt"&gt;Entry&lt;/span&gt;&lt;span class="nc"&gt;.objects.create&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;headline&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Python 3.0 Released&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="nt"&gt;Entry&lt;/span&gt;&lt;span class="nc"&gt;.objects.create&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;headline&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Python 3.1 Planned&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="err"&gt;#前者只连接一次数据库，而后者连接两次。&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;my_band&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;members&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;me&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;my_friend&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="cp"&gt;#优于&lt;/span&gt;
-&lt;span class="n"&gt;my_band&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;members&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;me&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;my_band&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;members&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_friend&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h5 id="2"&gt;2.  对于一次性取出来的关联记录，获取外键的时候，直接取关联表的属性，而不是取关联属性，如：&lt;a class="headerlink" href="#2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;
-&lt;span class="cp"&gt;#优于&lt;/span&gt;
-&lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;blog_id&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h5 id="3-querysets"&gt;3. QuerySets是有缓存的，一旦取出来，它就会在内存里呆上一段时间，尽量重用它，如下&lt;a class="headerlink" href="#3-querysets" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;   &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;博客实体第一次取出，是要访问数据库的&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;   &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;第二次再用，那它就是缓存里的实体了，不再访问数据库&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;但是，all，count exists是调用函数，需要连接数据库处理结果的，如&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;entry&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Entry&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;authors&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;   &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;第一次&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="err"&gt;函数会查询数据库&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;authors&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;   &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;第二次&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="err"&gt;函数还会查询数据库&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h5 id="4-querysetselect_related-prefetch_related"&gt;4.  单一动作（如：同一个页面）需要多次连接数据库时，最好一次性取出所有需要的数据，减少连接数据库次数。此类需求推荐使用QuerySet.select_related() 和 prefetch_related()&lt;a class="headerlink" href="#4-querysetselect_related-prefetch_related" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
-&lt;h5 id="5-templatesquerysetvalues-values_listdictlist"&gt;5. 相反，别取出你不需要的东西，模版templates里往往只需要实体的某几个字段而不是全部，这时QuerySet.values() 和 values_list()，对你有用，它们只取你需要的字段，返回字典dict和列表list类型的东西，在模版里够用即可，这可减少内存损耗，提高性能。&lt;a class="headerlink" href="#5-templatesquerysetvalues-values_listdictlist" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
-&lt;h5 id="6-querysetdeferonlydjangopythonquerysetdeferonlydefer"&gt;6. QuerySet.defer()和only()对提高性能也有很大的帮助，一个实体里可能有不少的字段，有些字段包含很多元数据，比如博客的正文，很多字符组成，Django获取实体时（取出实体过程中会进行一些python类型转换工作），我们可以延迟大量元数据字段的处理，只处理需要的关键字段，这时QuerySet.defer()就派上用场了，在函数里传入需要延时处理的字段即可；而only()和defer()是相反功能。&lt;a class="headerlink" href="#6-querysetdeferonlydjangopythonquerysetdeferonlydefer" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
-&lt;h5 id="7-querysetcountlenquerysetquerysetexistsif-queryset"&gt;7. 使用QuerySet.count()代替len(queryset)，同理判断记录存在时，QuerySet.exists()比if queryset实在强得太多了&lt;a class="headerlink" href="#7-querysetcountlenquerysetquerysetexistsif-queryset" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
-&lt;h5 id="8-queryquery"&gt;8. 找到包含过多的query数的页面，并采取措施减少query数&lt;a class="headerlink" href="#8-queryquery" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;在ORM中使用select_related()减少query数: 使用select_related()会自动扩展外键关系, 将外键中的数据提前合并到本次query. 如果使用CBV, django-braces的SelectRelatedMixin达到同样的目地. 但要小心query扩展的过深.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;如果同样的query发生多次, 那么将其移到view中, 在使用context将其传到template中.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用redis等cache  &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用django.utils.functional.cached_property修饰器, 将query结果cache在内存中&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id="9query"&gt;9.query提速&lt;a class="headerlink" href="#9query" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
-&lt;p&gt;获取一个大的query结果同样也会影响速度, 因此我们首先需要:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;确保index起到了加速query的作用&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;理解在部署服务器中index的作用, 分析理解数据库中真正发生了什么&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看ORM生成的raw SQL语句&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;开启数据库的 slow query logging功能, 并查看慢query发生的频率&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用django-debug-toolbar找到慢query&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;然后我们便可以:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;重写代码, 使query获得更小的片段&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;重写代码, 使query更好的利用index&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用raw SQL语句代替ORM生成的慢SQL语句&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="_1"&gt;数据库优化&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;索引，搜索频率高的字段加上索引   &lt;/li&gt;
-&lt;li&gt;使用适当字段类型，如本来varchar就搞定的字段，就别要text类型&lt;/li&gt;
-&lt;li&gt;不属于数据库的文件不要放数据库
-有两种数据不应该储存在数据库中, 一个是log信息, 另一个则是经常变化的数据. log信息在开发时看似没有什么影响, 但在正式服务器上运行时, 可能会拖慢数据库, 因此我们建议使用Splunk, Loggly这样的第三方服务或使用NoSQL数据库保存这些数据. 经常变换的数据比如django.contrib.sessions, django.contrib.messages等应尽量保存到Memcached, Redis, Riak或其他NoSQL数据库中.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id="memcachedredisquery-cache"&gt;使用Memcached或Redis进行Query Cache&lt;a class="headerlink" href="#memcachedredisquery-cache" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Django为缓存提供很多的选择。目前最好的无疑是Memcache,用Django安装memcache非常地简单&lt;/li&gt;
-&lt;li&gt;重要的是, 你需要确定哪些需要cache, 哪些不需要cache. 你需要考虑, 哪些view/template包含的query最多? 哪些URL被浏览的最多? 被cache的页面何时需要失效处理?&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id="html-cssjavascript"&gt;压缩HTML, CSS和JavaScript等静态文件&lt;a class="headerlink" href="#html-cssjavascript" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;当浏览器呈现网页时, 必须载入HTML, CSS, JavaScript和图片. 所有这些文件都会消耗用户的带宽, 使浏览速度下降. 虽然Django自带了GZipMiddleware和{% spaceless %} template tag, 还有WSGI的 middleware都能帮助我们减小这些文件. 但使用以上方法都会增加Django自身的系统资源占有量, 可能会导致瓶颈. 最好的方式则是将这一操作交给Apache或Nginx这些web server, 比如利用PageSpeed Module.&lt;/p&gt;
-&lt;p&gt;当然django的第三方package来压缩和最小化CSS和JavaScript文件也是可行的, 常见的插件有django-pipeline, django-compressor, django-htmlmin等.&lt;/p&gt;
-&lt;h3 id="upstream-cachingcdn"&gt;使用Upstream caching或CDN&lt;a class="headerlink" href="#upstream-cachingcdn" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;使用Varnish等upstream caching也能加快系统的载入速度. 当然我们还可以AWS等云服务部署自己的CDN, 为全球的用户提供快速的图片, 视频, CSS文件和JavaScript的载入.&lt;/p&gt;
-&lt;h3 id="_2"&gt;适当的配置便于迁移&lt;a class="headerlink" href="#_2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;在配置中使用相对路径能够确保你的Django项目在部署过程中能够轻松的来回迁移。   &lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;
-&lt;span class="n"&gt;BASE_DIR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;abspath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__file__&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-
-&lt;span class="n"&gt;TEMPLATE_DIRS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
-    &lt;span class="n"&gt;BASE_DIR&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;templates&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ol&gt;
-&lt;li&gt;使用{%url%}标签  &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id="_3"&gt;使用独立的媒体服务器&lt;a class="headerlink" href="#_3" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;通过一台独立的服务器来处理静态文件，性能将得到有效的提升&lt;/p&gt;
-&lt;h3 id="_4"&gt;其他&lt;a class="headerlink" href="#_4" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;利用好模板的with标签：&lt;br /&gt;
-模板中多次使用的变量，要用with标签，把它看成变量的缓存行为吧。&lt;/li&gt;
-&lt;li&gt;django-debug-toolbar可以找到query的来源, 并且找到:&lt;/li&gt;
-&lt;li&gt;重复的query&lt;/li&gt;
-&lt;li&gt;产生大量query的ORM语句&lt;/li&gt;
-&lt;li&gt;慢query&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;你对哪些页面载入较慢应该有个大致的了解, 所以你只需要使用django-debug-toolbar打开这些页面, 查看是哪些query拖慢了整体速度.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Wed, 23 Apr 2014 00:00:00 +0800</pubDate><guid>tag:wbowam.github.io,2014-04-23:you-hua-djangoxiang-mu.html</guid><category>Django</category></item><item><title>Python Decorators</title><link>http://wbowam.github.io/python-decorators.html</link><description>&lt;blockquote&gt;
+都用utf8省事   &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Wed, 14 May 2014 00:00:00 +0800</pubDate><guid>tag:wbowam.github.io,2014-05-14:pep8-zong-jie.html</guid><category>Django，python</category></item><item><title>Python Decorators</title><link>http://wbowam.github.io/python-decorators.html</link><description>&lt;blockquote&gt;
 &lt;p&gt;decorators难于理解！要想很好地理解decorators需要理解一些函数式编程的概念&lt;/p&gt;
 &lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Won</dc:creator><pubDate>Tue, 22 Apr 2014 00:00:00 +0800</pubDate><guid>tag:wbowam.github.io,2014-04-22:python-decorators.html</guid><category>Python</category><category>Decorators</category></item><item><title>用Django mptt后台中生成树状数据结构</title><link>http://wbowam.github.io/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html</link><description>&lt;h3 id="_1"&gt;背景说明：&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;昨天跟客户谈需求时，客户要求做一个数状数据结构，类似于：&lt;br /&gt;

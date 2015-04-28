@@ -103,7 +103,7 @@
 </pre></div>
 
 
-<h5 id="4-querysetselect_related-prefetch_related">4.  单一动作（如：同一个页面）需要多次连接数据库时，最好一次性取出所有需要的数据，减少连接数据库次数。此类需求推荐使用QuerySet.select_related() 和 prefetch_related()<a class="headerlink" href="#4-querysetselect_related-prefetch_related" title="Permanent link">&para;</a></h5>
+<h5 id="4-querysetselect_related-prefetch_related">4. 单一动作（如：同一个页面）需要多次连接数据库时，最好一次性取出所有需要的数据，减少连接数据库次数。此类需求推荐使用QuerySet.select_related() 和 prefetch_related()<a class="headerlink" href="#4-querysetselect_related-prefetch_related" title="Permanent link">&para;</a></h5>
 <h5 id="5-templatesquerysetvalues-values_listdictlist">5. 相反，别取出你不需要的东西，模版templates里往往只需要实体的某几个字段而不是全部，这时QuerySet.values() 和 values_list()，对你有用，它们只取你需要的字段，返回字典dict和列表list类型的东西，在模版里够用即可，这可减少内存损耗，提高性能。<a class="headerlink" href="#5-templatesquerysetvalues-values_listdictlist" title="Permanent link">&para;</a></h5>
 <h5 id="6-querysetdeferonlydjangopythonquerysetdeferonlydefer">6. QuerySet.defer()和only()对提高性能也有很大的帮助，一个实体里可能有不少的字段，有些字段包含很多元数据，比如博客的正文，很多字符组成，Django获取实体时（取出实体过程中会进行一些python类型转换工作），我们可以延迟大量元数据字段的处理，只处理需要的关键字段，这时QuerySet.defer()就派上用场了，在函数里传入需要延时处理的字段即可；而only()和defer()是相反功能。<a class="headerlink" href="#6-querysetdeferonlydjangopythonquerysetdeferonlydefer" title="Permanent link">&para;</a></h5>
 <h5 id="7-querysetcountlenquerysetquerysetexistsif-queryset">7. 使用QuerySet.count()代替len(queryset)，同理判断记录存在时，QuerySet.exists()比if queryset实在强得太多了<a class="headerlink" href="#7-querysetcountlenquerysetquerysetexistsif-queryset" title="Permanent link">&para;</a></h5>
@@ -122,37 +122,6 @@
 <p>使用django.utils.functional.cached_property修饰器, 将query结果cache在内存中</p>
 </li>
 </ul>
-<h5 id="9query">9.query提速<a class="headerlink" href="#9query" title="Permanent link">&para;</a></h5>
-<p>获取一个大的query结果同样也会影响速度, 因此我们首先需要:</p>
-<ul>
-<li>
-<p>确保index起到了加速query的作用</p>
-</li>
-<li>
-<p>理解在部署服务器中index的作用, 分析理解数据库中真正发生了什么</p>
-</li>
-<li>
-<p>查看ORM生成的raw SQL语句</p>
-</li>
-<li>
-<p>开启数据库的 slow query logging功能, 并查看慢query发生的频率</p>
-</li>
-<li>
-<p>使用django-debug-toolbar找到慢query</p>
-</li>
-</ul>
-<p>然后我们便可以:</p>
-<ul>
-<li>
-<p>重写代码, 使query获得更小的片段</p>
-</li>
-<li>
-<p>重写代码, 使query更好的利用index</p>
-</li>
-<li>
-<p>使用raw SQL语句代替ORM生成的慢SQL语句</p>
-</li>
-</ul>
 <h3 id="_1">数据库优化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>索引，搜索频率高的字段加上索引   </li>
@@ -166,14 +135,15 @@
 <li>重要的是, 你需要确定哪些需要cache, 哪些不需要cache. 你需要考虑, 哪些view/template包含的query最多? 哪些URL被浏览的最多? 被cache的页面何时需要失效处理?</li>
 </ol>
 <h3 id="html-cssjavascript">压缩HTML, CSS和JavaScript等静态文件<a class="headerlink" href="#html-cssjavascript" title="Permanent link">&para;</a></h3>
-<p>当浏览器呈现网页时, 必须载入HTML, CSS, JavaScript和图片. 所有这些文件都会消耗用户的带宽, 使浏览速度下降. 虽然Django自带了GZipMiddleware和{% spaceless %} template tag, 还有WSGI的 middleware都能帮助我们减小这些文件. 但使用以上方法都会增加Django自身的系统资源占有量, 可能会导致瓶颈. 最好的方式则是将这一操作交给Apache或Nginx这些web server, 比如利用PageSpeed Module.</p>
+<p>虽然Django自带了GZipMiddleware和{% spaceless %} template tag, 还有WSGI的 middleware都能帮助我们减小这些文件.</p>
+<p>但使用以上方法都会增加Django自身的系统资源占有量, 可能会导致瓶颈. 最好的方式则是将这一操作交给Apache或Nginx这些web server, 比如利用PageSpeed Module.</p>
 <p>当然django的第三方package来压缩和最小化CSS和JavaScript文件也是可行的, 常见的插件有django-pipeline, django-compressor, django-htmlmin等.</p>
-<h3 id="upstream-cachingcdn">使用Upstream caching或CDN<a class="headerlink" href="#upstream-cachingcdn" title="Permanent link">&para;</a></h3>
-<p>使用Varnish等upstream caching也能加快系统的载入速度. 当然我们还可以AWS等云服务部署自己的CDN, 为全球的用户提供快速的图片, 视频, CSS文件和JavaScript的载入.</p>
+<h3 id="upstream-caching">使用Upstream caching<a class="headerlink" href="#upstream-caching" title="Permanent link">&para;</a></h3>
+<p>使用Varnish等upstream caching也能加快系统的载入速度.</p>
+<h3 id="cdn">使用CDN<a class="headerlink" href="#cdn" title="Permanent link">&para;</a></h3>
+<p>部署自己的CDN, 为全球的用户提供快速的图片, 视频, CSS文件,javaScript等静态文件的载入.</p>
 <h3 id="_2">适当的配置便于迁移<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<ol>
-<li>在配置中使用相对路径能够确保你的Django项目在部署过程中能够轻松的来回迁移。   </li>
-</ol>
+<h5 id="1-django">1. 在配置中使用相对路径能够确保你的Django项目在部署过程中能够轻松的来回迁移。<a class="headerlink" href="#1-django" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span class="n">import</span> <span class="n">os</span>
 <span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
 
@@ -183,9 +153,7 @@
 </pre></div>
 
 
-<ol>
-<li>使用{%url%}标签  </li>
-</ol>
+<h5 id="2-url">2. 使用{%url%}标签<a class="headerlink" href="#2-url" title="Permanent link">&para;</a></h5>
 <h3 id="_3">使用独立的媒体服务器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>通过一台独立的服务器来处理静态文件，性能将得到有效的提升</p>
 <h3 id="_4">其他<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
@@ -203,9 +171,9 @@
             <nav>
             <ul class="articles_timeline">
  
-                <li class="previous_article">« <a href="http://wbowam.github.io/python-decorators.html" title="Previous: Python Decorators">Python Decorators</a></li>
+                <li class="previous_article">« <a href="http://wbowam.github.io/wei-shi-yao-xi-huan-liniux-2.html" title="Previous: 为什么喜欢Liniux 2">为什么喜欢Liniux 2</a></li>
  
-                <li class="next_article"><a href="http://wbowam.github.io/pep8-zong-jie.html" title="Next: PEP8 总结">PEP8 总结</a> »</li>
+                <li class="next_article"><a href="http://wbowam.github.io/kai-fa-huan-jing-de-bei-fen-tong-bu.html" title="Next: 开发环境的备份，同步">开发环境的备份，同步</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -228,13 +196,13 @@
         <div class="span2" style="float:right;font-size:0.9em;">
  
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-04-23T00:00:00+08:00">Apr 23, 2014</time>
+            <time pubdate="pubdate" datetime="2015-04-23T00:00:00+08:00">Apr 23, 2015</time>
             <h4>Category</h4>
             <a class="category-link" href="/categories.html#IT-ref">IT</a> 
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article"> 
                 <li><a href="/tags.html#Django-ref">Django
-                    <span>20</span>
+                    <span>22</span>
 </a></li>
             </ul>
 
