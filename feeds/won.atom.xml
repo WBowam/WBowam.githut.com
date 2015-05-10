@@ -1,5 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Tugqi Biz</title><link href="http://wbowam.github.io/" rel="alternate"></link><link href="http://wbowam.github.io/feeds/won.atom.xml" rel="self"></link><id>http://wbowam.github.io/</id><updated>2015-04-26T00:00:00+08:00</updated><entry><title>使用django celery</title><link href="http://wbowam.github.io/shi-yong-django-celery.html" rel="alternate"></link><updated>2015-04-26T00:00:00+08:00</updated><author><name>Won</name></author><id>tag:wbowam.github.io,2015-04-26:shi-yong-django-celery.html</id><summary type="html">&lt;p&gt;很多时候需要用异步来处理一些业务，于是就有了Celery．  &lt;br /&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tugqi Biz</title><link href="http://wbowam.github.io/" rel="alternate"></link><link href="http://wbowam.github.io/feeds/won.atom.xml" rel="self"></link><id>http://wbowam.github.io/</id><updated>2015-04-30T00:00:00+08:00</updated><entry><title>Django Csrf</title><link href="http://wbowam.github.io/django-csrf.html" rel="alternate"></link><updated>2015-04-30T00:00:00+08:00</updated><author><name>Won</name></author><id>tag:wbowam.github.io,2015-04-30:django-csrf.html</id><summary type="html">&lt;p&gt;Cross Site Request Forgery protection &lt;br /&gt;
+防御跨站请求伪造&lt;/p&gt;
+&lt;p&gt;举例来讲，某个恶意的网站上有一个指向你的网站的链接，如果某个用户已经登录到你的网站上了，那么当这个用户点击这个恶意网站上的那个链接时，就会向你的网站发来一个请求，你的网站会以为这个请求是用户自己发来的，其实呢，这个请求是那个恶意网站伪造的。&lt;/p&gt;</summary><category term="csrf"></category><category term="Django"></category></entry><entry><title>Python笔试题</title><link href="http://wbowam.github.io/pythonbi-shi-ti.html" rel="alternate"></link><updated>2015-04-26T00:00:00+08:00</updated><author><name>Won</name></author><id>tag:wbowam.github.io,2015-04-26:pythonbi-shi-ti.html</id><summary type="html">&lt;h5 id="1"&gt;1. 什么是装饰器，使用场景是什么？最好能举例说明在你的项目中哪个地方用到过装饰器。&lt;a class="headerlink" href="#1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;答： 我们要对一个函数(myfunc)进行操作(修改或记录之类的)，如下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#方法一：&lt;/span&gt;
+&lt;span class="n"&gt;func&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;modify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;myfunc&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="cp"&gt;#方法二：&lt;/span&gt;
+&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;modify&lt;/span&gt;
+&lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;myfunc&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;pass&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;方法一可行，但必须在myfunc已经被定义之后的某处，而且不通用，于是有了方法二：装饰器，使用情景如下：&lt;/p&gt;
+&lt;p&gt;例１：django中在某一操作前检查用户是否已登陆，如果未登录跳转到登陆页面．伪代码实现如下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;login_required&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;is_authenticated&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="nl"&gt;else:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;login_view&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;login_required&lt;/span&gt;
+&lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;article_detail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;
+    &lt;span class="p"&gt;......&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;article_detail.html&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;login_required&lt;/span&gt;
+&lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;article_index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;
+    &lt;span class="p"&gt;......&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;article_index.html&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;例２：在django 中给Model自定义属性&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;
+
+&lt;span class="n"&gt;Class&lt;/span&gt; &lt;span class="n"&gt;Article&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1024&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;property&lt;/span&gt;
+    &lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;manifest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;attribute_key_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="n"&gt;entity_dict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;attribute_key_list&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;entity_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__getattribute__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                                                                            
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;entity_dict&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;article&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Article&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hackers and Painters&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;article&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;article&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;manifest&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Hackers and Painters&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;例３：python自带函数也到处使用装饰器，如&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Foo&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="err"&gt;#静态方法走起&lt;/span&gt;
+    &lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;staticmethod&lt;/span&gt;
+    &lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5 id="2"&gt;2. 什么是迭代器，使用场景是什么？最好能举例说明在你的项目中哪些地方用到过迭代器。&lt;a class="headerlink" href="#2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;答：常见的可迭代对象有list, dict,file, str......
+ 只要是实现了next()或iter()方法的对象都可以迭代，如:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;iter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__iter__&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;listiterator&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mh"&gt;0x7fe6f25f11d0&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;
+&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;迭代器&lt;/strong&gt;: 访问集合内元素的一种方式．
+         1. 从第一个元素开始访问，一直到最后一个
+         2. 只往前访问(这并不算什么缺点，因为很少会有在迭代途中进行回退的操作)
+         3. 特别适合遍历巨大的文件或无限集合，如几个G的文件．因为它不要求你事先准备好整个迭代过程中所有的元素，仅仅在迭代至某个元素时才计算该元素．而列表是一次性获取所有值的，如果有很多值，列表会占用太多的内存．&lt;/p&gt;
+&lt;h5 id="3-python"&gt;3. 请以代码说明你所理解的 Python 中对象的深拷贝和浅拷贝。&lt;a class="headerlink" href="#3-python" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;答：深拷贝：对象与拷贝对象互相独立，其中任何一个对象的改动都不会对另外一个对象造成影响。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;copy&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;old_obj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;deep_obj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deepcopy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;old_obj&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;old_obj:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;old_obj&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;deep_obj:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+&lt;span class="n"&gt;deep_obj&lt;/span&gt;
+&lt;span class="nl"&gt;old_obj:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;deep_obj&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;deep_obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;old_obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;old_obj:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;old_obj&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;deep_obj:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;deep_obj&lt;/span&gt;
+&lt;span class="nl"&gt;old_obj:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;deep_obj&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;浅拷贝：对象与拷贝对象共用一份实体，仅仅是引用的变量不同&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;copy&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;old_obj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;shallow_obj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;old_obj&lt;/span&gt;&lt;span class="err"&gt;　#也可以用&lt;/span&gt; &lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;old_obj&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;old_obj:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;old_obj&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;shallow_obj:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+&lt;span class="n"&gt;shallow_obj&lt;/span&gt;
+&lt;span class="nl"&gt;old_obj:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;shallow_obj&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;shallow_obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;old_obj:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;old_obj&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;shallow_obj:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;shallow_obj&lt;/span&gt;
+&lt;span class="nl"&gt;old_obj:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;shallow_obj&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5 id="3-python-web"&gt;3. 按熟悉程度说出你所接触过的 Python web 开发框架。&lt;a class="headerlink" href="#3-python-web" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;答：Django, flask&lt;/p&gt;
+&lt;h5 id="4-web"&gt;4. 请简单描述 web 开发框架大概有几个模块组成。&lt;a class="headerlink" href="#4-web" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;答：Django
+&lt;em&gt;  &lt;code&gt;settings.py&lt;/code&gt;：配置全域设定和全域参数
+&lt;/em&gt;  &lt;code&gt;model&lt;/code&gt;：处理和数据有关的所有事物
+&lt;em&gt;  &lt;code&gt;url&lt;/code&gt;：设定网址的指向
+&lt;/em&gt;  &lt;code&gt;views&lt;/code&gt;：后端逻辑(url所设定的指向会指向到对应的view)
+&lt;em&gt;  &lt;code&gt;template&lt;/code&gt;：网页模板　
+&lt;/em&gt;  &lt;code&gt;media&lt;/code&gt;：存放影像或其他多媒体档案
+*  &lt;code&gt;static&lt;/code&gt;：存放静态文件&lt;/p&gt;
+&lt;p&gt;django框架工作一般流程如下：
+&lt;img alt="流程图" src="http://2.bp.blogspot.com/_fzqQCMaRj_Q/SdRU9oQFWNI/AAAAAAAAAC8/Zfd0g8VmeC0/s1600/Django+-+010.jpg" /&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt; &lt;span class="mf"&gt;1.&lt;/span&gt; &lt;span class="err"&gt;用户访问网址（指向到我们的&lt;/span&gt;&lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="err"&gt;服务）&lt;/span&gt;
+ &lt;span class="mf"&gt;2.&lt;/span&gt; &lt;span class="err"&gt;从`&lt;/span&gt;&lt;span class="n"&gt;urls&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="err"&gt;`查出应指向哪个`&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="err"&gt;`哪个`&lt;/span&gt;&lt;span class="n"&gt;view&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;
+ &lt;span class="mf"&gt;3.&lt;/span&gt; &lt;span class="err"&gt;若需要`&lt;/span&gt;&lt;span class="n"&gt;view&lt;/span&gt;&lt;span class="err"&gt;`读取数据库，做运算．并将运算结果与`&lt;/span&gt;&lt;span class="n"&gt;tempplate&lt;/span&gt;&lt;span class="err"&gt;`相结合&lt;/span&gt;
+ &lt;span class="mf"&gt;4.&lt;/span&gt; &lt;span class="err"&gt;将上一补的结果呈现给用户．&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;正则表达式中如何匹配数字？如果匹配单词？ 如何匹配行首和行尾？.*?+ 分别都代表什么？&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;请说一下你对正则中贪婪模式和非贪婪模式的理解。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;爬取网页时遇到死链该怎么处理？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;按熟悉程度写出你接触过的关系型数据库和 nosql。
+ 答：关系型数据库：mysql，nosql:mongodb&lt;/li&gt;
+&lt;li&gt;你使用 linux 的频率有多高（桌面环境？开发环境？还是只是玩儿玩儿）
+ 答：最近两年一直在用ubuntu．包括：平时使用14.04桌面版，写代码都在14.04　vps上，写博客及跑爬虫一般在vps docker里．&lt;/li&gt;
+&lt;li&gt;vim 使用：假设在一个文本中有 500 行文字，如果想把第200-300行中的 aaaa 替换成 bbbb 该怎么操作？
+ 答：&lt;code&gt;:200,300s/aaaa/bbbb/g&lt;/code&gt;   &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 vim 中如何查看一个单词在文本中出现的次数？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;你所熟悉的版本控制工具是什么？
+ 答：git&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;描述一下你说理解的版本控制中的分支的概念。
+ 答：&lt;img alt="git branch" src="http://www.bootcss.com/p/git-guide/img/branches.png" /&gt;
+ 分支用于将不同的开发绝缘开来．使用如下：&lt;/li&gt;
+&lt;li&gt;从主分支分离出开发分支;&lt;/li&gt;
+&lt;li&gt;在开发分支上进行开发;&lt;/li&gt;
+&lt;li&gt;将开发好的代码合并到主分支．
+经典的分支管理策略由Vincent Driessen提出，图示如下：　　
+ &lt;img alt="经典的分支结构" src="http://nvie.com/img/git-model@2x.png" /&gt;&lt;/li&gt;
+&lt;li&gt;描述一下 pull request 开发流程。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt; &lt;span class="err"&gt;#切换到主分支&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;pull&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt; &lt;span class="err"&gt;#更新本地代码&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="n"&gt;feature&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;share&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;download&lt;/span&gt; &lt;span class="err"&gt;#新建并切换到功能分支&lt;/span&gt;
+&lt;span class="p"&gt;....&lt;/span&gt; &lt;span class="err"&gt;#开发&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;描述一下你自己是如果组织一个项目的代码的。&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;说出你在 python 开发中常用的工具。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;请写出你所熟悉或常用的遍历 字典 的方法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;假如有字符串 s = ‘I am a student’（每个单词以空格分隔），请写一段处理程序，处理后得到字符串 s1 = ‘student a am I’。如果第二个单词和第三个单词之间是两个空格分隔，第三个单词和第四个单词之间以 tab 分隔，怎么实现？&lt;/li&gt;
+&lt;li&gt;假如有一张用户数据表（十万行数据，字段为 id, name, ico），要取所有用户信息并打印，请用代码实现。&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="Python"></category></entry><entry><title>使用django celery</title><link href="http://wbowam.github.io/shi-yong-django-celery.html" rel="alternate"></link><updated>2015-04-26T00:00:00+08:00</updated><author><name>Won</name></author><id>tag:wbowam.github.io,2015-04-26:shi-yong-django-celery.html</id><summary type="html">&lt;p&gt;很多时候需要用异步来处理一些业务，于是就有了Celery．  &lt;br /&gt;
 大量的社区支持使Celery成为Django处理异步任务的首选．  &lt;/p&gt;
 &lt;h4 id="_1"&gt;功能&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;实现异步：
@@ -371,7 +555,10 @@
 &lt;li&gt;built-in function;    &lt;/li&gt;
 &lt;li&gt;return  a list of valid attributes for an object;&lt;/li&gt;
 &lt;li&gt;default: global objects&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Snippets"></category><category term="Python"></category></entry><entry><title>Shell 代码片段</title><link href="http://wbowam.github.io/shell-dai-ma-pian-duan.html" rel="alternate"></link><updated>2015-03-30T00:00:00+08:00</updated><author><name>Won</name></author><id>tag:wbowam.github.io,2015-03-30:shell-dai-ma-pian-duan.html</id><summary type="html">&lt;h4 id="-hl"&gt;&lt;code&gt;-hl&lt;/code&gt; 参数&lt;a class="headerlink" href="#-hl" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;/ul&gt;
+&lt;h4 id="decode-encode"&gt;decode(), encode()&lt;a class="headerlink" href="#decode-encode" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;decode的作用是将其他编码的字符串转换成unicode编码，如str1.decode('gb2312')，表示将gb2312编码的字符串str1转换成unicode编码。 &lt;/p&gt;
+&lt;p&gt;encode的作用是将unicode编码转换成其他编码的字符串，如str2.encode('gb2312')，表示将unicode编码的字符串str2转换成gb2312编码。 &lt;/p&gt;</summary><category term="Snippets"></category><category term="Python"></category></entry><entry><title>Shell 代码片段</title><link href="http://wbowam.github.io/shell-dai-ma-pian-duan.html" rel="alternate"></link><updated>2015-03-30T00:00:00+08:00</updated><author><name>Won</name></author><id>tag:wbowam.github.io,2015-03-30:shell-dai-ma-pian-duan.html</id><summary type="html">&lt;h4 id="-hl"&gt;&lt;code&gt;-hl&lt;/code&gt; 参数&lt;a class="headerlink" href="#-hl" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;hl&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;human&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;readable&lt;/span&gt;
     &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;sizes&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;human&lt;/span&gt; &lt;span class="n"&gt;readable&lt;/span&gt; &lt;span class="n"&gt;format&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt; &lt;span class="mi"&gt;234&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;

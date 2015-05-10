@@ -6,8 +6,8 @@
         <meta name="author" content="Won" />
         <meta name="copyright" content="Won" />
 
-<meta name="keywords" content="Python, It, " />
-        <title>init__()方法  · Tugqi Biz
+<meta name="keywords" content="csrf, Django, IT, " />
+        <title>Django Csrf  · Tugqi Biz
 </title>
         <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -51,44 +51,22 @@
 <article>
 <div class="row-fluid">
     <header class="page_header span10">
-    <h1><a href="http://wbowam.github.io/init__fang-fa.html"> init__()方法  </a></h1>
+    <h1><a href="http://wbowam.github.io/django-csrf.html"> Django Csrf  </a></h1>
     </header>
 </div>
 
 <div class="row-fluid">
         <div class="span10 article-content">
 
-            <h3 id="__">首先复习一下,<a href="http://tulpar008.github.io/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">__（双下划线）的作用</a><a class="headerlink" href="#__" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p>Python中默认的成员函数，成员变量都是公开的(public),而且python中没有类似public,private等关键词来修饰成员函数，成员变量。   </p>
-</li>
-<li>
-<p>可有时候需要用到私有变量，因此诞生了__。    </p>
-</li>
-<li>
-<p>变量名或函数名前加上 ”__“两个下划线，那么这个函数或变量就会为私有的了。</p>
-</li>
-<li>
-<p>私有意味着只有内部能使用，对外部隐藏。       </p>
-</li>
-<li>
-<p>在内部，python使用一种 name mangling 技术，将 __membername替换成 _classname__membername来使用。  <br />
-在外部，使用原来的私有成员的名字时，会提示找不到。（达到了隐藏的效果）    </p>
-</li>
-</ul>
-<hr />
-<p>很显然，__init__是个私有函数</p>
-<h5 id="__init__">__init__方法在类的一个对象被建立时，马上运行。这个方法可以用来对你的对象做一些你希望的 初始化 。<a class="headerlink" href="#__init__" title="Permanent link">&para;</a></h5>
-<h6 id="_1">注意，这个名称的开始和结尾都是双下划线。<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h6>
+            <p>Cross Site Request Forgery protection <br />
+防御跨站请求伪造</p>
+<p>举例来讲，某个恶意的网站上有一个指向你的网站的链接，如果某个用户已经登录到你的网站上了，那么当这个用户点击这个恶意网站上的那个链接时，就会向你的网站发来一个请求，你的网站会以为这个请求是用户自己发来的，其实呢，这个请求是那个恶意网站伪造的。</p>
             <aside>
             <hr/>
             <nav>
             <ul class="articles_timeline">
  
-                <li class="previous_article">« <a href="http://wbowam.github.io/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html" title="Previous: python 实例方法，静态方法，类方法">python 实例方法，静态方法，类方法</a></li>
- 
-                <li class="next_article"><a href="http://wbowam.github.io/django-shi-yong-you-jian-fu-wu.html" title="Next: Django 使用邮件服务">Django 使用邮件服务</a> »</li>
+                <li class="previous_article">« <a href="http://wbowam.github.io/pythonbi-shi-ti.html" title="Previous: Python笔试题">Python笔试题</a></li>
             </ul>
             </nav>
             </aside>
@@ -111,13 +89,16 @@
         <div class="span2" style="float:right;font-size:0.9em;">
  
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-07-07T00:00:00+08:00">Jul 7, 2014</time>
+            <time pubdate="pubdate" datetime="2015-04-30T00:00:00+08:00">Apr 30, 2015</time>
             <h4>Category</h4>
-            <a class="category-link" href="/categories.html#It-ref">It</a> 
+            <a class="category-link" href="/categories.html#IT-ref">IT</a> 
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article"> 
-                <li><a href="/tags.html#Python-ref">Python
-                    <span>15</span>
+                <li><a href="/tags.html#csrf-ref">csrf
+                    <span>1</span>
+</a></li>
+                <li><a href="/tags.html#Django-ref">Django
+                    <span>23</span>
 </a></li>
             </ul>
 

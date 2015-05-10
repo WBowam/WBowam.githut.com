@@ -5,29 +5,43 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://wbowam.github.io/</loc>
-<lastmod>2015-04-28T03:00:03-00:00</lastmod>
+<lastmod>2015-05-10T07:50:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://wbowam.github.io/archives.html</loc>
-<lastmod>2015-04-28T03:00:03-00:00</lastmod>
+<lastmod>2015-05-10T07:50:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://wbowam.github.io/tags.html</loc>
-<lastmod>2015-04-28T03:00:03-00:00</lastmod>
+<lastmod>2015-05-10T07:50:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://wbowam.github.io/categories.html</loc>
-<lastmod>2015-04-28T03:00:03-00:00</lastmod>
+<lastmod>2015-05-10T07:50:49-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://wbowam.github.io/django-csrf.html</loc>
+<lastmod>2015-04-30T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://wbowam.github.io/pythonbi-shi-ti.html</loc>
+<lastmod>2015-04-26T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -572,7 +586,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://wbowam.github.io/category/it.html</loc>
-<lastmod>2015-04-26T00:00:00+08:06</lastmod>
+<lastmod>2015-04-30T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -684,7 +698,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://wbowam.github.io/tag/python.html</loc>
-<lastmod>2015-03-31T00:00:00+08:06</lastmod>
+<lastmod>2015-04-26T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -699,6 +713,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://wbowam.github.io/tag/ssh.html</loc>
 <lastmod>2013-12-08T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://wbowam.github.io/tag/csrf.html</loc>
+<lastmod>2015-04-30T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -747,7 +768,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://wbowam.github.io/tag/django.html</loc>
-<lastmod>2015-04-26T00:00:00+08:06</lastmod>
+<lastmod>2015-04-30T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -789,7 +810,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://wbowam.github.io/author/won.html</loc>
-<lastmod>2015-04-26T00:00:00+08:06</lastmod>
+<lastmod>2015-04-30T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
