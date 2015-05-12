@@ -13,6 +13,11 @@
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;zsh&lt;/span&gt;
 
 &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh&lt;/span&gt;
+
+&lt;span class="cp"&gt;# 改主题&lt;/span&gt;
+&lt;span class="cp"&gt;# 在.tmux.conf 文件中改`ZSH_THEME`即可，如下&lt;/span&gt;
+&lt;span class="n"&gt;ZSH_THEME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;cloud&amp;quot;&lt;/span&gt;
+&lt;span class="cp"&gt;# [主题列表](https:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/robbyrussell/oh-my-zsh/wiki/themes)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
