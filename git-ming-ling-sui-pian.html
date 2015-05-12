@@ -62,12 +62,40 @@
 <div class="highlight"><pre><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">push</span><span class="p">.</span><span class="k">default</span> <span class="n">current</span>
 <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">pull</span><span class="p">.</span><span class="k">default</span> <span class="n">current</span>
 </pre></div>
+
+
+<h4 id="git-tag">git tag<a class="headerlink" href="#git-tag" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">git</span> <span class="n">tag</span> <span class="o">-</span><span class="n">a</span> <span class="n">v1</span><span class="mf">.4</span> <span class="o">-</span><span class="n">m</span> <span class="err">&#39;</span><span class="n">my</span> <span class="n">version</span> <span class="mf">1.4</span><span class="err">&#39;</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">tag</span>
+<span class="n">v0</span><span class="mf">.1</span>
+<span class="n">v1</span><span class="mf">.3</span>
+<span class="n">v1</span><span class="mf">.4</span>
+
+<span class="err">$</span> <span class="n">git</span> <span class="n">show</span> <span class="n">v1</span><span class="mf">.4</span>
+<span class="n">tag</span> <span class="n">v1</span><span class="mf">.4</span>
+<span class="nl">Tagger:</span> <span class="n">Ben</span> <span class="n">Straub</span> <span class="o">&lt;</span><span class="n">ben</span><span class="err">@</span><span class="n">straub</span><span class="p">.</span><span class="n">cc</span><span class="o">&gt;</span>
+<span class="nl">Date:</span>   <span class="n">Sat</span> <span class="n">May</span> <span class="mi">3</span> <span class="mi">20</span><span class="o">:</span><span class="mi">19</span><span class="o">:</span><span class="mi">12</span> <span class="mi">2014</span> <span class="o">-</span><span class="mo">0700</span>
+
+<span class="n">my</span> <span class="n">version</span> <span class="mf">1.4</span>
+
+<span class="n">commit</span> <span class="n">ca82a6dff817ec66f44342007202690a93763949</span>
+<span class="nl">Author:</span> <span class="n">Scott</span> <span class="n">Chacon</span> <span class="o">&lt;</span><span class="n">schacon</span><span class="err">@</span><span class="n">gee</span><span class="o">-</span><span class="n">mail</span><span class="p">.</span><span class="n">com</span><span class="o">&gt;</span>
+<span class="nl">Date:</span>   <span class="n">Mon</span> <span class="n">Mar</span> <span class="mi">17</span> <span class="mi">21</span><span class="o">:</span><span class="mi">52</span><span class="o">:</span><span class="mi">11</span> <span class="mi">2008</span> <span class="o">-</span><span class="mo">0700</span>
+
+    <span class="n">changed</span> <span class="n">the</span> <span class="n">version</span> <span class="n">number</span>
+
+<span class="err">$</span> <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">v1</span><span class="mf">.5</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">version2</span> <span class="n">v2</span><span class="mf">.0.0</span>
+<span class="n">Switched</span> <span class="n">to</span> <span class="n">a</span> <span class="n">new</span> <span class="n">branch</span> <span class="err">&#39;</span><span class="n">version2</span><span class="err">&#39;</span>
+</pre></div>
             <aside>
             <hr/>
             <nav>
             <ul class="articles_timeline">
  
                 <li class="previous_article">« <a href="http://wbowam.github.io/tmuxpei-se.html" title="Previous: Tmux配色">Tmux配色</a></li>
+ 
+                <li class="next_article"><a href="http://wbowam.github.io/rang-vimzi-dong-bian-yi-lessc-css.html" title="Next: 让Vim自动编译lessc > css">让Vim自动编译lessc > css</a> »</li>
             </ul>
             </nav>
             </aside>
